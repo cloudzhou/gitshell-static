@@ -27,8 +27,8 @@
 
     // The text that appears on the upper part of the dialog box when
     // entering links.
-    var linkDialogText = "<p><b>Insert Hyperlink</b></p><p>http://example.com/ \"optional title\"</p>";
-    var imageDialogText = "<p><b>Insert Image</b></p><p>http://example.com/images/diagram.jpg \"optional title\"<br><br>Need <a href='http://www.google.com/search?q=free+image+hosting' target='_blank'>free image hosting?</a></p>";
+    var linkDialogText = "<p><b>插入链接</b></p><p>http://example.com/ \"optional title\"</p>";
+    var imageDialogText = "<p><b>插入图片</b></p><p>http://example.com/images/diagram.jpg \"optional title\"</p>";
 
     // The default text that appears in the dialog input box when entering
     // links.

@@ -20,15 +20,17 @@
 }
 .wmd-input 
 { 
+    padding: 8px;
     height: 250px;
     width: 100%;
     background-color: Gainsboro;
-    border: 1px solid DarkGray;
+    border: 1px solid Gray;
 }
 .wmd-preview 
 { 
-    background-color: #c0e0ff; 
     padding: 8px;
+    border: 3px dashed #CCCCCC;
+    min-height: 100px;
 }
 .wmd-button-row 
 {
