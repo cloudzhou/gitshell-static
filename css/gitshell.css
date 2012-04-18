@@ -1,11 +1,12 @@
 .footer {
     border-top: 1px solid #E5E5E5;
     margin-top: 45px;
-    padding: 35px 0 36px;
+    padding: 10px;
 }
 .footer p {
     color: #555555;
     margin-bottom: 0;
+	line-height:1.5em
 }
 .wmd-panel
 {
@@ -106,3 +107,69 @@
     font-size: 0.8em;
     font-weight: bold;
 }
+
+/* << user info */
+#id_user_detail dt,#id_user_detail dd{line-height:1.8em}
+#id_user_detail .badge{font-size:8px;padding:2px;margin-right:1px;  border-radius: 3px 3px 3px 3px;}
+/* user info >> */
+
+code,
+pre {
+  padding: 0 3px 2px;
+  font-family: Menlo, Monaco, "Courier New", monospace;
+  font-size: 12px;
+  color: #333333;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+code {
+  padding: 2px 4px;
+  color: #d14;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+}
+pre {
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 9px;
+  font-size: 12.025px;
+  line-height: 18px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+pre.prettyprint {
+  margin-bottom: 18px;
+}
+pre code {
+  padding: 0;
+  color: inherit;
+  background-color: transparent;
+  border: 0;
+}
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
+}
+
+.get-file-option .btn-group{float:right}
+.file-list .breadcrumb{background:none;border:0}
+.file-header{
+    background-color: #EEEEEE;
+    border-top: 1px solid #DDDDDD;
+    margin-bottom: 18px;
+    margin-top: 18px;
+	overflow:hidden;
+	padding:5px 0
+}
+.file-info{float:left;width:60%;text-indent:5px}
+.file-info .divider{color:#999}
+.file-option{float:right;width:30%;text-align:right;margin-right:5px}
