@@ -188,4 +188,17 @@
 #id_user_detail dt,#id_user_detail dd{line-height:1.8em}
 #id_user_detail .badge{font-size:8px;padding:2px;margin-right:1px;  border-radius: 3px 3px 3px 3px;}
 /* user info >> */
-
+.event_feed {
+    border-bottom: 1px solid #DDDDDD;
+    min-height: 40px;
+    padding: 15px 5px;
+}
+img.avatar {
+    border-radius: 4px 4px 4px 4px;
+    margin-right: 5px;
+}
+img.avatar_left {
+    border-radius: 4px 4px 4px 4px;
+    margin-right: 15px;
+    float: left;
+}
