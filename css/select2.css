@@ -3,7 +3,7 @@ Version: 3.2 Timestamp: Mon Sep 10 10:38:04 PDT 2012
 */
 .select2-container {
     position: relative;
-    display: inline-block;
+    display: block;
     /* inline-block for ie7 */
     zoom: 1;
     *display: inline;
@@ -54,9 +54,10 @@ Version: 3.2 Timestamp: Mon Sep 10 10:38:04 PDT 2012
     -moz-background-clip: padding;
     background-clip: padding;
     border: 1px solid #dcdcdc;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
+    -webkit-border-radius: 1px;
+    -o-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
@@ -244,7 +245,7 @@ Version: 3.2 Timestamp: Mon Sep 10 10:38:04 PDT 2012
 
 .select2-container-active .select2-choice,
 .select2-container-active .select2-choices {
-    border: 1px solid #4D90FE;
+    border: 1px solid #42c08b;
     outline: none;
 }
 
@@ -415,7 +416,7 @@ disabled look for already selected choices in the results dropdown
 }
 
 .select2-container-multi.select2-container-active .select2-choices {
-    border: 1px solid #4D90FE;
+    border: 1px solid #42c08b;
     outline: none;
 }
 .select2-container-multi .select2-choices li {
