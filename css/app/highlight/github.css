@@ -7,7 +7,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 pre code {
   display: block; padding: 0.5em;
   color: #333;
-  background: #f8f8ff
+  background: white;
 }
 
 pre .comment,
@@ -41,6 +41,14 @@ pre .tag .value,
 pre .phpdoc,
 pre .tex .formula {
   color: #d14
+}
+
+pre .line_number {
+	background: #ddd;
+	padding: 0px 10px;
+	margin-right: 10px;
+	width: 30px;
+	display: inline-block;
 }
 
 pre .title,

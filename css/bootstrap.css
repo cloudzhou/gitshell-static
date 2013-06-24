@@ -972,7 +972,8 @@ address {
 code,
 pre {
   padding: 0 3px 2px;
-  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-family: Menlo, Consolas, "Courier New", monospace;
+	font-family: Menlo, Consolas,"Liberation Mono",Courier,monospace;
   font-size: 12px;
   color: #333333;
 }
@@ -988,16 +989,16 @@ code {
 pre {
   display: block;
   padding: 9.5px;
-  margin: 0 0 10px;
+  margin: 0;
   font-size: 12px;
   line-height: 16px;
   word-break: break-all;
   word-wrap: break-word;
   white-space: pre;
   white-space: pre-wrap;
-  background-color: #f8f8ff;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+	/*border: 1px solid #ccc;*/
+	/*border: 1px solid rgba(0, 0, 0, 0.15);*/
 }
 
 pre.prettyprint {
@@ -5391,9 +5392,6 @@ input[type="submit"].btn.btn-mini {
   background-color: #ffffff;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
      -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
           box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -5436,7 +5434,9 @@ input[type="submit"].btn.btn-mini {
 }
 
 .popover-content {
-  padding: 9px 14px;
+	color: #454545;
+	font-weight: bold;
+  padding: 7px;
 }
 
 .popover .arrow,
@@ -5450,18 +5450,18 @@ input[type="submit"].btn.btn-mini {
 }
 
 .popover .arrow {
-  border-width: 11px;
+  border-width: 6px;
 }
 
 .popover .arrow:after {
-  border-width: 10px;
+  border-width: 5px;
   content: "";
 }
 
 .popover.top .arrow {
-  bottom: -11px;
+  bottom: -6px;
   left: 50%;
-  margin-left: -11px;
+  margin-left: -6px;
   border-top-color: #999;
   border-top-color: rgba(0, 0, 0, 0.25);
   border-bottom-width: 0;
@@ -5491,9 +5491,9 @@ input[type="submit"].btn.btn-mini {
 }
 
 .popover.bottom .arrow {
-  top: -11px;
-  left: 50%;
-  margin-left: -11px;
+  top: -6px;
+  left: 10px;
+  margin-left: -6px;
   border-bottom-color: #999;
   border-bottom-color: rgba(0, 0, 0, 0.25);
   border-top-width: 0;
@@ -5501,7 +5501,7 @@ input[type="submit"].btn.btn-mini {
 
 .popover.bottom .arrow:after {
   top: 1px;
-  margin-left: -10px;
+  margin-left: -5px;
   border-bottom-color: #ffffff;
   border-top-width: 0;
 }
