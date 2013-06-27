@@ -6,14 +6,15 @@ html { font: 400 12px "Open Sans",arial,sans-serif; }
 body {
 	padding: 70px 0 30px;
 	margin: 0;
-	font: 400 12px/1 Arial, Verdana, 'Helvetica Neue', Helvetica, sans-serif; /*Helvetica,'hiragino sans gb',Tahoma,Verdana,sans-serif;*/
+	color: #333;
+	font: 400 12px/1 Arial, Helvetica,'hiragino sans gb',sans-serif;
 	background-color: white; }
 
 a {
-	color: #3190D3;
+	color: #245dc1;
 	text-decoration: none; }
 	a:hover {
-		color: #3190D3;
+		color: #245dc1;
 		text-decoration: underline; }
 
 fieldset {
@@ -26,43 +27,38 @@ legend {
 	font-weight: bold;
 	width: 100%;
 	padding-bottom: 10px;
-	margin-bottom: 20px;
-	border-bottom: 1px solid #ddd; }
+	margin-bottom: 10px; }
 
 p {
 	line-height: 1.5; }
+
+mark {
+	color: #ff6861;
+	font-weight: bold;
+	background-color: #ffefef; }
 
 input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="phone"],
 textarea {
-	padding: 3px 8px;
+	font-family: arial, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 3px 5px;
 	outline: 0 none;
 	border-style: solid;
 	border-width: 1px;
-	border-color: #b6b6b6;
-	border-radius: 2px;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	-o-border-radius: 2px;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, .1) inset;
-	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .1) inset;
-	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .1) inset;
-	-o-box-shadow: 0 1px 2px rgba(0, 0, 0, .1) inset;
+	border-color: #bebebe;
+	border-radius: 1px;
+	-moz-border-radius: 1px;
+	-webkit-border-radius: 1px;
+	-o-border-radius: 1px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .1) inset;
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .1) inset;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .1) inset;
+	-o-box-shadow: 0 1px 1px rgba(0, 0, 0, .1) inset;
 	background-color: white; }
-
-input[type="text"]:hover,
-input[type="text"]:focus,
-input[type="password"]:hover,
-input[type="password"]:focus,
-input[type="email"]:hover,
-input[type="email"]:focus,
-input[type="phone"]:hover,
-input[type="phone"]:focus,
-textarea:hover,
-textarea:focus {
-	border-bottom-color: #a3a3a3; }
 
 hr {
   margin: 20px 0;
@@ -82,31 +78,26 @@ hr {
 	z-index: 99999; }
 	.navbar .navbar-inner {
 		font-size: 12px;
-		border-bottom: 1px solid #bababa;
 		padding: 10px 0;
-		background-color: #f5f5f5;
-		box-shadow: 0 1px 1px rgba(0, 0, 0, .085);
-		-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .085);
-		-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .085);
-		-o-box-shadow: 0 1px 1px rgba(0, 0, 0, .085); }
+		background-color: rgba(255, 255, 255, .9); }
 	.navbar a {
 		display: block;
 		color: #63666a;
 		font-weight: bold;
-		padding: 10px; }
+		padding: 8px 10px; }
 		.navbar a i[class^="icon-"] {
 			color: #111; }
 	.navbar .brand {
 		display: block;
 		float: left;
-		color: #3190D3;
+		color: #245dc1;
 		font-family: 'dejavu sans', 'arial bold', sans-serif;
 		font-size: 20px;
 		line-height: .8;
-		padding: 10px 0;
+		padding: 8px 0;
 		margin-right: 20px; }
 		.navbar .brand + .nav a {
-			padding: 10px 13px; }
+			padding: 8px 13px; }
 
 	.navbar .nav {
 		float: left; }
@@ -114,17 +105,17 @@ hr {
 			position: relative;
 			display: block;
 			margin-left: 10px;
-			width: 28px;
+			width: 24px;
 			height: 12px; }
 			.navbar .user i {
 				color: grey;
-				font-size: 14px;
+				font-size: 13px;
 				position: absolute;
 				left: 5px;
-				top: 9px; }
+				top: 7px; }
 			.navbar .user .avatar {
-				width: 28px;
-				height: 28px;
+				width: 24px;
+				height: 24px;
 				line-height: 1;
 				position: absolute;
 				top: 2px;
@@ -159,7 +150,10 @@ hr {
 				background-color: white;
 				background-image: none;
 				border-bottom: none;
-				border-radius: 3px 3px 0 0 ; }
+				border-radius: 1px 1px 0 0;
+				-moz-border-radius: 1px 1px 0 0;
+				-webkit-border-radius: 1px 1px 0 0;
+				-o-border-radius: 1px 1px 0 0; }
 
 	
 
@@ -185,776 +179,671 @@ hr {
 		.welcome-details h2 {
 			font-size: 16px;
 			line-height: 1.2;
-			margin: 10px 0; }
+			margin: 5px 0; }
 		.welcome-details p {
 			color: #919191;
 			font-size: 12px; }
 
 
+.repo-container {
+	padding: 0;
+	background-image: none; }
 
+.repo-header{
+	padding: 10px 20px; }
+	.repo-actions-bar {
+		position: relative; }
+		.repocrumb {
+			float: left;
+			font-size: 20px;
+			font-weight: bold;
+			padding: 5px 0;
+			margin: 0; }
+			.repocrumb li {
+				float: left; }
+			.repocrumb .user {
+				font-weight: 400; }
+			.repocrumb .divider {
+				color: #999;
+				font-size: .85em;
+				font-weight: 400;
+				margin: 0 5px; }
 
-
-
-
-
-
-	.repo-header{
-		margin-bottom: 15px; }
-
-		.repo-actions-bar {
-			position: relative;
-			*zoom: 1; }
-
-			.repo-actions-bar:before, .repo-actions-bar:after {
-				content: "";
-				display: block; }
-
-			.repo-actions-bar:after {
-				clear: both; }
-
-			.repocrumb {
+		.repo-actions {
+			float: right;
+			margin: 0; }
+			.repo-actions li {
 				float: left;
-				font-size: 20px;
-				font-weight: bold;
-				list-style: none;
-				padding: 5px 0;
-				margin: 0 0 8px;
-				*zoom: 1; }
-
-				.repocrumb a {
-					color: #363636;
-					text-decoration: none; }
-
-				.repocrumb .user {
-					font-weight: 400; }
-
-				.repocrumb:before, .repocrumb:after {
-					content: "";
-					display: table; }
-				.repocrumb:after {
-					clear: both; }
-
-					.repocrumb li {
-						float: left; }
-
-						.repocrumb .divider {
-							color: #999;
-							font-size: .85em;
-							font-weight: 400;
-							margin: 0 5px; }
-
-
-			.repo-actions {
-				*zoom: 1;
-				float: right;
-				margin: 0 0 8px;
-				list-style: none; }
-				.repo-actions:before, .repo-actions:after {
-					content: "";
-					display: block; }
-				.repo-actions:after {
-					clear: both; }
-					.repo-actions li {
-						float: left;
-						margin-left: -1px;
-						position: relative; }
-						.repo-actions li a {
-							display: block; }
-						.repo-actions li .btn {
-							font-size: 12px; }
-							.repo-actions li .btn i {
-								font-size: 14px; }
-
-						.repo-actions .count {
-							display: block;
-							color: white;
-							font-size: 11px;
-							font-weight: bold;
-							text-align: center;
-							text-decoration: none;
-							line-height: 1;
-							padding: .15em .345em;
-							border-style: solid; 
-							border-width: 1px;
-							border-color: #f57012;
-							background-color: #f57012;
-							position: absolute;
-							top: -15px;
-							right: -3px;
-							z-index: 999; }
-							.repo-actions .count:after {
-								content: "";
-								position: absolute;
-								left: 1px;
-								bottom: -8px;
-								border-style: solid;
-								border-width: 4px;
-								border-color: #f57012 transparent transparent; }
-
-
-			.repo-details-tabs { }
-
-				.repo-tabs {
-					*zoom: 1;
-					margin: 0;
-					list-style: none;
-					background-color: #f9fafa;
-					background-image: none; }
-					.repo-tabs:before, .repo-tabs:after {
-						content: "";
-						display: table; }
-						.repo-tabs:after {
-							clear: both; }
-
-					.repo-tabs li {
-						float: left;
-						width: 25%;
-						text-align: center; }
-						.repo-tabs li a {
-							color: #454545;
-							font-size: 12px;
-							font-weight: bold;
-							text-shadow: 0 1px 0 rgba(255, 255, 255, .85);
-							-moz-text-shadow: 0 1px 0 rgba(255, 255, 255, .85);
-							-webkit-text-shadow: 0 1px 0 rgba(255, 255, 255, .85);
-							-o-text-shadow: 0 1px 0 rgba(255, 255, 255, .85);
-							padding: 11px 0;
-							border-left: 1px solid #edeff0;
-							border-bottom: 1px solid #edeff0;
-							border-radius: 0;
-							-moz-border-radius: 0;
-							-webkit-border-radius: 0;
-							-o-border-radius: 0;
-							box-shadow: 1px 1px 0 rgba(255, 255, 255, .95) inset;
-							-moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, .95) inset;
-							-webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, .95) inset;
-							-o-box-shadow: 1px 1px 0 rgba(255, 255, 255, .95) inset;
-							background-color: #f9fafa;
-							background-image: none; }
-							.repo-tabs li a:hover {
-								background: none; }
-							.repo-tabs > .active > a {
-								color: #40c090;
-								border-bottom: 1px solid #40c090;
-								box-shadow: 0 -1px 0 #40c090 inset, 1px 1px 0 rgba(255, 255, 255, .95) inset;
-								-moz-box-shadow: 0 -1px 0 #40c090 inset, 1px 1px 0 rgba(255, 255, 255, .95) inset;
-								-webkit-box-shadow: 0 -1px 0 #40c090 inset, 1px 1px 0 rgba(255, 255, 255, .95) inset;
-								-o-box-shadow: 0 -1px 0 #40c090 inset, 1px 1px 0 rgba(255, 255, 255, .95) inset;
-								background-color: #f9fafa;
-								background-image: none; }
-						.repo-tabs li:first-child a {
-							border-left: 0; }
-
-
-			.repo-summary {
+				margin-left: -1px;
 				position: relative; }
-				.description {
-					color: #999;
-					padding: 13px 10px;
-					font-size: 12px;
-					background-color: white; }
-					.description p {
-						text-shadow: 0 1px 0 rgba(255, 255, 255, 1);
-						-moz-text-shadow: 0 1px 0 rgba(255, 255, 255, 1);
-						-webkit-text-shadow: 0 1px 0 rgba(255, 255, 255, 1);
-						-o-text-shadow: 0 1px 0 rgba(255, 255, 255, 1);
-						margin-bottom: 0; }
-
-					.repo-admin-edit {
-						position: absolute;
-						top: 10px;
-						right: 10px; }
-						.repo-admin-edit .btn {
-							font-size: .85em;
-							padding: 0 3px; }
-				.repo-clone-url {
-					padding: 8px 10px;
-					border-top: 1px solid #e2f2ed;
-					background-color: #fcfdff;
-					background-color: #fafafa; }
-					.clone-url {
-						margin: 0; }
-					.url-tab, .url-holder {
-						float: left; }
-						.repo-clone-url .btn-holder {
-							float: left;
-							margin-left: -1px; }
-							.repo-clone-url .btn {
-								color: #212121;
-								font-size: .9em;
-								font-weight: bold;
-								letter-spacing: -1px;
-								padding: 5px 14px;
-								border-color: #ebebeb #ebebeb #d9dcde;
-								border-radius: 0;
-								-moz-border-radius: 0;
-								-webkit-border-radius: 0;
-								-o-border-radius: 0;
-								box-shadow: 1px 0 0 rgba(255, 255, 255, .45) inset, 0 1px 0 rgba(255, 255, 255, 1);
-								-moz-box-shadow: 1px 0 0 rgba(255, 255, 255, .45) inset, 0 1px 0 rgba(255, 255, 255, 1);
-								-webkit-box-shadow: 1px 0 0 rgba(255, 255, 255, .45) inset, 0 1px 0 rgba(255, 255, 255, 1);
-								-o-box-shadow: 1px 0 0 rgba(255, 255, 255, .45) inset, 0 1px 0 rgba(255, 255, 255, 1);
-								background-image: linear-gradient(#ffffff, #f5f8f7);
-								background-image: -moz-linear-gradient(#ffffff, #f5f8f7);
-								background-image: -webkit-linear-gradient(#ffffff, #f5f8f7);
-								background-image: -o-linear-gradient(#ffffff, #f5f8f7);
-								cursor: pointer; }
-							.repo-clone-url .btn:hover {
-								background-color: #fafbfc;
-								background-image: none;
-								text-shadow: 0 1px 0 rgba(255, 255, 255, .55);
-								-moz-text-shadow: 0 1px 0 rgba(255, 255, 255, .55);
-								-webkit-text-shadow: 0 1px 0 rgba(255, 255, 255, .55);
-								-o-text-shadow: 0 1px 0 rgba(255, 255, 255, .55); }
-								.repo-clone-url .active .btn,
-								.repo-clone-url .active .btn:hover { 
-									color: white;
-									text-shadow: none;
-									-moz-text-shadow: none;
-									-webkit-text-shadow: none;
-									-o-text-shadow: none;
-									box-shadow: 0 1px 1px rgba(0, 0, 0, .5) inset;
-									-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .5) inset;
-									-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .5) inset;
-									-o-box-shadow: 0 1px 1px rgba(0, 0, 0, .5) inset;
-									background-color: rgba(0, 0, 0, .02);
-									background-image: linear-gradient(#40c090, #1bb67a);
-									background-image: -moz-linear-gradient(#40c090, #1bb67a);
-									background-image: -webkit-linear-gradient(#40c090, #1bb67a);
-									background-image: -o-linear-gradient(#40c090, #1bb67a); }
-
-							.url-holder {
-								margin-left: 0;
-								border-left: 0 none; }
-							.url-holder .url {
-								color: #919191;
-								font-family: Menlo, Monaco,"Liberation Mono",Courier,monospace;
-								font-size: 12px;
-								font-weight: 600;
-								letter-spacing: 0;
-								line-height: 1;
-								text-align: left;
-								width: 622px;
-								padding: 9px 6px;
-								background-color: white;
-								box-shadow: 1px 1px 0 rgba(255, 255, 255, .95) inset;
-								-moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, .95) inset;
-								-webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, .95) inset;
-								-o-box-shadow: 1px 1px 0 rgba(255, 255, 255, .95) inset; }
-								.url-holder .url:hover {
-									box-shadow: 1px 1px 0 rgba(255, 255, 255, .95) inset;
-									-moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, .95) inset;
-									-webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, .95) inset;
-									-o-box-shadow: 1px 1px 0 rgba(255, 255, 255, .95) inset;
-									background-image: linear-gradient(#ffffff, #f5f8f7);
-									background-image: -moz-linear-gradient(#ffffff, #f5f8f7);
-									background-image: -webkit-linear-gradient(#ffffff, #f5f8f7);
-									background-image: -o-linear-gradient(#ffffff, #f5f8f7); }
-									.url-holder .url.active {
-										background-image: linear-gradient(#f5f8f7, #ffffff);
-										background-image: -moz-linear-gradient(#f5f8f7, #ffffff);
-										background-image: -webkit-linear-gradient(#f5f8f7, #ffffff);
-										background-image: -o-linear-gradient(#f5f8f7, #ffffff); }
-
-
-								.url-holder .url .url-username,
-								.url-holder .url .url-repo-name {
-									color: #363636;
-									font-weight: bold; }
-
-								.url-info {
-									display: block; 
-									float: left;
-									color: #333;
-									font-size: 11px;
-									font-weight: bold;
-									padding: 5px 5px 4px; }
-
-			.repo-body { }
-
-				.repo-navtab {
-					position: relative; }
-					.repo-navtab .branches {
-						margin-right: 5px;
-						float: left; }
-						.repo-navtab .dropdown-toggle {
-							display: inline-block;
-							padding: 4px 25px;
-							border-color: #e3e5e6 #e3e5e6 #dcddde;
-							background-image: linear-gradient(#ffffff, #f9fafa);
-							background-image: -moz-linear-gradient(#ffffff, #f9fafa);
-							background-image: -webkit-linear-gradient(#ffffff, #f9fafa);
-							background-image: -o-linear-gradient(#ffffff, #f9fafa); }
-						.repo-navtab .branch {
-							font-size: 11px;
-							font-weight: 400;
-							color: #999; }
-						.repo-navtab .nav {
-							color: #666;
-							margin-bottom: 0; }
-							.repo-navtab .nav-tabs > li > a {
-								color: #666;
-								font-size: 12px;
-								font-weight: bold;
-								padding: 8px 20px;
-								margin: 0 1px;
-								border-radius: 0;
-								-moz-border-radius: 0;
-								-webkit-border-radius: 0;
-								-o-border-radius: 0; }
-								.repo-navtab .nav-tabs > li > a:hover {
-									background: none;
-									border-radius: 0;
-									-moz-border-radius: 0;
-									-webkit-border-radius: 0;
-									-o-border-radius: 0; }
-								.repo-navtab .nav-tabs > .active > a {
-									color: #00b075;
-									font-weight: 900;
-									border-bottom-color: #e3e6e5;
-									background-color: rgba(0, 0, 0, .04);
-									box-shadow: 0 1px 0 rgba(255, 255, 255, .65) inset;
-									-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, .65) inset;
-									-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, .65) inset;
-									-o-box-shadow: 0 1px 0 rgba(255, 255, 255, .65) inset; }
-									.repo-navtab .nav-tabs > .active > a:hover {
-										background-color: rgba(0, 0, 0, .04); }
-
-
-
-
-
-
-
-				.repo .bubble-header {
-					font-size: 16px; }
-					.repo .breadcrumb li {
+				.repo-actions li a {
+					display: block; }
+				.repo-actions li .btn {
+					font-size: 12px; }
+					.repo-actions li .btn i {
+						font-size: 14px; }
+					.repo-actions .count {
+						display: block;
+						color: white;
+						font-size: 11px;
 						font-weight: bold;
-						line-height: 1; }
-
-					.repo .bubble-header form {
-						margin: 0; }
-
-					.repo .title em {
-						color: #a1a1a1;
-						font-weight: 400;
-						font-size: .75em;
-						margin-left: 20px; }
-
-					.repo .repo-list {
-						float: left;
-						margin: 0 30px 0 30px; }
-					.repo .repo-list li {
-						float: left;
-						font-size: .75em;
+						text-align: center;
+						text-decoration: none;
 						line-height: 1;
-						padding: 3px 10px; }
+						padding: .15em .345em;
+						border-style: solid; 
+						border-width: 1px;
+						border-color: #f57012;
+						background-color: #f57012;
+						position: absolute;
+						top: -15px;
+						right: -3px;
+						z-index: 999; }
+						.repo-actions .count:after {
+							content: "";
+							position: absolute;
+							left: 1px;
+							bottom: -8px;
+							border-style: solid;
+							border-width: 4px;
+							border-color: #f57012 transparent transparent; }
 
-						.extra{
-							font-size: 12px;
-							font-weight: bold;
-							margin: 0;
-							float: right; }
+			.description {
+				color: #919191;
+				font-style: italic;
+				padding: 10px 0;
+				position: relative; }
+				.description p {
+					margin: 0; }
+				.repo-admin-edit {
+					display: none;
+					position: absolute;
+					right: 10px;
+					top: 8px; }
+				.repo-admin-edit .btn {
+					display: block;
+					float: left;
+					font-size: 10px;
+					margin-left: 2px; }
+
+
+
+.sidenav {
+	font-size: 13px;
+	font-weight: bold;
+	float: right;
+	width: 10%; }
+	.sidenav .nav {
+		padding: 0 20px; }
+	.sidenav .nav a {
+		display: block;
+		padding: 6px 0; }
+		.sidenav .nav a i {
+			display: inline-block;
+			width: 15px;
+			text-align: center;
+			color: #919191; }
+
+.repo-main {
+	width: 86%;
+	padding: 16px 2% 2%;
+	float: left;
+	background-color: white; }
 
 
 
 
 
-					.repo {
-						color: #212121; }
 
-						.repo .table {
-							margin-bottom: 0; }
-						.repo .table td {
-							line-height: 1;
-							vertical-align: middle;
-							padding: 8px 6px;
-							border-color: #f3f3f3;
-							box-shadow: 0 1px 0 rgba(255, 255, 255, 1) inset;
-							-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 1) inset;
-							-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 1) inset;
-							-o-box-shadow: 0 1px 0 rgba(255, 255, 255, 1) inset;
-							background-color: #fcfdff; }
-							.repo .table .c_diff {
-								display: none; }
-						.repo .table .icon {
-							color: #777;
-							font-size: 14px;
-							padding-left: 10px;
-							width: 1.5%; }
-							.repo i[class^="icon-folder-"] {
-								color: #0db06e; }
-						.repo .file-name {
-							font-size: 13px;
-							padding-left: 0;
-							width: 20%; }
-						.repo .commit-info {
-							width: 78.5%; }
-						.repo .commiter {
-							font-style: italic;
-							margin-right: 10px; }
-						.repo .commit {
-							color: #323232;
-							padding: 0 5px;
-							border-radius: 2px;
-							background-color: #e8eaeb; }
-						.repo .date {
-							color: #9c9c9c;
-							font-size: 12px;
-							font-style: italic;
-							margin-left: 10px; }
-						.repo p.info {
-							margin: 15px 10px; }
+			.repo-clone-url {
+				margin-bottom: 20px; }
+				.clone-url {
+					margin: 0; }
+				.clone-url dt,
+				.clone-url dd {
+					margin: 0;
+					float: left; }
+				.repo-clone-url .url-select,
+				.repo-clone-url .url {
+					display: block;
+					color: #454545;
+					float: left;
+					font-weight: bold;
+					padding: 10px;
+					margin-right: -1px;
+					border-style: solid;
+					border-width: 1px;
+					border-color: #f1f1f1 #cecece #8f8f8f #dbdbdb;
+					border-radius: 2px;
+					-moz-border-radius: 2px;
+					-webkit-border-radius: 2px;
+					-o-border-radius: 2px;
+					/*background-image: linear-gradient(#f2f2f2 0%, #f4f4f4 10%, #fdfdfd 60%, #ffffff 60%, #ffffff 90%, #ebebeb 90%, #e1e1e1 100%);*/
+					/*background-image: -moz-linear-gradient(#f2f2f2 0%, #f4f4f4 10%, #fdfdfd 60%, #ffffff 60%, #ffffff 90%, #ebebeb 90%, #e1e1e1 100%);*/
+					/*background-image: -webkit-linear-gradient(#f2f2f2 0%, #f4f4f4 10%, #fdfdfd 60%, #ffffff 60%, #ffffff 90%, #ebebeb 90%, #e1e1e1 100%);*/
+					/*background-image: -o-linear-gradient(#f2f2f2 0%, #f4f4f4 10%, #fdfdfd 60%, #ffffff 60%, #ffffff 90%, #ebebeb 90%, #e1e1e1 100%);*/
+					box-shadow: -1px 0 1px rgba(0, 0, 0, .0855) inset;
+					-moz-box-shadow: -1px 0 1px rgba(0, 0, 0, .0855) inset;
+					-webkit-box-shadow: -1px 0 1px rgba(0, 0, 0, .0855) inset;
+					-o-box-shadow: -1px 0 1px rgba(0, 0, 0, .0855) inset;
+					cursor: pointer; }
+				.repo-clone-url .url-select:hover {
+					text-decoration: none;
+					border-bottom-color: #5c5c5c; }
+				.repo-clone-url .url {
+					color: #454545;
+					width: 500px; }
 
-							.repo .member {
-								padding: 15px 10px;
-								border-bottom: 1px solid #f3f3f3; }
-								.repo .member p {
-									word-break:hyphenate; }
-								.repo .name a {
-									color: #212121;
-									font-weight: bold;
-									line-height: 1; }
-								.repo .name .tweet,
-								.repo .name .muted {
-									color: #999;
-									font-size: .9em;
-									font-style: italic; }
-								.repo .muted i[class^="icon-"] {
-									margin-right: 3px; }
-								.repo .muted .divider {
-									display: inline-block;
-									color: #ddd;
-									margin: 0 5px; }
+				.repo-clone-url .url-holder {
+					font-family: menlo, sans-serif; }
+					.repo-clone-url .url-git,
+					.repo-clone-url .url-gitshell {
+						color: #616161; }
 
-							.repo .member .actions li {
-								font-size: .8em;
-								margin: 0 -1px; }
-								.repo .member .label {
-									color: #666;
-									font-weight: bold;
-									text-shadow: none;
-									-moz-text-shadow: none;
-									-webkit-text-shadow: none;
-									-o-text-shadow: none;
-									padding: 3px 5px;
-									border: 1px solid #e6e6e6;
-									border-radius: 2px;
-									-moz-border-radius: 2px;
-									-webkit-border-radius: 2px;
-									-o-border-radius: 2px;
-									background-color: white; }
-									.repo .member .label:hover {
-										color: #999;
-										border-color: #bbb; }
-								.repo .member .label i[class^="icon-"] { }
-								.repo .member .label span {
-									color: #00b075;
-									font-size: 1em;
-									font-weight: bold;
-									margin-right: 5px; }
 
-						.repo .branch {
-							color: #999;
-							font-weight: bold; }
-							.repo .table .title {
-								font-size: 14px; }
-							.repo .branch a {
-								margin: 0 1px;
-								color: #454545; }
-							.repo .master,
-							.repo .sub-branch {
+
+
+
+
+			.repo-tabs {
+				position: relative;
+				z-index: 9999;
+				padding: 0 10px;
+				margin: 0; }
+				.repo-tabs li {
+					float: left;
+					text-align: center; }
+					.repo-tabs li a {
+						display: block;
+						color: #919191;
+						font-size: 12px;
+						font-weight: bold;
+						padding: 18px 20px 12px; }
+						.repo-tabs li a:hover {
+							text-decoration: none; }
+						.repo-tabs .active a {
+							color: #454545;
+							background: white url('/static/img/inner-top-bg.png') left -1px repeat-x; }
+					.repo-tabs li:first-child a {
+						border-left: 0; }
+
+
+
+
+
+
+
+
+		.repo-body {
+			position: relative;
+			background-color: white; }
+
+			.repo-body .branches {
+				display: none;
+				position: absolute;
+				top: 0;
+				left: -100px;
+				margin-right: 5px; }
+
+
+
+
+			.repo .bubble-header {
+				padding: 0 3px;
+				font-size: 16px; }
+				.repo .breadcrumb li {
+					font-weight: bold;
+					line-height: 1; }
+
+				.repo .bubble-header form {
+					margin: 0; }
+
+				.repo .title em {
+					color: #a1a1a1;
+					font-weight: 400;
+					font-size: .75em;
+					margin-left: 20px; }
+
+				.repo .repo-list {
+					float: left;
+					margin: 0 30px 0 30px; }
+				.repo .repo-list li {
+					float: left;
+					font-size: .75em;
+					line-height: 1;
+					padding: 3px 10px; }
+
+					.extra{
+						font-size: 12px;
+						font-weight: bold;
+						margin: 0;
+						float: right; }
+
+
+
+
+
+				.repo {
+					color: #212121; }
+
+					.repo .table {
+						margin-bottom: 0; }
+					.repo .table td {
+						font-family: Helvetica, arial, freesans, clean, sans-serif;
+						vertical-align: middle;
+						border-top: 1px solid #f0f1f4;
+						border-bottom: 1px solid #f0f1f4;
+						padding: 4px 3px; }
+						.repo .table .c_diff {
+							display: none; }
+					.repo .table .icon {
+						color: #777;
+						font-size: 14px;
+						width: 1.5%; }
+					.repo .file-name {
+						font-weight: bold;
+						width: 17%; }
+						.repo .file-name a { }
+					.repo .commit-info {
+						width: 81.5%; }
+					.repo .commiter {
+						color: #919191;
+						border-bottom: 1px solid #ddd;
+						margin-right: 10px; }
+						.repo .commiter:hover {
+							text-decoration: none;
+							border-bottom-color: #919191; }
+					.repo .commit {
+						color: #636363; }
+					.repo .commit:hover {
+						color: #245dc1; }
+					.repo .date {
+						color: #9c9c9c;
+						font-style: italic;
+						margin-left: 10px; }
+					.repo p.info {
+						margin: 15px 10px; }
+
+						.repo .member {
+							padding: 15px 10px;
+							border-bottom: 1px solid #f3f3f3; }
+							.repo .member p {
+								word-break:hyphenate; }
+							.repo .name a {
+								color: #212121;
+								font-weight: bold;
+								line-height: 1; }
+							.repo .name .tweet,
+							.repo .name .muted {
+								color: #999;
+								font-size: .9em;
+								font-style: italic; }
+							.repo .muted i[class^="icon-"] {
+								margin-right: 3px; }
+							.repo .muted .divider {
 								display: inline-block;
-								padding: 3px 4px 2px;
-								margin-bottom: 2px;
+								color: #ddd;
+								margin: 0 5px; }
+
+						.repo .member .actions li {
+							font-size: .8em;
+							margin: 0 -1px; }
+							.repo .member .label {
+								color: #666;
+								font-weight: bold;
+								text-shadow: none;
+								-moz-text-shadow: none;
+								-webkit-text-shadow: none;
+								-o-text-shadow: none;
+								padding: 3px 5px;
+								border: 1px solid #e6e6e6;
 								border-radius: 2px;
 								-moz-border-radius: 2px;
 								-webkit-border-radius: 2px;
 								-o-border-radius: 2px;
-								border: 1px solid #ddd; }
-								.repo .master {
-									background-color: #ffd8fd; }
-								.repo .sub-branch {
-									margin-left: 0;
-									background-color: #d5f2ff; }
-									.repo .branch i[class^='icon-'] {
-										margin-right: 0;
-										font-size: 9px; }
-										.repo .master i {
-											color: #c162b9; }
-										.repo .pull-branch i {
-											color: #57a0c0; }
-									.repo .branch span a:first-child {
-										color: #656565; }
+								background-color: white; }
+								.repo .member .label:hover {
+									color: #999;
+									border-color: #bbb; }
+							.repo .member .label i[class^="icon-"] { }
+							.repo .member .label span {
+								color: #00b075;
+								font-size: 1em;
+								font-weight: bold;
+								margin-right: 5px; }
 
-
-							.pull-request-form {
-								margin-bottom: 20px;
-								border-bottom: 1px solid #d8d8d8; }
-							.repo .repo-refs {
-								width: 50%;
+					.repo .branch {
+						color: #999;
+						font-weight: bold; }
+						.repo .table .title {
+							font-size: 14px; }
+						.repo .branch a {
+							margin: 0 1px;
+							color: #454545; }
+						.repo .master,
+						.repo .sub-branch {
+							display: inline-block;
+							padding: 3px 4px 2px;
+							margin-bottom: 2px;
+							border-radius: 2px;
+							-moz-border-radius: 2px;
+							-webkit-border-radius: 2px;
+							-o-border-radius: 2px;
+							border: 1px solid #ddd; }
+							.repo .master {
+								background-color: #ffd8fd; }
+							.repo .sub-branch {
 								margin-left: 0;
-								padding: 20px 0;
-								position: relative; }
-							.repo .repo-refs:first-child {
-								background-color: white; }
-								.repo .repo-refs:first-child:after {
-									content: "";
-									width: 0;
-									height: 0;
-									border-style: solid;
-									border-width: 15px;
-									border-color: transparent transparent transparent white;
-									position: absolute;
-									top: 40px;
-									right: -30px;
-									z-index: 999; }
-
-							.repo .repo-refs:last-child {
-								background-color: white; }
-								.pull-request-form .control-group {
-									width: 350px;
-									margin: 0 auto; }
-								.pull-request-form input,
-								.pull-request-form select {
-									width: 350px;
-									border: 1px solid #ddd;
-									border-radius: 1px;
-									line-height: 26px;
-									height: 26px; }
-								.pull-request-form .control-label {
-									color: #222;
-									font-weight: bold;
-									width: 50px;
-									margin-bottom: 10px; }
-								.pull-request-form .controls {
-									margin-left: 60px; }
+								background-color: #d5f2ff; }
+								.repo .branch i[class^='icon-'] {
+									margin-right: 0;
+									font-size: 9px; }
+									.repo .master i {
+										color: #c162b9; }
+									.repo .pull-branch i {
+										color: #57a0c0; }
+								.repo .branch span a:first-child {
+									color: #656565; }
 
 
+						.pull-request-form {
+							margin-bottom: 20px;
+							border-bottom: 1px solid #d8d8d8; }
+						.repo .repo-refs {
+							width: 50%;
+							margin-left: 0;
+							padding: 20px 0;
+							position: relative; }
+						.repo .repo-refs:first-child {
+							background-color: white; }
+							.repo .repo-refs:first-child:after {
+								content: "";
+								width: 0;
+								height: 0;
+								border-style: solid;
+								border-width: 15px;
+								border-color: transparent transparent transparent white;
+								position: absolute;
+								top: 40px;
+								right: -30px;
+								z-index: 999; }
 
-					.setting .inner {
-						width: 85%;
-						padding: 30px 0;
-						margin: 0 auto; }
-					.setting .control-label {
-						width: 100px; }
-					.setting .controls {
-						margin-left: 120px; }
-						.setting .inner p.info {
-							text-indent: 120px; }
-
-
-
-		/* Login */
-		.login .bubble-header .title,
-		.join .bubble-header .title {
-			font-size: 2em; }
-
-		.login .form,
-		.join .form {
-			width: 379px;
-			margin: 0 auto 50px; }
-		.login .checkbox {
-			display: inline-block;
-			padding: 10px 20px 10px 0; }
-		.login .checkbox input {
-			display: inline-block;
-			font-size: 12px;
-			margin-right: 10px; }
-			.login form input[type="checkbox"] {
-				margin: 2px 0 0; }
-		.login .title,
-		.join .title {
-			color: #111;
-			font-size: 20px;
-			font-style: normal;
-			margin: 10px 0; }
-		.login .btn,
-		.join .btn {
-			display: block;
-			text-align: center;
-			padding: 15px 0; }
-		.login .well p,
-		.join .well p {
-			text-align: left;
-			margin-top: 0; }
+						.repo .repo-refs:last-child {
+							background-color: white; }
+							.pull-request-form .control-group {
+								width: 350px;
+								margin: 0 auto; }
+							.pull-request-form input,
+							.pull-request-form select {
+								width: 350px;
+								border: 1px solid #ddd;
+								border-radius: 1px;
+								line-height: 26px;
+								height: 26px; }
+							.pull-request-form .control-label {
+								color: #222;
+								font-weight: bold;
+								width: 50px;
+								margin-bottom: 10px; }
+							.pull-request-form .controls {
+								margin-left: 60px; }
 
 
-		/* settings */
-		.sidebar {
-			width: 20%;
-			float: left;
-			background-color: white; }
-			.sidebar .nav-list a {
-				display: block;
-				padding: 7px 10px;
-				font-weight: bold; }
-				.sidebar .nav-list a:hover { 
-					color: #3190D3;
-					text-decoration: none;
-					background-color: #f0f0f0; }
-				.sidebar .nav .leader {
-					color: #121212;
+
+				.setting .inner {
+					width: 85%;
+					padding: 30px 0;
+					margin: 0 auto; }
+				.setting .control-label {
+					width: 100px; }
+				.setting .controls {
+					margin-left: 120px; }
+					.setting .inner p.info {
+						text-indent: 120px; }
+
+
+
+	/* Login */
+	.login .bubble-header .title,
+	.join .bubble-header .title {
+		font-size: 2em; }
+
+	.login .form,
+	.join .form {
+		width: 379px;
+		margin: 0 auto 50px; }
+	.login .checkbox {
+		display: inline-block;
+		padding: 10px 20px 10px 0; }
+	.login .checkbox input {
+		display: inline-block;
+		font-size: 12px;
+		margin-right: 10px; }
+		.login form input[type="checkbox"] {
+			margin: 2px 0 0; }
+	.login .title,
+	.join .title {
+		color: #111;
+		font-size: 20px;
+		font-style: normal;
+		margin: 10px 0; }
+	.login .btn,
+	.join .btn {
+		display: block;
+		text-align: center;
+		padding: 15px 0; }
+	.login .well p,
+	.join .well p {
+		text-align: left;
+		margin-top: 0; }
+
+
+	/* settings */
+	.sidebar {
+		width: 23%;
+		float: left; }
+		.sidebar .nav-list {
+			border-radius: 1px;
+			-moz-border-radius: 1px;
+			-webkit-border-radius: 1px;
+			-o-border-radius: 1px; }
+		.sidebar .nav-list li {
+			padding: 7px 12px; }
+			.sidebar .nav-list li.active {
+				/*background-image: linear-gradient(#f7f7f7 0%, #ffffff 5%, #f4f4f4 90%, #e1e1e1 100%);*/
+				/*background-image: -moz-linear-gradient(#f7f7f7 0%, #ffffff 5%, #f4f4f4 90%, #e1e1e1 100%);*/
+				/*background-image: -webkit-linear-gradient(#f7f7f7 0%, #ffffff 5%, #f4f4f4 90%, #e1e1e1 100%);*/
+				/*background-image: -o-linear-gradient(#f7f7f7 0%, #ffffff 5%, #f4f4f4 90%, #e1e1e1 100%);*/
+				/*border-style: solid;*/
+				/*border-width: 1px;*/
+				/*border-color: #f2f2f2 #dbdbdb #8f8f8f; }*/
+				background: transparent url('/static/img/sidebar-bg.png') top left no-repeat; }
+				.sidebar .nav-list li.active a {
+					color: white; 
 					font-weight: bold;
-					text-transform: capitalize;
-					padding: 6px 5px;
-					margin-bottom: 10px;
-					background-color: #f0f0f0; }
+					text-decoration: none; }
+		.sidebar .nav-list a {
+			font-weight: bold; }
+			.sidebar .nav .leader {
+				color: #121212;
+				font-size: 13px;
+				font-weight: bold;
+				text-transform: capitalize;
+				padding: 6px 0;
+				margin: 20px 0 0; }
+			.sidebar .nav .leader:first-child {
+				margin-top: 0; }
 
-					.sidebar .repo-count h4 {
-						font-size: 12px;
-						color: #919191;
-						margin: 20px 0 5px; }
-						.sidebar .repo-count h4 span {
-							font-size: 11px; }
-						.sidebar .repo-count h4 .used {
-							margin-left: 10px; }
-						.sidebar .repo-count h4 .divider {
-							color: #cdcdcd;
-							margin: 0 3px; }
-					.sidebar .destroy-account p {
-						font-size: 14px;
-						line-height: 1.8; }
+				.sidebar .repo-count {
+					padding: 0 30px 0 12px; }
+				.sidebar .repo-count h4 {
+					font-size: 10px;
+					color: #919191;
+					margin: 20px 0 5px; }
+					.sidebar .repo-count h4 span {
+						font-size: 11px; }
+					.sidebar .repo-count h4 .used {
+						margin-left: 10px; }
+					.sidebar .repo-count h4 .divider {
+						color: #cdcdcd;
+						margin: 0 3px; }
+				.sidebar .destroy-account p {
+					font-size: 14px;
+					line-height: 1.8; }
 
-			.sidebody {
-				width: 80%;
-				float: left;
-				min-height: 400px; }
-			.sidebody .inner {
-				padding: 0 20px; }
-				.sidebody .form legend small {
+		.sidebody {
+			width: 77%;
+			float: left;
+			min-height: 400px; }
+		.sidebody .inner {
+			position: relative;
+			background: #f7f8fb url('/static/img/inner-top-bg.png') top left repeat-x;
+			/*border-top: 4px solid #384e79;*/
+			padding: 21px 10px 15px;
+			box-shadow: 0 2px 7px rgba(0, 0, 0, .25);
+			-moz-box-shadow: 0 2px 7px rgba(0, 0, 0, .25);
+			-webkit-box-shadow: 0 2px 7px rgba(0, 0, 0, .25);
+			-o-box-shadow: 0 2px 7px rgba(0, 0, 0, .25); }
+
+			.sidebody .title {
+				display: block;
+				font-size: 16px;
+				width: 100%;
+				margin-top: 0;
+				margin-bottom: 10px; }
+				.sidebody .title small {
 					color: #919191;
 					font-weight: 400;
 					margin-left: 20px; }
+			.sidebody .form legend small {
+				color: #919191;
+				font-weight: 400;
+				margin-left: 20px; }
 
-				.sidebody .control-label {
-					color: #111;
-					font-size: 12px;
+			.sidebody .control-group {
+				margin-bottom: 5px; }
+			.sidebody .control-label {
+				color: #111;
+				font-size: 12px;
+				font-weight: bold;
+				padding: 10px 0; }
+				.sidebody .controls input[type="text"],
+				.sidebody .controls input[type="password"],
+				.sidebody .controls input[type="email"],
+				.sidebody .controls input[type="url"],
+				.sidebody .controls textarea {
+					border-color: #ccc;
+					box-shadow: none;
+					-moz-box-shadow: none;
+					-webkit-box-shadow: none;
+					-o-box-shadow: none;
+					margin: 0;
+					height: 21px;
+					width: 340px; }
+				.sidebody .controls {
+					margin-left: 110px; }
+				.sidebody .controls textarea {
+					height: 100px; }
+				.sidebody .controls .btn {
+					display: inline-block;
+					padding: 7px 10px; }
+				.sidebody .form button[type="submit"] {
+					width: 100px; }
+				.sidebody .controls p {
+					margin: 3px;
+					color: grey; }
+
+				.sidebody .ssh {
+					margin: 20px 0 50px; }
+				.sidebody .ssh th {
+					padding: 8px 10px; }
+				.sidebody .ssh td {
+					border-color: #f0f1f4;
+					padding: 8px 10px; }
+				.sidebody .ssh .name {
+					font-weight: bold; }
+				.sidebody .ssh .md5 {
+					color: #616161;
+					font-family: menlo, sans-serif;
+					letter-spacing: -1px;
+					font-weight: bold; }
+				.sidebody .ssh .action {
+					font-size: .8em; }
+
+
+			.sidebody .helps section {
+				color: #636363;
+				margin-bottom: 50px;
+				line-height: 1.65; }
+				.sidebody .helps section:first-child {
+					padding-top: 0;
+					margin-top: 0; }
+			.sidebody .helps section a {
+				text-decoration: underline; }
+				.sidebody .helps section h2 {
+					color: #212121;
+					font-size: 14px;
+					line-height: 1;
+					margin: 0; }
+				.sidebody .helps dl.faq dt {
+					font-size: 14px;
+					margin-bottom: 5px; }
+				.sidebody .helps .well {
 					font-weight: bold;
-					padding: 10px 0; }
-					.sidebody .controls input[type="text"],
-					.sidebody .controls input[type="password"],
-					.sidebody .controls input[type="email"],
-					.sidebody .controls input[type="url"],
-					.sidebody .controls textarea {
-						margin: 0;
-						height: 25px;
-						width: 440px; }
-					.sidebody .controls textarea {
-						height: 100px; }
-					.sidebody .controls .btn {
-						display: inline-block;
-						padding: 10px 15px; }
-					.sidebody .form button[type="submit"] {
-						width: 100px; }
-					.sidebody .controls p {
-						margin: 3px;
-						color: grey; }
-				.sidebody .title {
-					display: block;
-					font-size: 16px;
+					padding: 5px 15px;
+					margin-bottom: 15px;
+					margin-left: 0;
+					border-style: solid;
+					border-width: 1px 1px 1px 2px;
+					border-color: #ebebeb #ebebeb #cecece #3190D3;
+					background-color: #fbfbfb; }
+				.sidebody .helps section .label {
+					color: #454545;
 					font-weight: bold;
-					width: 100%;
-					padding-bottom: 10px;
-					margin-top: 0;
-					margin-bottom: 20px;
-					border-bottom: 1px solid #ddd; }
-					.sidebody .title small {
-						color: #919191;
-						font-weight: 400;
-						margin-left: 20px; }
-					.sidebody .ssh {
-						margin: 30px 0; }
-					.sidebody .ssh td {
-						background-color: #fbfbfb; }
-					.sidebody .ssh .name {
-						font-weight: bold; }
-					.sidebody .ssh .md5 {
-						color: #616161;
-						font-family: menlo, sans-serif;
-						letter-spacing: -1px;
-						font-weight: bold; }
-					.sidebody .ssh .action {
-						font-size: .8em; }
-
-
-				.sidebody .helps section {
-					color: #696969;
-					padding: 25px 0 10px;
-					margin: 25px 0;
-					font-size: 13px;
-					line-height: 1.5;
-					border-top: 1px solid #ddd; }
-					.sidebody .helps section:first-child {
-						margin-top: 0; }
-				.sidebody .helps section a {
-					text-decoration: underline; }
-					.sidebody .helps section h2 {
-						color: #212121;
-						font-size: 16px;
-						line-height: 1; }
-					.sidebody .helps dl.faq dt {
-						color: #212121;
-						font-size: 14px;
-						margin-bottom: 5px; }
-					.sidebody .helps .well {
-						color: #3190d3;
+					text-shadow: none;
+					-moz-text-shadow: none;
+					-webkit-text-shadow: none;
+					-o-text-shadow: none;
+					margin: 0 5px;
+					background-color: #f9f9f9;
+					border: 1px solid #ebebeb; }
+				.sidebody .helps section ol,
+				.sidebody .helps section ul,
+				.sidebody .helps section dl {
+					margin-top: 10px;
+					margin-bottom: 10px; }
+					.sidebody .helps section ul .leader {
 						font-weight: bold;
-						padding: 5px 15px;
-						margin-bottom: 15px;
-						margin-left: 0;
-						border-style: solid;
-						border-width: 1px 1px 1px 2px;
-						border-color: #ebebeb #ebebeb #cecece #3190D3;
-						background-color: #fbfbfb; }
-					.sidebody .helps section .label {
-						color: #454545;
-						font-weight: bold;
-						text-shadow: none;
-						-moz-text-shadow: none;
-						-webkit-text-shadow: none;
-						-o-text-shadow: none;
-						margin: 0 5px;
-						background-color: #f9f9f9;
-						border: 1px solid #ebebeb; }
-					.sidebody .helps section ol,
-					.sidebody .helps section ul,
-					.sidebody .helps section dl {
-						margin-top: 10px;
-						margin-bottom: 10px; }
-						.sidebody .helps section ul .leader {
-							font-weight: bold;
-							margin-right: 10px; }
-						.sidebody .helps .http-error h3 {
-							color: #b94a48;
-							font-size: 18px;
-							line-height: 1.2; }
-						.sidebody .helps .http-error h3 + p {
-							color: #919191; }
-						.sidebody .helps section dl dt {
-							font-weight: bold; }
+						margin-right: 10px; }
+					.sidebody .helps .http-error h3 {
+						color: #b94a48;
+						font-size: 18px;
+						line-height: 1.2; }
+					.sidebody .helps .http-error h3 + p {
+						color: #919191; }
+					.sidebody .helps section dl dt {
+						font-weight: bold; }
 
-					
+				
 
 
 
 
 
-		.footer {
-			font-size: 12px;
-			margin: 20px 0; }
-			.footer a {
-				color: #919191; }
-			.footer .nav {
-				margin-bottom: 0;
-				padding: 6px 0;
-				margin: 0; }
-				.footer .nav a {
-					font-weight: bold;
-					margin-right: 20px; }
-			.footer .copyright {
-				color: #999;
-				font-style: italic;
-				margin: 0; }
+	.footer {
+		font-size: 12px;
+		margin: 20px 0; }
+		.footer a { }
+		.footer .nav {
+			margin-bottom: 0;
+			padding: 6px 0;
+			margin: 0; }
+			.footer .nav a {
+				font-weight: bold;
+				margin-right: 20px; }
+		.footer .copyright {
+			color: #919191;
+			font-style: italic;
+			margin: 0; }
 
 
