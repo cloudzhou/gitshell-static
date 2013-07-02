@@ -628,35 +628,20 @@ hr {
 
 
 				.issues .issues-header {
-					float: left;
-					margin: 0;
-					width: 80%;
-					line-height: 25px; }
-					.issues-header dt,
-					.issues-header dd {
-						display: block; }
-					.issues-header dt {
-						float: left;
-						width: 60px;
-						height: 25px;
-						text-align: right;
-						font-weight: bold; }
-					.issues-header dd {
-						margin-left: 70px;
-						height: 25px; }
-					.issues-header dd a {
+					margin: 0; }
+					.issues-header a {
 						text-decoration: none; }
-					.issues-header dd .label-mini {
+					.issues-header .label {
+						float: left;
 						padding: 3px 15px;
+						margin: 2px;
 						font-size: 12px;
+						line-height: 1.4;
 						font-weight: bold; }
-						.new-issue {
-							width: 20%;
-							float: left; }
-							.new-issue a.btn {
-								font-size: 14px;
-								font-weight: bold;
-								display: inline-block; }
+					.new-issue a.btn {
+						font-size: 14px;
+						font-weight: bold;
+						display: inline-block; }
 
 				.issues .bubble-header { }
 				.issues .table {
@@ -669,12 +654,12 @@ hr {
 					.issues .table td {
 						padding: 0; }
 					.issues .table .issue-creater {
-						width: 35px;
-						padding: 10px; }
+						width: 20px;
+						padding: 8px 10px; }
 					.issues .table .issue-container {
 						position: relative;
 						font-size: 12px;
-						padding: 10px 0;
+						padding: 8px 0;
 						width: 818px; }
 
 					.issues .table .issue-inner .label a {
@@ -685,9 +670,13 @@ hr {
 						color: #888;
 						font-size: 11px;
 						margin: 3px 10px 0; }
-
-
 					.issues .issue-container span.issue-id {
+						display: inline-block;
+						font-weight: bold;
+						width: 35px; }
+
+
+					.issues .issue-container span.issue-date {
 						position: absolute;
 						top: 0;
 						right: 0;
@@ -700,7 +689,7 @@ hr {
 						-moz-border-radius: 0 0 0 2px;
 						-webkit-border-radius: 0 0 0 2px;
 						-o-border-radius: 0 0 0 2px; }
-						.issues .issue-container span.issue-id .unixtime {
+						.issues .issue-container span.issue-date .unixtime {
 							font-size: 11px;
 							color: #aaa; }
 					.issues .issue-container a.txt {
