@@ -1,0 +1,84 @@
+.navbar-fixed {
+	width: 100%;
+	border-bottom: 1px solid #e5e5e5;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999; }
+	.navbar .navbar-inner {
+		font-size: 12px;
+		padding: 10px 0;
+		background-color: rgba(255, 255, 255, .9); }
+	.navbar a {
+		display: block;
+		color: #636363;
+		font-weight: bold;
+		padding: 8px 10px; }
+		.navbar a i[class^="icon-"] {
+			color: #111; }
+	.navbar .brand {
+		display: block;
+		float: left;
+		color: #245dc1;
+		font-family: 'dejavu sans', 'arial bold', sans-serif;
+		font-size: 20px;
+		line-height: .8;
+		padding: 8px 0;
+		margin-right: 20px; }
+		.navbar .brand + .nav a {
+			padding: 8px 13px; }
+
+	.navbar .nav {
+		float: left; }
+		.navbar .nav .user {
+			position: relative;
+			display: block;
+			margin-left: 10px;
+			width: 24px;
+			height: 12px; }
+			.navbar .user i {
+				color: grey;
+				font-size: 13px;
+				position: absolute;
+				left: 5px;
+				top: 7px; }
+			.navbar .user .avatar {
+				width: 24px;
+				height: 24px;
+				line-height: 1;
+				position: absolute;
+				top: 2px;
+				right: 2px; }
+
+			.navbar .account {
+				float: right;
+				font-size: 12px;
+				margin-right: 0; }
+			.navbar .dropdown-menu h2,
+			.navbar .dropdown-menu .email {
+				padding: 0 20px;
+				margin: 8px 0; }
+			.navbar .dropdown-menu h2 {
+				font-size: 14px; }
+			.navbar .dropdown-menu .email {
+				color: #919191;
+				font-size: 13px;
+				font-style: italic; }
+			.navbar .dropdown-menu .nav {
+				float: none;
+				border-top: 1px solid #ddd;
+				padding-top: 5px; }
+			.navbar .dropdown-menu .nav a {
+				padding: 0;
+				color: #696969;
+				font-weight: bold; }
+			.navbar .dropdown-menu .nav i {
+				color: #696969; }
+			.navbar .open .dropdown-toggle {
+				background-color: white;
+				background-image: none;
+				border-bottom: none;
+				border-radius: 1px 1px 0 0;
+				-moz-border-radius: 1px 1px 0 0;
+				-webkit-border-radius: 1px 1px 0 0;
+				-o-border-radius: 1px 1px 0 0; }

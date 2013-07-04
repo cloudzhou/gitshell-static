@@ -1,0 +1,41 @@
+.repo-tabs {
+	margin: 0 0 -1px;
+	position: relative;
+	z-index: 9; }
+	.repo-tabs a {
+		display: block;
+		color: #454545;
+		font-weight: bold;
+		line-height: 40px;
+		height: 40px;
+		padding: 0 25px;
+		border-style: solid;
+		border-width: 1px 0 1px 1px;
+		border-color: #c8cbc9 #c8cbc9 #c8cbc9;
+		background-color: white; }
+		.repo-tabs a:hover {
+			text-decoration: none; }
+		.repo-tabs .active a {
+			color: #454545;
+			border-style: solid;
+			border-width: 1px 0 1px 1px;
+			border-color: #3d9f00 #c8cbc9 #f8f7fb;
+			box-shadow: 0 1px 0 #3d9f00 inset;
+			-moz-box-shadow: 0 1px 0 #3d9f00 inset;
+			-webkit-box-shadow: 0 1px 0 #3d9f00 inset;
+			-o-box-shadow: 0 1px 0 #3d9f00 inset;
+			background-color: #f5f5f5; }
+			.repo-tabs .last a {
+				border-right: 1px solid #c8cbc9; }
+			.repo-tabs a .label {
+				opacity: 0.6;
+				filter: alpha(opacity=60);
+				line-height: 1;
+				padding: 2px 5px;
+				margin-left: 5px;
+				border-radius: 2px;
+				-moz-border-radius: 2px;
+				-webkit-border-radius: 2px;
+				-o-border-radius: 2px; }
+				.repo-tabs .active .label {
+					opacity: 1; }
