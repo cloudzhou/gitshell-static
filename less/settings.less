@@ -1,0 +1,171 @@
+.settings {
+	margin-bottom: 100px;
+	// Sidebar
+	.sidebar {
+		width: 18%;
+		float: left;
+
+		.leader {
+			.box(~"6px 0 6px 0", ~"20px 0 0 0");
+			color: @greyLight;
+			font-size: 13px;
+			font-weight: bold;
+			text-transform: capitalize;
+			&:first-child { margin-top: 0; } }
+
+		.nav { 
+			dd { margin-left: 0; }
+			a {
+				color: @grey;
+				font-weight: bold;
+				border-left: 5px solid @white;
+				margin: 5px 0;
+				&:hover {
+					text-decoration: none;
+					background-color: fadeout(@grey, 90%); }
+				span {
+					display: block;
+					padding: 3px 10px; }
+				&.active {
+					color: @dark;
+					text-decoration: none;
+					border-left-color: @dark;
+				}
+			}
+		}
+
+		.repo-count {
+			h4 {
+				font-size: 10px;
+				color: @grey;
+				margin: 10px 0 5px;
+				span { font-size: 11px; }
+				.used { margin-left: 10px; }
+				.divider {
+					color: @grey;
+					margin: 0 3px; }
+			}
+		}
+
+		.destroy-account {
+			p {
+			font-size: 12px; }
+		}
+
+	}
+
+
+	// Main
+	.main {
+		float: left;
+		width: 78%;
+		padding: 0 2%;
+		position: relative;
+
+		.heading {
+			display: block;
+			width: 100%;
+			margin-bottom: 10px;
+			small {
+				color: @grey;
+				font-weight: 400;
+				margin-left: 20px; } }
+
+		table.ssh {
+			margin: 20px 0 50px;
+			th {
+				padding: 8px 10px; }
+			td {
+				border-color: #f0f1f4;
+				padding: 8px 10px; }
+			.name { font-weight: bold; }
+			.md5 {
+				color: @darkLight;
+				font-family: @monoFontFamily;
+				letter-spacing: -1px;
+				font-weight: bold; }
+			.action { font-size: .8em; }
+		}
+
+		.form-horizontal { 
+			legend small {
+				color: @grey;
+				font-weight: 400;
+				margin-left: 20px; }
+			.control-group {
+				margin-bottom: 5px;
+				.control-label {
+					color: @dark;
+					font-size: 12px;
+					font-weight: bold;
+					padding: 10px 0; }
+					.controls {
+						margin-left: 110px;
+						@controlsInputFields: ~"input[type='text'], input[type='password'], input[type='email'], input[type='url'], textarea";
+						@{controlsInputFields} {
+							border-color: #ccc;
+							margin: 0;
+							height: 21px;
+							width: 440px; }
+						textarea {
+							height: 100px; }
+						.btn {
+							display: inline-block;
+							padding: 7px 10px; }
+						button[type="submit"] {
+							width: 100px; }
+						p {
+							margin: 3px;
+							color: @grey; }
+					}
+				}
+
+			}
+
+
+
+		section {
+			color: @darkLight;
+			line-height: 1.65;
+			margin-bottom: 50px; 
+			&:first-child {
+				padding-top: 0;
+				margin-top: 0; }
+			a { text-decoration: underline; }
+			h2 {
+				color: @dark;
+				margin: 0; }
+			dl.faq dt {
+				font-size: 14px;
+				margin-bottom: 5px; }
+			.well {
+				.bordered(solid; ~"1px 1px 1px 2px"; ~"#ebebeb #ebebeb #ebebeb #3190d3");
+				.box(~"5px 15px 5px 15px"; ~"0 0 15px 0");
+				font-weight: bold;
+				background-color: #fbfbfb; }
+			.label {
+				color: @darkLight;
+				font-weight: bold;
+				margin: 0 5px;
+				border: 1px solid #ebebeb;
+				background-color: #f9f9f9; }
+			ol,
+			ul,
+			dl {
+				margin-top: 10px;
+				margin-bottom: 10px; }
+				ul .leader {
+					font-weight: bold;
+					margin-right: 10px; }
+				.http-error h3 {
+					color: #b94a48;
+					font-size: 18px;
+					line-height: 1.2; }
+				.http-error h3 + p {
+					color: #919191; }
+				dt { font-weight: bold; }
+		}
+
+	}
+
+}

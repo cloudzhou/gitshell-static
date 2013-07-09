@@ -1,0 +1,86 @@
+// Popvers
+.popover {
+  display: none;
+  text-align: left;
+  white-space: normal;
+  max-width: 276px;
+  padding: 1px;
+	.bordered(solid; 1px; ~"#ccc #ccc #aaa #ccc");
+  background-color: @white;
+	.boxShadow(0 2px 5px rgba(0, 0, 0, .2));
+	#positions > #abs > .topLeft(0; 0);
+  z-index: @zindexPopover;
+	.arrowVariable {
+		display: block;
+		.square(0);
+		border-color: transparent;
+		border-style: solid;
+		position: absolute; }
+	.arrow {
+		.arrowVariable();
+		border-width: 6px;
+		&:after {
+			.arrowVariable();
+			border-width: 5px;
+			content: ""; } }
+	&.bottom {
+		margin-top: 10px;
+		.arrow {
+			top: -6px;
+			left: 10px;
+			margin-left: -6px;
+			border-bottom-color: darken(@black, 15%);
+			border-top-width: 0;
+		&:after {
+			top: 1px;
+			margin-left: -5px;
+			border-bottom-color: @white;
+			border-top-width: 0; } } }
+	.popover-title {
+		&:empty { display: none; } }
+	.popover-content {
+		color: @darkLight;
+		font-weight: bold;
+		padding: 7px;
+		p {
+			margin: 0; } } }
+
+
+// Tooltips
+.tooltip {
+  display: block;
+  font-size: 12px;
+  position: absolute;
+  z-index: @zindexTooltip;
+	.opacity(0);
+	&.in { 
+		.opacity(80); }
+	&.top {
+		padding: 5px 0;
+		margin-top: -3px;
+		.tooltip-arrow {
+			margin-left: -5px;
+			border-top-color: #9c9c9c;
+			border-width: 5px 5px 0;
+			#positions > #abs > .bottomLeft(0, 50%); } }
+	&.bottom {
+		.tooltip-arrow {
+			top: 0;
+			left: 50%;
+			margin-left: -5px;
+			border-bottom-color: @black;
+			border-width: 0 5px 5px; } }
+	.tooltip-inner {
+		color: @dark;
+		text-align: center;
+		text-decoration: none;
+		padding: 4px;
+		.bordered(solid; 1px; #9c9c9c);
+		.borderRadius(2px);
+		background-color: @white;
+		.boxShadow(0 1px 1px rgba(0, 0, 0, .25)); }
+	.tooltip-arrow {
+		position: absolute;
+		.size(0; 0);
+		border-color: transparent;
+		border-style: solid; } }

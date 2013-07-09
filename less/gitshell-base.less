@@ -1,0 +1,91 @@
+// GitShell Special Style
+// Navbar
+.navbar {
+	font-size: 13px;
+	border-bottom: 1px solid #c1c1c1;
+	.linearGradient(top; #f1f1f1; #f1f1f1);
+	a {
+		color: @dark;
+		font-weight: 900;
+		&:hover {
+			text-decoration: none; } }
+	.navbar-inner {
+		.brand {
+			padding: 0;
+			margin-right: 20px;
+			font-size: 20px;
+			line-height: 44px;
+			height: 44px; }
+		.nav {
+			float: left;
+			.user {
+				position: relative;
+				display: block;
+				margin-left: 10px;
+				.size(24px; 12px);
+				i {
+					color: @grey;
+					font-size: @baseFontSize;
+					#positions > #abs > .topLeft(7px; 5px); }
+				.avatar {
+					line-height: 1;
+					.square(24px);
+					#positions > #abs > .topRight(2px; 2px); } }
+			&.account {
+				float: right;
+				font-size: 12px;
+				margin-right: 0;
+				& > li {
+					margin: 7px 0;
+					a {
+						padding: 5px 10px; } }
+				.dropdown-menu {
+					right: 0;
+					h2, .email {
+						.box(~"0 20px 0 20px", ~"8px 0 8px 0"); }
+					h2 { font-size: 14px; }
+					.email {
+						color: @grey;
+						font-size: 13px;
+						font-style: italic; }
+					.nav {
+						.bordered(solid, ~"1px 0 0 0", #ddd);
+						float: none;
+						padding-top: 5px;
+						a {
+							color: @darkLight;
+							font-weight: bold;
+							padding: 0;
+							i {
+								color: @darkLight; } } } }
+				&.open {
+					.dropdown-toggle {
+						.borderRadius(1px 1px 0 0);
+						.linearGradient(top; @white; @white);
+						border-bottom: none; } } } } } }
+
+// Sidenav
+.sidenav {
+	float: left;
+	width: 50px;
+	.flat-nav-list {
+		a {
+			text-align: center;
+			border-left: 0 none;
+			border-right: 2px solid transparent;
+			span { padding: 10px 0; }
+			i {
+				.textShadow(0 1px 0 rgba(255, 255, 255, .95));
+				font-size: 15px;
+				margin-right: 0; }
+			&:hover {
+					color: @darkLight;
+					border-right-color: #3a9f00;
+					span {
+						border-color: #e4e4e4 transparent #e4e4e4;
+						background-color: #f5f5f5; } }
+			.active & {
+				color: @dark;
+				border-color: #e4e4e4 #3a9f00 #e4e4e4 transparent;
+				background-color: #e9e9e9; } } } }
+

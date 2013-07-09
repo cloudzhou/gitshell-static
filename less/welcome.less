@@ -1,0 +1,71 @@
+// Banner
+.banner {
+	text-align: center;
+	padding: 10px 0;
+	h1 {
+		font-size: 4em;
+		line-height: 1;
+		margin: 10px 0;
+		& + p {
+			color: @grey;
+			font-size: 16px;
+			line-height: 1.4;
+			margin: 10px; }
+	}
+}
+
+// Welcome Summary
+.welcome-details { 
+	margin: 30px 0;
+	li {
+		width: 23.3333333%;
+		padding: 0 10% 0 0;
+		min-height: 130px;
+		margin-bottom: 10px;
+		h2 {
+			font-size: 16px;
+			line-height: 1.2;
+			margin: 5px 0; }
+		p {
+			color: #919191;
+			font-size: 12px; }
+	}
+}
+
+
+// Authorize
+.authorize {
+	.header {
+		.heading { font-size: 2em; }
+	}
+	.form {
+		margin: 0 auto 50px;
+		input[type="text"],
+		input[type="password"] {
+			display: block;
+			font-size: 14px;
+			font-weight: bold;
+			.size(440px; 26px);
+			margin-bottom: 10px;
+		}
+	}
+}
+
+
+
+// Footer
+.footer {
+	font-size: 12px;
+	margin: 20px 0;
+	a { color: @darkLight; }
+	.nav {
+		.box(~"6px 0 6px 0", 0);
+		a {
+			font-weight: bold;
+			margin-right: 20px; }
+	}
+	.copyright {
+		color: @grey;
+		font-style: italic;
+		margin: 0; }
+}

@@ -1,0 +1,43 @@
+// Repo-actions-bar
+.repo-actions-bar {
+	.clearfix();
+	.repocrumb {
+		float: left;
+		font-weight: bold;
+		font-size: 20px;
+	}
+	// Actions
+	.repo-actions {
+		float: right;
+		.unstyledList();
+		.clearfix();
+		li {
+			float: left;
+			margin: 0 5px;
+			a {
+				display: block; } } }
+}
+
+// Repository tabs
+.repo-tabs {
+	position: relative;
+	a {
+		display: block;
+		color: @dark;
+		font-weight: bold;
+		background-color: white;
+		&:hover { text-decoration: none; }
+		.label {
+			.opacity(60);
+			.box(~"2px 5px 2px 5px"; ~"0 0 0 5px");
+			.borderRadius(2px); } }
+	.active a {
+		color: @dark;
+		.label { opacity: 1; } } }
+
+
+.bubble-inner {
+	position: relative;
+	float: left;
+	width: 929px;
+	min-height: 300px; }
