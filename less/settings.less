@@ -25,11 +25,12 @@
 					background-color: fadeout(@grey, 90%); }
 				span {
 					display: block;
-					padding: 2px 10px; }
+					padding: 4px 10px; }
 				&.active {
-					color: @black;
+					color: @dark;
 					text-decoration: none;
-					border-left-color: @dark;
+					border-left-color: @darkLight;
+					background-color: fadeout(@grey, 90%);
 				}
 			}
 		}
@@ -74,6 +75,7 @@
 		table.ssh {
 			margin: 20px 0 50px;
 			th {
+				color: @grey;
 				text-align: left;
 				padding: 6px 10px; }
 			td {
@@ -105,6 +107,7 @@
 						@controlsInputFields: ~"input[type='text'], input[type='password'], input[type='email'], input[type='url'], textarea";
 						@{controlsInputFields} {
 							margin: 0;
+							font-weight: bold;
 							height: 21px;
 							width: 440px; }
 						textarea {

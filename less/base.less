@@ -129,8 +129,10 @@ legend {
 	font-family: @sansFontFamily;
 	font-size: @baseFontSize;
 	padding: 3px 5px;
-	.bordered(solid; 1px; ~"#acacac #d1d1d1 #d1d1d1");
-	.borderRadius(1px);
+	.bordered(solid; 1px; #c6c6c6);
+	.borderRadius(2px);
+	.boxShadow(inset 0 1px 1px fadeout(@dark, 90%));
+	.placeholder();
 	background-color: @white; }
 
 .form-horizontal {

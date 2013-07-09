@@ -23,15 +23,16 @@
 	font-weight: bold;
 	text-decoration: none;
 	padding: 6px 10px;
-	.bordered(solid; 1px; #dcdcdc);
+	.textShadow(1px 1px 0 @white);
+	.bordered(solid; 1px; #dadada);
 	.borderRadius(2px);
-	.linearGradient(top; #f5f5f5; #f1f1f1);
+	.linearGradient(top; #f1f1f1; #e5e5e5);
 	&:hover {
 		color: @dark;
-		border-color: #c6c6c6;
+		border-color: #c9c9c9;
 		text-decoration: none;
-		.linearGradient(top; #f8f8f8; #f1f1f1);
-		.boxShadow(0 1px 1px rgba(0, 0, 0, .1)); }
+		.boxShadow(0 1px 1px rgba(0, 0, 0, .1));
+		.linearGradient(top; #f1f1f1; #e5e5e5); }
 	&.btn-mini { 
 		font-size: @baseFontSize - 1;
 		padding: 2px 10px; }
@@ -61,6 +62,7 @@
 
 	@whiteFontBtns: ~".btn-notice, .btn-notice:hover, .btn-success, .btn-success:hover, .btn-primary, .btn-primary:hover, .btn-warning, .btn-warning:hover, .btn-danger, .btn-danger:hover";
 	&@{whiteFontBtns} { 
+		.textShadow(0 -1px 0 rgba(0, 0, 0, .8));
 		color: @white; }
 	
 	.active & {
