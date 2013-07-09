@@ -4,8 +4,8 @@
 	.repocrumb {
 		float: left;
 		font-weight: bold;
-		font-size: 20px;
-	}
+		font-size: 22px;
+		margin-bottom: 10px; }
 	// Actions
 	.repo-actions {
 		float: right;
@@ -13,10 +13,13 @@
 		.clearfix();
 		li {
 			float: left;
-			margin: 0 5px;
+			margin-left: 5px;
 			a {
 				display: block; } } }
 }
+
+.description p {
+	margin: 0; }
 
 // Repository tabs
 .repo-tabs {
@@ -41,3 +44,9 @@
 	float: left;
 	width: 929px;
 	min-height: 300px; }
+
+.files {
+	.table {
+		font-family: @sansFontFamily;
+	}
+}
