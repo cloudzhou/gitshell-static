@@ -9,12 +9,12 @@ var repo_commits_diff_nav_template =
 '            <a href="javascript:void(0)">Diff</a>' +
 '        </li>' +
 '        <li id="i_select_line_context" class="dropdown hide">' +
-'            <a class="dropdown-toggle" data-toggle="dropdown" href="#">上下行数(<span id="i_line_context">3</span>) <b class="caret"></b></a>' +
+'            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">上下行数(<span id="i_line_context">3</span>) <b class="caret"></b></a>' +
 '            <ul class="dropdown-menu">' +
-'                <li><a class="c_line_context" href="#">3</a></li>' +
-'                <li><a class="c_line_context" href="#">5</a></li>' +
-'                <li><a class="c_line_context" href="#">10</a></li>' +
-'                <li><a class="c_line_context" href="#">20</a></li>' +
+'                <li><a class="c_line_context" href="javascript:void(0)">3</a></li>' +
+'                <li><a class="c_line_context" href="javascript:void(0)">5</a></li>' +
+'                <li><a class="c_line_context" href="javascript:void(0)">10</a></li>' +
+'                <li><a class="c_line_context" href="javascript:void(0)">20</a></li>' +
 '            </ul>' +
 '        </li>' +
 '    </ul>' +

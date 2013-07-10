@@ -11,6 +11,7 @@
         this.repo_name = repo_name;
         this.from_refs = from_refs;
         this.to_refs = to_refs;
+        this.path = '';
         this.line_context = 3;
         this.is_pull = false;
     }
@@ -26,8 +27,11 @@
         },
         loadDiff : function(selector, before, after) {
             var url = this.is_pull ?
-                        _.sprintf('/%s/%s/pull/diff/%s:%s..%s:%s/%s/', this.user_name, this.repo_name, this.source_repo_username, this.from_refs, this.desc_repo_username, this.to_refs, line_context) :
-                        _.sprintf('/%s/%s/diff/%s..%s/%s/', this.user_name, this.repo_name, this.to_refs, this.from_refs, this.line_context) ;
+                        _.sprintf('/%s/%s/pull/diff/%s:%s..%s:%s/%s/', this.user_name, this.repo_name, this.source_repo_username, this.from_refs, this.desc_repo_username, this.to_refs, this.line_context) :
+                        _.sprintf('/%s/%s/diff/%s..%s/%s/', this.user_name, this.repo_name, this.from_refs, this.to_refs, this.line_context) ;
+            if(!this.is_pull && this.path != '') {
+                url = url + this.path;
+            }
             $.post(url, {csrfmiddlewaretoken: csrfmiddlewaretoken}, function(json){
                 if(before) {
                     before(json);
@@ -77,20 +81,20 @@
         },
         loadCommits : function(selector, before, after, after_load_commits) {
             var url = this.is_pull ?
-                        _.sprintf('/%s/%s/pull/commits/%s:%s...%s:%s/', this.user_name, this.repo_name, this.source_repo_username, this.from_refs, this.desc_repo_username, this.to_refs) :
+                        _.sprintf('/%s/%s/pull/commits/%s:%s...%s:%s/', this.user_name, this.repo_name, this.desc_repo_username, this.to_refs, this.source_repo_username, this.from_refs) :
                         _.sprintf('/%s/%s/commits/%s...%s/', this.user_name, this.repo_name, this.to_refs, this.from_refs) ;
             var from_refs = this.from_refs;
             var to_refs = this.to_refs;
+            var is_pull = this.is_pull;
             $.post(url, {csrfmiddlewaretoken: csrfmiddlewaretoken}, function(json){
                 if(before) {
                     before(json);
                 }
                 var is_up_to_date = false;
-                var refs_meta = json.refs_meta;
-                var source_commit_hash = json.from_commit_hash.substr(0, 7);
-                var desc_commit_hash = json.to_commit_hash.substr(0, 7);
+                var source_commit_hash = is_pull ? json.source_repo_refs_commit_hash.substr(0, 7) : json.from_commit_hash.substr(0, 7);
+                var desc_commit_hash = is_pull ? json.desc_repo_refs_commit_hash.substr(0, 7) : json.to_commit_hash.substr(0, 7);
                 var exists_commit_hash_map = {};
-                exists_commit_hash_map[source_commit_hash] = 1
+                exists_commit_hash_map[desc_commit_hash] = 1
     
                 for(var x in json.commits) {
                     var commit = json.commits[x];
@@ -105,7 +109,7 @@
                     commit.committer_moment = committer_moment;
                 }
 
-                if(desc_commit_hash in exists_commit_hash_map) {
+                if(source_commit_hash in exists_commit_hash_map) {
                     is_up_to_date = true;
                 }
                 var html = '<p>Already up-to-date. 你并不需要进行合并操作</p>';
@@ -113,8 +117,14 @@
                     html = repo_commits_tmpl(json);
                 }
                 selector.html(html);
-                if(!is_up_to_date && refs_meta.branches.indexOf(from_refs) >= 0 && refs_meta.branches.indexOf(to_refs) >= 0) {
+                if(!is_up_to_date) {
                     json.allow_merge = true;
+                }
+                if(!is_pull) {
+                    var refs_meta = json.refs_meta;
+                    if(refs_meta.branches.indexOf(from_refs) < 0 || refs_meta.branches.indexOf(to_refs) < 0) {
+                        json.allow_merge = false;
+                    }
                 }
                 if(after) {
                     after(json);
