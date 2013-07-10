@@ -76,6 +76,19 @@
 			right: @right;
 			.fixed(); } } }
 
+.arrow(@backgroundBorderWidth; @frontBorderWidth; @backgroundBorderColor; @frontBorderColor) {
+	position: relative;
+	&:before, &:after { content: ""; }
+	&:before {
+		.bordered(solid; ~"0 @{backgroundBorderWidth} @{backgroundBorderWidth}"; ~"transparent transparent @{backgroundBorderColor}");
+		#positions > #abs > .topLeft(-@backgroundBorderWidth; @backgroundBorderWidth);
+	}
+	&:after {
+		.bordered(solid; ~"0 @{frontBorderWidth} @{frontBorderWidth}"; ~"transparent transparent @{frontBorderColor}");
+		#positions > #abs > .topLeft(-@frontBorderWidth; (@backgroundBorderWidth + 1));
+	}
+}
+
 .opacity(@opacity) {
 	opacity: @opacity / 100;
 	filter: ~"alpha(opacity=@{opacity})"; }

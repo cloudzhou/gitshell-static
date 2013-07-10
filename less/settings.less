@@ -1,4 +1,5 @@
 .settings {
+	margin-top: 30px;
 	margin-bottom: 100px;
 	// Sidebar
 	.sidebar {
@@ -6,7 +7,7 @@
 		float: left;
 
 		.leader {
-			.box(~"6px 0 6px 0", ~"20px 0 0 0");
+			.box(~"6px 0", ~"15px 0 0 0");
 			color: @grey;
 			font-size: 12px;
 			font-weight: bold;
@@ -16,26 +17,22 @@
 		.nav { 
 			dd { margin-left: 0; }
 			a {
-				color: @linkColor;
 				font-weight: bold;
-				border-left: 5px solid @white;
-				margin: 5px 0;
-				&:hover {
-					text-decoration: none;
-					background-color: fadeout(@grey, 90%); }
+				border-left: 5px solid transparent;
+				margin: 8px 0;
 				span {
 					display: block;
-					padding: 4px 10px; }
+					padding: 0 10px; }
 				&.active {
 					color: @dark;
 					text-decoration: none;
 					border-left-color: @darkLight;
-					background-color: fadeout(@grey, 90%);
 				}
 			}
 		}
 
 		.repo-count {
+			padding: 0 15px;
 			h4 {
 				font-size: 10px;
 				color: @grey;
@@ -96,9 +93,9 @@
 				font-weight: 400;
 				margin-left: 20px; }
 			.control-group {
-				margin-bottom: 5px;
+				margin-bottom: 8px;
 				.control-label {
-					color: @dark;
+					color: fadeout(@darkLight, 20%);
 					font-size: 12px;
 					font-weight: bold;
 					padding: 7px 0; }
@@ -108,8 +105,8 @@
 						@{controlsInputFields} {
 							margin: 0;
 							font-weight: bold;
-							height: 21px;
-							width: 440px; }
+							height: 22px;
+							width: 400px; }
 						textarea {
 							height: 100px; }
 						.btn {
@@ -128,15 +125,13 @@
 
 
 		section {
-			color: @darkLight;
 			line-height: 1.65;
-			margin-bottom: 50px; 
+			margin-bottom: 40px; 
 			&:first-child {
 				padding-top: 0;
 				margin-top: 0; }
 			a { text-decoration: underline; }
 			h2 {
-				color: @dark;
 				margin: 0; }
 			dl.faq dt {
 				font-size: 14px;

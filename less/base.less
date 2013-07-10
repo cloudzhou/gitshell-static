@@ -4,7 +4,7 @@ body {
 	font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
 	font-size: @baseFontSize;
 	line-height: @baseLineHeight;
-	.box(~"50px 0 30px 0", 0);
+	.box(~"44px 0 30px 0", 0);
 	background-color: @white; }
 
 // Type
@@ -14,6 +14,12 @@ a {
 	&:hover {
 		color: @linkColorHover;
 		text-decoration: underline; } }
+
+.dotted {
+	border-bottom: 1px dotted transparent;
+	&:hover {
+		border-bottom-color: fadeout(@linkColor, 60%); }
+}
 
 .heading {
 	margin: (@baseLineHeight / 2) 0;
@@ -129,9 +135,8 @@ legend {
 	font-family: @sansFontFamily;
 	font-size: @baseFontSize;
 	padding: 3px 5px;
-	.bordered(solid; 1px; #c6c6c6);
-	.borderRadius(2px);
-	.boxShadow(inset 0 1px 1px fadeout(@dark, 90%));
+	.bordered(solid; 1px; #b3b3b3);
+	.boxShadow(inset 0 1px 1px fadeout(@dark, 80%));
 	.placeholder();
 	background-color: @white; }
 
@@ -158,8 +163,8 @@ legend {
 hr {
 	margin: @baseLineHeight 0;
 	border: 0;
-	border-top: 1px solid @greyLight;
-	border-bottom: 1px solid @white; }
+	border-top: 1px solid fadeout(@greyLight, 20%);
+	border-bottom: 1px solid transparent; }
 
 // Tables
 .table {
@@ -177,14 +182,14 @@ hr {
 .progress {
 	position: relative;
 	display: block;
-	height: 10px;
-	.bordered(solid; 1px; #d2d2d2);
+	height: 8px;
+	.bordered(solid; 1px; ~"#ddd #eee #eee");
 	.borderRadius(1px);
-	background-color: #eaeaea;
+	background-color: #eee;
 	.bar {
-		height: 10px;
-		.bordered(solid; 1px; ~"85a446, #629000, #649000, #629000");
+		height: 8px;
+		.bordered(solid; 1px; #5c9eda);
 		.borderRadius(2px 0 0 2px);
-		.linearGradient(top; #77a500; #75a500);
+		.linearGradient(top; #68b4f8; #68b4f8);
 		#positions > #abs > .topLeft(-1px; -1px); } }
 

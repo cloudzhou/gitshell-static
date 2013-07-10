@@ -35,8 +35,11 @@
 
 // Authorize
 .authorize {
+	padding-top: 30px;
+	width: 400px;
+	.centerBlock();
 	.header {
-		.heading { font-size: 2em; }
+		.heading {  }
 	}
 	.well {
 		p { margin-bottom: 10px; }
@@ -48,7 +51,7 @@
 		input[type="password"] {
 			display: block;
 			font-size: 13px;
-			.size(400px; 21px);
+			.size(400px; 29px);
 			margin-bottom: 10px;
 		}
 	}
@@ -57,15 +60,27 @@
 
 
 // Footer
+body {
+	& > .footer { border-top: 1px solid #e5e5e5; } }
+
 .footer {
 	font-size: 12px;
-	margin: 20px 0;
-	a { color: @darkLight; }
-	.nav {
+	.box(~"20px 0"; ~"20px 0");
+	dl.nav {
 		.box(~"6px 0 6px 0", 0);
+		.pull-left();
+		width: 200px;
+		dt.leader { margin-bottom: 8px; }
+		dd { 
+			line-height: @baseLineHeight * 1.25; 
+			.box(0;0); }
 		a {
+			display: inline;
+			color: @grey;
 			font-weight: bold;
-			margin-right: 20px; }
+			margin-right: 20px; 
+			&:hover { color: @darkLight; }
+		}
 	}
 	.copyright {
 		color: @grey;

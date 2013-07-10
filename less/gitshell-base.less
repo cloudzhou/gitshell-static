@@ -1,58 +1,46 @@
 // GitShell Special Style
 // Navbar
 .navbar {
-	font-size: 13px;
-	font-weight: bold;
-	border-bottom: 1px solid #c1c1c1;
-	.linearGradient(top; #f3f3f3; #e9e9e9);
-	.boxShadow(0 1px 0 #f2f2f2);
-	a {
-		color: @darkLight;
-		font-weight: bold; }
+	background-color: @white;
+	.boxShadow(0 1px 3px rgba(0, 0, 0, .35));
 	.navbar-inner {
 		.brand {
-			color: @linkColor;
+			color: @dark;
 			padding: 0;
 			margin-right: 20px;
 			font-size: 20px;
-			line-height: 44px;
-			height: 44px; }
+			line-height: 30px;
+			height: 30px; }
 		.nav {
 			float: left;
 			& > li {
-				.bordered(solid; ~"0 1px"; transparent);
-				&:hover, &.active {
-					border-color: transparent #c1c1c1;
-					@boxShadow: 1px 0 0 fadeout(@white, 50%), inset 1px 0 0 fadeout(@white, 70%);
-					.linearGradient(top; #e5e5e5; #ddd);
-					.boxShadow(@boxShadow); } }
+				.bordered(solid; ~"0 1px"; transparent); }
 			&.global {
 				a {
-					padding: 13px 10px; 
-					&:hover {
-						text-decoration: none; } } }
+					font-size: @fontSizeSmall;
+					padding: 6px 10px; } }
 			.user {
 				position: relative;
 				display: block;
 				padding: 0;
-				.size(28px; 28px);
+				.size(20px; 20px);
 				.avatar {
-					.borderRadius(2px);
-					.square(28px); } }
+					.square(20px); } }
 			&.account {
 				float: right;
 				font-size: 12px;
 				margin-right: 0;
 				.notifications, .dropdown {
-					padding: 8px 10px;
+					padding: 5px 2px;
 					.label {
-						padding: 4px 10px; } }
+						height: 20px;
+						.borderRadius(0);
+						padding: 0 7px; } }
 				.dropdown-menu {
-					top: 44px;
+					top: 100%;
 					right: -1px;
 					width: 240px;
 					padding: 0;
-					background-color: @white;
 					h2, .email {
 						.box(~"0 20px"; ~"3px 0"); }
 					h2 { font-size: 14px; margin-top: 10px; }
@@ -65,13 +53,17 @@
 						float: none;
 						margin-top: 10px;
 						border-top: 1px solid #ddd;
-						background-color: #eee;
-						.boxShadow(inset 0 1px 0 @white);
+						background-color: @white;
 						a {
-							color: @darkLight;
-							font-weight: bold;
-							padding: 0;
-							span { padding: 5px 20px; } } } }
+							padding: 5px 20px;
+							display: block;
+							font-weight: bold; } } 
+					&:before {
+						content: "";
+						.bordered(solid; ~"0 10px 10px 10px"; ~"transparent transparent white");
+						#positions > #abs > .topRight(-10px; 10px);
+					}
+				}
 				&.open {
 					.dropdown-toggle {
 						.borderRadius(1px 1px 0 0);

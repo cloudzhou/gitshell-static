@@ -5,35 +5,38 @@
 	width: 40px;
 	.nav-list {
 		li {
-			margin-bottom: -1px;
-			&.first {
-				a { .borderRadius(2px 2px 0 0); } }
-			&.middle {
-				a { .borderRadius(0); } }
-			&.last {
-				a{ .borderRadius(0 0 2px 2px); } }
+			border-top: 1px solid #292929;
+			border-bottom: 1px solid @black;
 		}
 		a {
 			display: block;
 			text-align: center;
 			color: @greyLight;
-			padding: 8px 0;
-			background-color: @dark;
+			border-right: 3px solid transparent;
+			border-left: 3px solid transparent;
+			background-color: #222;
+			span {
+				display: block;
+				padding: 8px 0; }
 			i {
 				//.textShadow(0 1px 0 rgba(255, 255, 255, .95));
 				font-size: 15px;
 				margin-right: 0; }
 			&:hover {
+				background-color: #262626;
 					color: @white; }
-			.active & {
+			}
+			.active {
+				a {
 				color: @white;
-				background-color: #e9e9e9; } } } }
+				border-right-color: @red; } }
+		} }
 
 
 // Repo-actions-bar
 .repo {
 	& > .header {
-		padding: 15px 0;
+		padding: 10px 0;
 	} }
 
 .repo-actions-bar {
@@ -41,8 +44,7 @@
 	.repocrumb {
 		float: left;
 		font-weight: bold;
-		font-size: 22px;
-		margin-bottom: 10px; }
+		font-size: 20px; }
 	// Actions
 	.repo-actions {
 		float: right;
@@ -55,42 +57,45 @@
 				display: block; } } }
 }
 
-.description p {
-	margin: 0; }
+.description { 
+	p {
+		margin: 0; } }
 
 // Repository tabs
 .repo-tabs {
 	position: relative;
 	&.nav {
 		padding-left: 10px;
+		li { margin: 0 5px; }
 		a {
 			display: block;
 			color: @grey;
 			font-size: @baseFontSize;
-			line-height: 30px;
-			height: 30px;
-			padding: 0 15px;
-			margin-bottom: -1px;
-			border-bottom: 1px solid transparent;
+			font-weight: 400;
+			padding: 2px 5px;
+			border-bottom: 2px solid transparent;
 			&:hover { text-decoration: none; }
 			.label {
 				line-height: 1.3;
 				.opacity(90);
 				.box(~"0 5px"; ~"0 0 0 5px");
-				.borderRadius(25px); } }
+				.borderRadius(1px); } }
 		.active a {
 			color: @dark;
-			background-color: @white;
-			border-bottom-color: @white;
+			font-size: 16px;
 			.label { opacity: 1; } } } }
 
 
 
 .url-container {
 	position: relative;
-	padding: 0;
+	padding: 10px;
+	margin-bottom: 15px;
+	border-top: 1px solid fadeout(@dark, 80%);
+	border-bottom: 1px solid fadeout(@dark, 80%);
+	background-color: fadeout(@grey, 80%);
 	dl.url {
-		margin: 0 0 15px;
+		margin: 0;
 	.url-data {
 		font-family: @monoFontFamily;
 		width: 500px; 
@@ -101,11 +106,30 @@
 }
 
 
+.repo {
+	.inner-container {
+	}
+}
+
+
 .files {
 	.branches {
 		float: left;
 		font-weight: bold;
 		.btn { display: block; }
+		.dropdown-menu {
+			.master { a {  } }
+			a {
+				position: relative;
+				display: block;
+				color: @darkLight;
+				padding: 7px 10px;
+				&:hover {
+					text-decoration: none;
+					background-color: #ddd; }
+			}
+			.active { i[class^="icon-"] { #positions > #abs > .topRight(7px; 10px); } }
+		}
 	}
 	.current-branch-name {
 		display: block;
@@ -116,9 +140,11 @@
 		font-weight: bold; }
 	.table {
 		font-family: @sansFontFamily;
-		tr { &:hover { background-color: fadeout(@greyLight, 90%); } }
+		tr { &:hover { background-color: #f5f5f5; 
+				.boxShadow(inset 1px 0 0 white);
+		} }
 		td {
-			padding: 6px 0;
+			padding: 5px 0;
 			border-color: #f5f5f5;
 			&.file-name {
 				font-family: @monoFontFamily;
@@ -128,6 +154,11 @@
 			&.commit-info {
 				a {
 					color: fadeout(@darkLight, 20%);
+					border-bottom: 1px dotted transparent;
+					&:hover {
+						text-decoration: none;
+						border-bottom-color: @linkColor;
+						color: @linkColorHover; }
 					&.commiter {
 						color: @grey; }
 				}
@@ -137,5 +168,191 @@
 				color: @grey;
 			}
 		}
+	}
+}
+
+
+.commits {
+	.commit {
+		border-bottom: 1px solid #f1f1f1;
+		.commiter {
+			padding: 12px 0; }
+		.msg {
+			font-size: 14px;
+			font-weight: bold;
+			a { color: @darkLight; } }
+		.meta {
+		  margin-bottom: 0;
+			font-size: @fontSizeSmall;
+			a { color: @darkLight; }
+			.date { 
+				color: @grey; } }
+		.hash {
+			padding: 12px 0;
+			.pull-right();
+			font-family: @monoFontFamily;
+			font-weight: bold; }
+	}
+}
+
+
+.issues {
+	.issues-header {
+		.btn {
+			.linearGradient(top; #ffffff; #ffffff);
+		}
+	}
+
+	.issue {
+		padding: 12px 0;
+		border-bottom: 1px solid #f1f1f1;
+		&.cell {
+			.data {
+				.well();
+				.arrow(10px; 9px; #e5e5e5; #f5f5f5);
+			}
+		}
+		.avatar {
+			margin-right: 10px; }
+		.data {
+			.heading { margin: 0; }
+			.date { color: @grey; }
+			.content { font-weight: bold; margin: 0 0 10px; }
+		}
+
+		h1.heading { font-size: (@baseFontSize * 1.75); line-height: 1.5;.label { line-height: 1; margin-right: 10px; } }
+
+		.meta {
+			color: @grey;
+			font-size: @fontSizeSmall;
+			a { color: @grey; &:hover { color: @linkColorHover; } }
+			.assiged { margin-right: 10px; }
+			.label {
+				color: @darkLight;
+				padding: 2px 5px; }
+		}
+
+	}
+	.comment {
+		padding: 12px 0;
+		.comment-data {
+			font-weight: bold;
+			margin: 0; }
+		.meta {
+			color: @grey;
+			font-size: @fontSizeSmall;
+			margin-top: 5px; 
+			a { color: @grey; }
+			& > span, & > a { margin-right: 10px; }
+		}
+		textarea { 
+			max-width: 600px;
+			resize: none;
+			.transition(all ease-in .2s);
+			&:focus { width: 600px; } }
+	}
+
+	form.issue {
+		padding: 10px;
+		background-color: #f7f0ef;
+		.fields {
+			margin-bottom: 10px;
+			.label-assign, .label-category {
+				font-weight: bold;
+			}
+			.label-category { margin-left: 20px; }
+		}
+		textarea {
+			display: block;
+			width: 600px;
+			max-width: 600px;
+			min-width: 600px;
+			height: 120px;
+			min-height: 120px;
+			max-height: 140px;
+		}
+		.alert { width: 565px; }
+		.actions { padding: 10px 0; }
+	}
+
+
+}
+
+
+
+
+.pulls {
+	.table {
+		background-color: #f5f5f5;
+		td { padding: 10px; border-color: #e5e5e5 transparent; }
+		.title, .puller {
+			a { color: @darkLight; }
+		}
+		.title { font-weight: bold; }
+		.puller { a { margin: -3px 0 0; } }
+		.branch {
+			font-weight: bold;
+			.master { a { color: @darkLight; } }
+		}
+		.description { color: @grey; }
+		.status { .label { font-weight: bold; } }
+	}
+
+	.pull {
+		ul.horizontal-list {
+			font-size: @baseFontSize * 1.25;
+			li { 
+				color: @white;
+				.textShadow(0 -1px 0 rgba(0, 0, 0, .2));
+				padding: 0;
+				width: 50%; 
+				.linearGradient(top; #afbdda; #8599bd);
+				p { margin: 10px; }
+				&.first { }
+			}
+		}
+		.data {
+		}
+		.loader {
+			padding: 30px 0;
+			text-align: center; }
+	}
+
+}
+
+
+
+.members {
+	.clearfix();
+	.member {
+		.pull-left();
+		width: 50%;
+		margin-bottom: 10px;
+		position: relative;
+		.user-plugin { 
+			.box(~"10px 10px 10px"; ~"0 10px 0 0"); 
+			.name { margin: 2px 0 8px; }
+			.meta { color: @grey; font-size: @fontSizeSmall;
+				.divider { margin: 0 8px; }
+				i[class^="icon-"] { margin-right: 2px; }
+			}
+		}
+		.delete-member {
+			#positions > #abs > .topLeft(0; 0);
+			color: @white;
+			padding: 2px 5px;
+			background-color: fadeout(@red, 60%);
+			&:hover { text-decoration: none; background-color: @red; }
+			i { margin-right: 0; }
+		}
+	}
+}
+
+
+.watchers {
+	.clearfix();
+	.member {
+		.members > .member();
+		.tweet { cursor: help; }
 	}
 }
