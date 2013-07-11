@@ -33,26 +33,34 @@ var repo_commits_template =
 var repo_commits_tmpl = Handlebars.compile(repo_commits_template);
 
 repo_diff_template =
-'<div id="diff_numstat">' +
-'   {{#each diff.numstat}}' +
-'       <div><span class="margin-left-10 label label-success">+ {{{this.[0]}}}</span><span class="margin-left-10 label label-important">- {{{this.[1]}}}</span><span class="margin-left-10 c_diff_stat_filename"><a href="#chg-{{{this.[2]}}}">{{{this.[2]}}}</a></span></div>' +
-'   {{/each}}' +
-'</div>' +
-'{{#if diff.numstat}}' + 
-'<div class="page-header" style="margin: 0px"></div>' +
-'{{/if}}' + 
-'<div id="diff_detail">' +
-'   {{#each diff.detail}}' +
-'       <div><a id="chg-{{{this.filename}}}"><p class="c_diff_file_filename">{{{this.filename}}}</p></a><div class="well">' +
-'       {{#each this.linediff}}' +
-'           <table>' +
-'           {{#each this}}' +
-'               <tr class="{{{this.[3]}}}"><td>{{{this.[0]}}}</td><td>{{{this.[1]}}}</td><td>{{{this.[2]}}}</td></tr>' +
-'           {{/each}}' +
-'           </table>' +
+'<div id="diff">' +
+'   <div class="diff-header">' +
+'       <ul class="diff-list">' +
+'       {{#each diff.numstat}}' +
+'           <li class="clearfix"><span class="diff-linenumber clearfix"><span class="added">+ {{{this.[0]}}}</span><span class="removed">- {{{this.[1]}}}</span></span><a href="#chg-{{{this.[2]}}}">{{{this.[2]}}}</a></li>' +
 '       {{/each}}' +
-'       </div></div>' +
-'   {{/each}}' +
+'       </ul>' +
+'   </div>' +
+'   <div class="diff-body">' +
+'       {{#each diff.detail}}' +
+'       <div class="diff-item-container">' +
+'               <div class="item-header clearfix"><h3 id="#chg-{{{this.filename}}}" class="heading">{{{this.filename}}}</h3><a href="" class="hidden view-file">View File</a></div>' +
+'               <div class="item-body">' +
+'                 <div class="data-container">' +
+'                   {{#each this.linediff}}' +
+'                       {{#each this}}' +
+'                       <div class="{{{this.[3]}}}">' +
+'                           <a href="javascript:void(0)" class="line-numbers"><span class="l1">{{{this.[0]}}}</span><span class="l2">{{{this.[1]}}}</span></a>' +
+'                           <pre class="data">{{{this.[2]}}}</pre>' +
+'                       </div>' +
+'                       {{/each}}' +
+'                   {{/each}}' +
+'                </div>' +
+'               </div>' +
+'           </div>' +
+'       {{/each}}' +
+'   </div>' +
 '</div>';
+
 var repo_diff_tmpl = Handlebars.compile(repo_diff_template);
 

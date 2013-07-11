@@ -40,19 +40,20 @@
                 for(x in detail) {
                     var linediff = detail[x].linediff;
                     for(y in linediff) {
+                        var i = 0;
                         for(z in linediff[y]) {
                             var linenum_left = linediff[y][z][0];
                             var linenum_right = linediff[y][z][1];
                             var line = linediff[y][z][2];
                             var is_remove = (linenum_left != 0 && linenum_right == 0);
                             var is_add = (linenum_left == 0 && linenum_right != 0)
-                            var class_ = '';
+                            var class_ = 'common';
                             if(is_remove) {
-                                class_ = 'c_remove_line';
+                                class_ = 'deletion';
                                 line = '-' + line;
                             }
                             if(is_add) {
-                                class_ = 'c_add_line';
+                                class_ = 'addition';
                                 line = '+' + line;
                             }
                             if(!is_remove && !is_add) {
@@ -65,10 +66,17 @@
                             if(linenum_right == 0) {
                                 linenum_right = '';
                             }
+                            if(i == 0) {
+                                class_ = class_ + ' first';
+                            }
+                            if(i == linediff[y].length - 1) {
+                                class_ = class_ + ' last';
+                            }
                             linediff[y][z][0] = linenum_left;
                             linediff[y][z][1] = linenum_right;
                             linediff[y][z][2] = line;
                             linediff[y][z].push(class_);
+                            i = i + 1;
                         }
                     }
                 }
