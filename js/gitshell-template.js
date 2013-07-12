@@ -44,7 +44,7 @@ repo_diff_template =
 '   <div class="diff-body">' +
 '       {{#each diff.detail}}' +
 '       <div class="diff-item-container">' +
-'               <div class="item-header clearfix"><h3 id="#chg-{{{this.filename}}}" class="heading">{{{this.filename}}}</h3><a href="" class="hidden view-file">View File</a></div>' +
+'               <div class="item-header clearfix"><h3 id="chg-{{{this.filename}}}" class="heading">{{{this.filename}}}</h3><a href="{{{this.filepath}}}" class="view-file">View File</a></div>' +
 '               <div class="item-body">' +
 '                 <div class="data-container">' +
 '                   {{#each this.linediff}}' +
