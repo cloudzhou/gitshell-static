@@ -1,16 +1,17 @@
-// Banner
-.banner {
-	text-align: center;
-	padding: 10px 0;
-	h1 {
-		font-size: 4em;
-		line-height: 1;
-		margin: 10px 0;
-		& + p {
-			color: @grey;
-			font-size: 16px;
-			line-height: 1.4;
-			margin: 10px; }
+// welcome
+.welcome {
+	.banner {
+		text-align: center;
+		padding: 10px 0;
+		h1 {
+			font-size: 2.5em;
+			line-height: 1;
+			margin: 0;
+			& + p {
+				font-size: 16px;
+				line-height: 1.4;
+				margin: 10px; }
+		}
 	}
 }
 
@@ -35,8 +36,10 @@
 
 // Authorize
 .authorize {
-	padding-top: 30px;
-	width: 400px;
+	padding: 10px;
+	width: 450px;
+	margin: 50px auto;
+	background-color: #dbe1f3;
 	.centerBlock();
 	.header {
 		.heading {  }
@@ -45,15 +48,17 @@
 		p { margin-bottom: 10px; }
 	}
 	.form {
-		margin: 0 auto 50px;
+		width: 415px;
+		margin: 0 auto;
 		input[type="text"],
 		input[type="email"],
 		input[type="password"] {
 			display: block;
 			font-size: 13px;
-			.size(400px; 29px);
+			.size(400px; 20px);
 			margin-bottom: 10px;
 		}
+		& + p { text-align: center; }
 	}
 }
 

@@ -1,16 +1,16 @@
 // Scaffolding
 body {
-	color: @darkLight;
-	font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+	color: @black;
+	font-family: "Open Sans", Arial, sans-serif;
 	font-size: @baseFontSize;
 	line-height: @baseLineHeight;
-	.box(~"60px 0 0 0", 0);
+	.box(0, 0);
 	background-color: @white; }
 
 // Type
 a {
 	color: @linkColor;
-	text-decoration: none;
+	text-decoration: underline;
 	&:hover {
 		color: @linkColorHover;
 		text-decoration: underline; } }
@@ -135,8 +135,7 @@ legend {
 	font-family: @sansFontFamily;
 	font-size: @baseFontSize;
 	padding: 3px 5px;
-	.bordered(solid; 1px; #b3b3b3);
-	.boxShadow(inset 0 1px 1px fadeout(@dark, 80%));
+	.bordered(solid; 1px; ~"#999 #ccc #ccc");
 	.placeholder();
 	background-color: @white; }
 
