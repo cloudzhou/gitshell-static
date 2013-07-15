@@ -59,14 +59,15 @@
 
 	// Nav tabs
 	&.nav-tabs {
-		border-bottom: 1px solid @blue;
+		border-bottom: 1px solid #bbb;
 		.active a { 
 			color: @dark;
-			border-color: transparent transparent @blue; }
+			font-weight: bold;
+			border-color: transparent transparent #333; }
 		a {
 			font-weight: bold;
-			.bordered(solid; ~"0 0 2px 0"; transparent);
-			.box(~"10px 25px 10px 25px"; 0); } } }
+			.bordered(solid; ~"0 0 4px 0"; transparent);
+			.box(~"10px 25px 10px 25px"; ~"0 0 -1px"); } } }
 
 // Breadcrumb
 .breadcrumb {

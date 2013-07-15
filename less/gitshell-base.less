@@ -1,41 +1,61 @@
-// GitShell Special Style
+.header {
+	h1.heading { 
+		font-size: @baseFontSize * 1.45; 
+	}
+}
 // Navbar
 .navbar {
-	background-color: @white;
-	.boxShadow(0 1px 3px rgba(0, 0, 0, .35));
+	.linearGradient(top; #f5f5f5; #ececec);
+	border-bottom: 1px solid #bdbdbd;
+	.boxShadow(0 1px 0 rgba(0, 0, 0, .085));
 	.navbar-inner {
 		.brand {
 			color: @dark;
 			padding: 0;
 			margin-right: 20px;
 			font-size: 20px;
-			line-height: 30px;
-			height: 30px; }
+			line-height: 44px;
+			height: 44px; 
+			&:hover { text-decoration: none; } }
 		.nav {
 			float: left;
 			& > li {
 				.bordered(solid; ~"0 1px"; transparent); }
 			&.global {
 				a {
+					color: @darkLight;
 					font-size: @fontSizeSmall;
-					padding: 6px 10px; } }
+					.bordered(solid; ~"0 1px"; transparent);
+					padding: 13px 10px; 
+					&:hover { 
+						text-decoration: none;
+						@boxShadow: inset 1px 0 0 fadeout(@white, 60%), inset -1px 0 0 fadeout(@white, 60%), inset 0 1px 3px fadeout(@dark, 80%);
+						.boxShadow(@boxShadow);
+						border-color: transparent #ccc;
+						background-color: #e3e3e3; }
+				} }
 			.user {
 				position: relative;
 				display: block;
 				padding: 0;
-				.size(20px; 20px);
+				.square(26px);
+				border: 1px solid #999;
+				.borderRadius(2px);
 				.avatar {
-					.square(20px); } }
+					.borderRadius(2px);
+					.square(26px); } }
 			&.account {
 				float: right;
 				font-size: 12px;
 				margin-right: 0;
 				.notifications, .dropdown {
-					padding: 5px 2px;
+					padding: 8px 2px;
 					.label {
-						height: 20px;
-						.borderRadius(0);
-						padding: 0 7px; } }
+						color: @white;
+						height: 28px;
+						line-height: 28px;
+						.borderRadius(2px);
+						padding: 0 10px; } }
 				.dropdown-menu {
 					top: 100%;
 					right: -1px;
@@ -70,3 +90,32 @@
 						.linearGradient(top; @white; @white);
 						border-bottom: none; } } } } } }
 
+
+// Footer
+body {
+	& > .footer { border-top: 1px solid #e5e5e5; } }
+
+.footer {
+	font-size: 12px;
+	.box(~"20px 0"; ~"20px 0");
+	dl.nav {
+		.box(~"6px 0 6px 0", 0);
+		.pull-left();
+		width: 200px;
+		dt.leader { margin-bottom: 8px; }
+		dd { 
+			line-height: @baseLineHeight * 1.25; 
+			.box(0;0); }
+		a {
+			display: inline;
+			color: @grey;
+			font-weight: bold;
+			margin-right: 20px; 
+			&:hover { color: @darkLight; }
+		}
+	}
+	.copyright {
+		color: @grey;
+		font-style: italic;
+		margin: 0; }
+}

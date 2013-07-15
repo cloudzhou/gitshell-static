@@ -59,31 +59,3 @@
 
 
 
-// Footer
-body {
-	& > .footer { border-top: 1px solid #e5e5e5; } }
-
-.footer {
-	font-size: 12px;
-	.box(~"20px 0"; ~"20px 0");
-	dl.nav {
-		.box(~"6px 0 6px 0", 0);
-		.pull-left();
-		width: 200px;
-		dt.leader { margin-bottom: 8px; }
-		dd { 
-			line-height: @baseLineHeight * 1.25; 
-			.box(0;0); }
-		a {
-			display: inline;
-			color: @grey;
-			font-weight: bold;
-			margin-right: 20px; 
-			&:hover { color: @darkLight; }
-		}
-	}
-	.copyright {
-		color: @grey;
-		font-style: italic;
-		margin: 0; }
-}
