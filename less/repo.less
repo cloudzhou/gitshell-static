@@ -363,3 +363,41 @@
 		.tweet { cursor: help; }
 	}
 }
+
+
+.explore {
+	.activity, .recently { width: 50%; }
+	.user-plugin { 
+		padding: 10px 0;
+		border-bottom: 1px solid #f1f1f1;
+		.subject { color: @grey; font-weight: 400; font-style: italic; margin-left: 10px; }
+		.meta { color: @grey; }
+	}
+}
+
+.home {
+	.explore();
+	.user-plugin {
+		.name { font-weight: 400; a { font-weight: bold; } }
+		.author { font-weight: 400; margin-right: 10px; }
+	}
+
+
+	.timeline {
+		.feedtime {
+			padding: 10px;
+			.header { .date { color: @greyLight; margin-bottom: 0; border-bottom: 1px solid #ddd; } }
+			&.current { background-color: white; }
+			.avatar { .box(~"10px 0"; ~"0 0 10px"); img { margin-right: 10px; } a { font-size: @fontSizeLarge; font-weight: bold; } }
+			dl.item {
+				padding-left: 15px;
+				dt.leader { }
+				dd { 
+					margin-left: 15px; 
+					p { margin: 1px 0; line-height: @baseLineHeight * 0.9; .hash { font-size: @fontSizeSmall; font-family: @monoFontFamily; font-weight: bold; padding: 2px 5px; margin-right: 5px; .borderRadius(3px); background-color: #f7f7f7; border: 1px solid #e1e1e1; display: inline-block; } }
+				}
+			}
+		}
+	}
+
+}
