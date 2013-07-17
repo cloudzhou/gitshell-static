@@ -1,0 +1,112 @@
+// Navbar
+.navbar {
+	line-height: @baseLineHeight;
+	&.navbar-fixed {
+		width: 100%;
+		z-index: @zindexFixedNavbar;
+		#positions > #fix > .topLeft(0, 0); }
+
+	.navbar-inner {
+		.brand {
+			float: left;
+			display: block;
+			font-weight: bold;
+			padding: 12px 15px; }
+		.nav {
+			float: left;
+			li {
+				float: left; 
+				a {
+					display: block;	
+					font-weight: bold;
+					padding: 12px 15px; } } 
+			&.nav-list {
+				li {
+					float: none; } } } } }
+
+// Nav
+.nav {
+	.unstyledList();
+	.clearfix();
+	li { 
+		float: left; }
+	a {
+		display: block; }
+	// Nav list
+	&.nav-list { 
+		li { 
+			float: none; } }
+	// Flat nav list
+	&.flat-nav-list {
+		a {
+			color: @dark;
+			border-left: 2px solid transparent;
+			&.active { 
+				border-left-color: @green; }
+			&:hover {
+				text-decoration: none;
+				border-left-color: @green;
+				span {
+					background-color: #f2f2f2;
+					border-color: #eee transparent; } }
+			span {
+				display: block;
+				padding: 6px 20px;
+				.bordered(solid; ~"1px 0 1px 0"; transparent); }
+			// .active > a
+			.active & { 
+				border-left-color: @green; } } }
+
+	// Nav tabs
+	&.nav-tabs {
+		border-bottom: 1px solid #bbb;
+		.active a { 
+			color: @dark;
+			font-weight: bold;
+			border-color: transparent transparent #333; }
+		a {
+			font-weight: bold;
+			.bordered(solid; ~"0 0 4px 0"; transparent);
+			.box(~"10px 25px 10px 25px"; ~"0 0 -1px"); } } }
+
+// Breadcrumb
+.breadcrumb {
+	.unstyledList();
+	.clearfix();
+	li {
+		float: left;
+		&.active {
+			color: @darkLight; }
+		.divider {
+			margin: 0 8px;
+			color: @grey; } } }
+
+// Pagination
+.pagination {
+	.clearfix();
+	.nav {
+		.unstyledList();
+		li { 
+			float: left;
+			margin-right: 15px;
+			a { 
+				color: @grey;
+				font-weight: bold;
+			} } } 
+}
+
+// Dropdown
+.dropdown {
+  position: relative;
+	.dropdown-menu {
+		list-style: none;
+		display: none;
+		min-width: 160px;
+		padding: 5px 0;
+		background-color: @white;
+		z-index: @zindexDropdown;
+		.boxShadow(0 2px 5px rgba(0, 0, 0, .5));
+		#positions > #abs > .topLeft(100%, auto); }
+	&.open {
+		.dropdown-menu { 
+			display: block; } } } 

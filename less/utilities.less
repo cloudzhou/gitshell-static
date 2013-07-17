@@ -1,0 +1,43 @@
+.reset { 
+	.box(0, 0); }
+
+.visible {
+	visibility: show; }
+
+.invisible {
+	visibility: hidden; }
+
+.pull-left {
+	float: left; }
+
+.pull-right {
+	float: right; }
+
+.unstyledList {
+	.reset();
+	list-style: none; }
+
+.hide {
+	display: none; }
+
+.user-plugin {
+	.clearfix;
+	padding: 12px 0;
+	.avatar {
+		.reset;
+		float: left;
+		display: block;
+		margin-right: 10px; }
+	.info { float: left; }
+	@children: ~".msg, .name, .meta";
+	@{children} {
+		.reset;
+		line-height: 1;
+		margin-bottom: 6px; }
+	.name {
+		font-weight: bold; }
+	.meta {
+		font-weight: 400; }
+	.actions {
+		float: right; }
+}

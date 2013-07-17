@@ -1,0 +1,44 @@
+.container {
+	.centerBlock();
+	.clearfix(); }
+
+.bubble-inner {
+	position: relative;
+	float: left;
+	min-height: 300px; }
+
+
+@media(min-width: 1024px) {
+	.container {
+		width: 90%;
+		max-width: 1000px; }
+	.bubble-inner {
+		width: 95%; }
+}
+
+@media(max-width: 1024px) {
+	.container {
+		width: 960px; }
+	.bubble-inner {
+		width: 909px; }
+}
+
+.inner-container { }
+
+.bubble { 
+	.clearfix();
+	.header {
+		line-height: @baseLineHeight;
+		padding: 10px 0; }
+	&.bubble-flat { } }
+
+.colspan {
+	.span { 
+		float: left; }
+	.clearfix(); }
+
+.horizontal-list {
+	li { 
+		float: left; }
+	.unstyledList();
+	.clearfix(); }

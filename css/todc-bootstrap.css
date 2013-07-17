@@ -588,9 +588,10 @@ select:focus:required:invalid:focus {
 .btn:hover {
   text-shadow: none;
   border-color: #c6c6c6;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.055);
+  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.055);
+  -o-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.055);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.055);
   background-color: #f5f5f5;
   background-image: -moz-linear-gradient(top, #f8f8f8, #f1f1f1);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f8f8f8), to(#f1f1f1));

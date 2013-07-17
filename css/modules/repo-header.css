@@ -1,0 +1,78 @@
+.repo .header{
+	color: rgba(0, 0, 0, .75);
+	padding: 16px 20px 15px;
+	border-bottom: 1px solid #bbb9b9; }
+	.repo .header a {
+		color: #454545; }
+	.repo-actions-bar {
+		position: relative; }
+		.repocrumb {
+			float: left;
+			font-size: 20px;
+			font-weight: bold;
+			padding: 5px 0; }
+			.repocrumb li sup {
+				color: rgba(0, 0, 0, .35);
+				margin-left: 5px; }
+			.repocrumb .divider {
+				color: rgba(0, 0, 0, .35);
+				font-size: .85em;
+				font-weight: 400;
+				margin: 0 5px; }
+				.repocrumb .divider i {
+					margin-right: 0; }
+			.repocrumb .user a {
+				font-weight: 400; }
+	.repo-actions {
+		float: right;
+		margin: 1px 0; }
+		.repo-actions li {
+			float: left;
+			font-size: 13px;
+			margin: 0 1px;
+			position: relative; }
+			.repo-actions li .btn {
+				display: block;
+				font-weight: bold;
+				line-height: 25px;
+				padding: 0 8px;
+				height: 25px; }
+				.repo-actions li .btn:hover {
+					color: #454545; }
+			.repo-actions .btn-group .btn {
+				float: left; }
+			.repo-actions .btn-group .btn.first {
+				border-right: 0;
+				border-radius: 2px 0 0 2px;
+				-moz-border-radius: 2px 0 0 2px;
+				-webkit-border-radius: 2px 0 0 2px;
+				-o-border-radius: 2px 0 0 2px; }
+			.repo-actions .btn-group .btn.last {
+				border-radius: 0 2px 2px 0;
+				-moz-border-radius: 0 2px 2px 0;
+				-webkit-border-radius: 0 2px 2px 0;
+				-o-border-radius: 0 2px 2px 0; }
+			.repo-actions .btn-group .btn.count {
+				font-size: 11px;
+				background-color: white;
+				background-image: none;
+				font-weight: bold; }
+
+		.description {
+			color: #717171;
+			padding: 0;
+			position: relative; }
+			.repo .description a {
+				color: #245dc1; }
+			.description p {
+				margin: 0; }
+			.repo-admin-edit {
+				display: none;
+				position: absolute;
+				right: 10px;
+				bottom: 0; }
+			.repo-admin-edit .btn {
+				display: block;
+				float: left;
+				font-size: 10px;
+				margin-left: 2px; }
