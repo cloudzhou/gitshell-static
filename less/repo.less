@@ -134,6 +134,10 @@
 
 
 	// Clone Watchers
+	[class*="repo-"] {
+		p.meta {  line-height: @baseLineHeight; }
+		.info { float: none; }
+	}
 	.watchers {
 		.clearfix();
 		border-top: 1px solid #e1e1e1;
@@ -177,22 +181,79 @@
 
 	// Issues
 	.issues {
+		.inner-container { .clearfix(); }
 		.sidebar {
 			float: left;
 			width: 180px;
+			.nav {
+				.leader { margin: 20px 0 5px; }
+				dd { margin-left: 0; }
+				a {
+					display: block;
+					font-weight: bold;
+					line-height: @baseLineHeight * 1.2;
+					padding-left: 15px;
+					border-left: 2px solid transparent;
+					position: relative;
+					&:hover { border-left-color: @yellow; background-color: #e9e9e9; }
+					&.active { color: @green; i { color: @green; #positions > #abs > .topLeft(1px; 0); text-decoration: none; } }
+				}
+			}
 		}
 
 		.issue-list {
 			margin-left: 200px;
+			.header {
+				overflow: hidden;
+				border-bottom: 1px solid #e5e5e5;
+				.heading { float: left; }
+				.sort {
+					float: right;
+					margin-top: 10px;
+					li { float: left; }
+				}
+			}
 			.issue {
 				padding: 8px 0;
 				border-bottom: 1px solid #ddd;
 				.data { 
-					margin-left: 25px; 
-					.issue-id { color: white; font-weight: bold; display: inline-block; text-align: center; width: 30px; margin-right: 5px; background-color: @grey; }
-					.txt { color: @black; font-weight: bold; text-decoration: none; }
-					.date { color: @grey; float: right; }
+					margin-left: 45px; 
+					.title { margin: 0; }
+					.issue-id { color: white; font-size: @fontSizeSmall; font-weight: bold; display: inline-block; text-align: center; width: 30px; background-color: @grey; }
+					.txt { color: @black; font-weight: 900; text-decoration: none; }
+					.meta { color: @grey; font-size: @fontSizeSmall; margin-top: 5px; 
+						a { color: @darkLight; margin-left: 3px; } 
+						.date { color: @grey; float: right; }
+					}
 				}
+				&.cell {
+					.heading {
+						float: none;
+						overflow: hidden;
+						font-size: @baseFontSize * 1.65;
+						line-height: @baseLineHeight * 1.45;
+						.label {
+							float: left;
+							font-size: @baseFontSize * 1.75;
+							letter-spacing: -1px;
+							margin-right: 10px;
+						}
+					}
+					.meta { text-align: right; margin-bottom: 0; color: @grey; a { color: @dark; } 
+						.assiged,.unixtime,.actions {
+							margin-left: 20px;
+						}
+					}
+					.data .content { font-weight: bold; }
+				}
+			}
+
+			.comment {
+				overflow: hidden;
+				.info { float: none; margin-left: 45px; }
+				.commenter { margin: 0; font-size: @fontSizeSmall; color: @grey; a { color: @darkLight; } }
+				.comment-data { margin: 5px 0; font-weight: bold; }
+				.meta { .opacity(0); font-size: @fontSizeSmall; margin-top: 10px; a { color: @grey; margin-right: 10px; } }
 			}
 		}
 
