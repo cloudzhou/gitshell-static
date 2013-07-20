@@ -16,7 +16,11 @@ a {
 	text-decoration: underline;
 	&:hover {
 		color: @linkColorHover;
-		text-decoration: underline; } }
+		text-decoration: underline; }
+	&:focus {
+		outline: none;
+	}
+ 	}
 
 .dotted {
 	border-bottom: 1px dotted transparent;

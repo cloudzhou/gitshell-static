@@ -1,3 +1,4 @@
+@import 'http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css';
 // Sidenav
 .sidenav { display: none; }
 
@@ -54,20 +55,26 @@
 		}
 
 		.tree {
+			width: 100%;
 			font-family: @sansFontFamily;
 			.clearfix();
-			.file-browser {
+			#file-browser {
 				font-size: @fontSizeSmall;
 				font-weight: bold;
 				float: left;
 				width: 180px;
+				.ui-resizable-handle.ui-resizable-e {
+					cursor: col-resize;
+					&:hover { background: #f7f7f7 url("/static/img/resize-handler-bg.png") center center no-repeat; border-left: 1px solid #d4d4d4; }
+				}
 				.branches {
-					a.dropdown-toggle { display: block; margin-bottom: 5px; .btn { display: block; } .last { width: 18px; padding-left: 0; padding-right: 0; text-align: center; i { margin-right: 0; } } }
+					a.dropdown-toggle { position: relative; display: block; margin-bottom: 5px; margin-right: 2px; padding-right: 25px; }
 					.icon-code-fork { font-size: @baseFontSize; }
-					.branch { padding-left: 5px; padding-right: 5px; width: 149px; text-align: center; }
+					.branch { display: inline-block; text-align: center; }
 					.branch-name { color: @dark; }
+					.caret { width: 25px; padding: 2px 0; text-align: center; #positions > #abs > .topRight(-1px; -1px); i { margin-right: 0; } }
 					.nav-list {
-						width: 178px;
+						width: 100%;
 						li { &:hover { background-color: fadeout(@black, 90%); } }
 					}
 				}
