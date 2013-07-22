@@ -34,6 +34,9 @@ var repo_commits_tmpl = _.template(repo_commits_template);
 
 repo_diff_template =
 '<div id="diff">' +
+'   <% if(diff.numstat.length == 0){ %>' +
+'   <p>没有不同的地方</p>' + 
+'   <% } %>' +
 '   <div class="diff-header">' +
 '       <ul class="diff-list">' +
 '       <% _.each(diff.numstat, function(numstat){ %>' +
