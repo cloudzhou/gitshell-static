@@ -119,3 +119,262 @@ body {
 		font-style: italic;
 		margin: 0; }
 }
+
+#diff {
+    width: 980px;
+    margin: 0 auto; }
+
+    .diff-header {
+        margin: 20px 0; }
+        .diff-list {
+            list-style: none;
+            margin: 0;
+            padding: 0; }
+        .diff-linenumber {
+            float: left;
+            display: block;
+            margin-right: 15px; }
+            .diff-linenumber .added,
+            .diff-linenumber .removed {
+                display: inline-block;
+                font-size: 11px;
+                font-weight: bold;
+                line-height: 16px;
+                text-align: center;
+                width: 40px;
+                height: 16px; }
+            .diff-linenumber .added {
+                color: #399839;
+                border-radius: 3px 0 0 3px;
+                -moz-border-radius: 3px 0 0 3px;
+                -webkit-border-radius: 3px 0 0 3px;
+                -o-border-radius: 3px 0 0 3px;
+                background-color: #cfc; }
+            .diff-linenumber .removed {
+                color: #c33;
+                border-radius: 0 3px 3px 0;
+                -moz-border-radius: 0 3px 3px 0;
+                -webkit-border-radius: 0 3px 3px 0;
+                -o-border-radius: 0 3px 3px 0;
+                background-color: #fdd; }
+
+    .diff-body { 
+        margin: 20px 0; }
+        .diff-item-container {
+            margin-bottom: 20px; }
+        .diff-item-container .item-header {
+            padding: 15px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px 5px 0 0;
+            -moz-border-radius: 5px 5px 0 0;
+            -webkit-border-radius: 5px 5px 0 0;
+            -o-border-radius: 5px 5px 0 0;
+            background-color: #f5f5f5; }
+            .diff-item-container .heading {
+                float: left;
+                margin: 0; }
+            .diff-item-container .view-file {
+                float: right;
+                display: block;
+                color: #333;
+                font-size: 12px;
+                font-weight: bold;
+                padding: 3px 10px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                -moz-border-radius: 3px;
+                -webkit-border-radius: 3px;
+                -o-border-radius: 3px;
+                background-color: #f1f1f1;
+                background-image: linear-gradient(#f5f5f5, #f1f1f1);
+                background-image: -moz-linear-gradient(#f5f5f5, #f1f1f1);
+                background-image: -webkit-linear-gradient(#f5f5f5, #f1f1f1);
+                background-image: -o-linear-gradient(#f5f5f5, #f1f1f1); }
+                .diff-item-container .view-file:hover {
+                    text-decoration: none;
+                    border-color: #aaa; }
+        .diff-item-container .item-body {
+            border-style: solid;
+            border-width: 0 1px 1px;
+            border-color: #ccc;
+            overflow-x: auto;
+            overflow-y: hidden; }
+            .diff-item-container .data-container {
+                display: table;
+                width: 100%; }
+            .diff-item-container .deletion,
+            .diff-item-container .addition,
+            .diff-item-container .common {
+                height: 20px; }
+            .diff-item-container .last {
+                border-bottom-width: 1px;
+                border-radius: 0 0 5px 5px;
+                -moz-border-radius: 0 0 5px 5px;
+                -webkit-border-radius: 0 0 5px 5px;
+                -o-border-radius: 0 0 5px 5px; }
+            .diff-item-container .line-numbers {
+                position: absolute;
+                display: block;
+                color: #777;
+                font-size: 12px;
+                line-height: 20px;
+                width: 80px;
+                height: 20px;
+                border-right: 1px solid #ccc;
+                background-color: #f5f5f5; }
+                .diff-item-container .line-numbers:after {
+                    display: inline-block;
+                    content: "";
+                    position: relative;
+                    left: 0; }
+                .diff-item-container .line-numbers:hover {
+                    background-color: #e9e9e9; }
+                .diff-item-container .last .line-numbers {
+                    border-radius: 0 0 0 5px;
+                    -moz-border-radius: 0 0 0 5px;
+                    -webkit-border-radius: 0 0 0 5px;
+                    -o-border-radius: 0 0 0 5px; }
+                .diff-item-container .line-numbers .l1,
+                .diff-item-container .line-numbers .l2 {
+                    display: inline-block;
+                    text-align: center;
+                    width: 39px; }
+            .diff-item-container pre.data {
+                font-size: 12px;
+                font-family: Consolas,Menlo,Monaco,"Courier New",Monospace;
+                white-space: nowrap;
+                word-break: keep-all;
+                word-wrap: normal;
+                line-height: 20px;
+                height: 20px;
+                padding: 0 10px;
+                margin-left: 80px;
+                border: none;
+                border-radius: 0;
+                -moz-border-radius: 0;
+                -webkit-border-radius: 0;
+                -o-border-radius: 0; }
+                .diff-item-container .deletion pre.data {
+                    background-color: #fdd; }
+                    .diff-item-container .deletion pre.data del {
+                        color: #c33;
+                        background-color: #ff97a9; }
+                .diff-item-container .addition pre.data {
+                    background-color: #cfc; }
+                    .diff-item-container .last pre.data {
+                        border-radius: 0 0 5px 0;
+                        -moz-border-radius: 0 0 5px 0;
+                        -webkit-border-radius: 0 0 5px 0;
+                        -o-border-radius: 0 0 5px 0; }
+                    .diff-item-container .addition pre.data ins {
+                        color: #199734;
+                        background-color: #40f189; }
+
+                    .diff-item-container .deletion pre.data del,
+                    .diff-item-container .addition pre.data ins {
+                        display: inline-block;
+                        text-decoration: none;
+                        line-height: 20px; }
+
+
+.wmd-panel
+{
+    width: 30%;
+    min-width: 400px;
+    margin-bottom: 10px;
+}
+.wmd-button-bar 
+{
+    width: 100%;
+    background-color: Silver; 
+}
+.wmd-input 
+{ 
+    padding: 8px;
+    height: 250px;
+    width: 100%;
+    border: 1px solid Gray;
+}
+.wmd-preview 
+{ 
+    padding: 8px;
+    border: 3px dashed #CCCCCC;
+    min-height: 100px;
+}
+.wmd-button-row 
+{
+    position: relative; 
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    padding: 0px;  
+    height: 20px;
+}
+.wmd-spacer
+{
+    width: 1px; 
+    height: 20px; 
+    margin-left: 14px;
+    
+    position: absolute;
+    background-color: Silver;
+    display: inline-block; 
+    list-style: none;
+}
+.wmd-button {
+    width: 20px;
+    height: 20px;
+    padding-left: 2px;
+    padding-right: 3px;
+    position: absolute;
+    display: inline-block;
+    list-style: none;
+    cursor: pointer;
+}
+.wmd-button > span {
+    background-image: url(/static/img/wmd-buttons.png);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+.wmd-spacer1
+{
+    left: 50px;
+}
+.wmd-spacer2
+{
+    left: 175px;
+}
+.wmd-spacer3
+{
+    left: 300px;
+}
+.wmd-prompt-background
+{
+    background-color: Black;
+}
+.wmd-prompt-dialog
+{
+    border: 1px solid #999999;
+    background-color: #F5F5F5;
+}
+.wmd-prompt-dialog > div {
+    font-size: 0.8em;
+    font-family: arial, helvetica, sans-serif;
+}
+.wmd-prompt-dialog > form > input[type="text"] {
+    border: 1px solid #999999;
+    color: black;
+}
+.wmd-prompt-dialog > form > input[type="button"]{
+    border: 1px solid #888888;
+    font-family: trebuchet MS, helvetica, sans-serif;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+.hidden {
+    display: none;
+}

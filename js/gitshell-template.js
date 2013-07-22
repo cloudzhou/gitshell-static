@@ -26,41 +26,41 @@ var repo_commits_diff_nav_template =
 
 var repo_commits_template = 
 '   <table class="table table-striped"><thead class="fixed"><tr><th width="20%">提交HASH (作者)</th><th width="10%">时间</th><th>日志</th></tr></thead><tbody>' +
-'       {{#each commits}}' +
-'           <tr><td><code>{{{commit_hash}}}</code><span>({{{committer}}})</span></td><td><span style="display: inline;">{{{committer_moment}}}</span></td><td>{{{commit_message}}}</td></tr>' +
-'       {{/each}}' + 
+'       <% _.each(commits, function(commit){ %>' +
+'           <tr><td><code><%-commit.commit_hash%></code><span>(<%-commit.committer%>)</span></td><td><span style="display: inline;"><%-commit.committer_moment%></span></td><td><%-commit.commit_message%></td></tr>' +
+'       <% }); %>' + 
 '   </tbody></table>';
-var repo_commits_tmpl = Handlebars.compile(repo_commits_template);
+var repo_commits_tmpl = _.template(repo_commits_template);
 
 repo_diff_template =
 '<div id="diff">' +
 '   <div class="diff-header">' +
 '       <ul class="diff-list">' +
-'       {{#each diff.numstat}}' +
-'           <li class="clearfix"><span class="diff-linenumber clearfix"><span class="added">+ {{{this.[0]}}}</span><span class="removed">- {{{this.[1]}}}</span></span><a href="#chg-{{{this.[2]}}}">{{{this.[2]}}}</a></li>' +
-'       {{/each}}' +
+'       <% _.each(diff.numstat, function(numstat){ %>' +
+'           <li class="clearfix"><span class="diff-linenumber clearfix"><span class="added">+ <%-numstat[0]%></span><span class="removed">- <%-numstat[1]%></span></span><a href="#chg-<%-numstat[2]%>"><%-numstat[2]%></a></li>' +
+'       <% }); %>' +
 '       </ul>' +
 '   </div>' +
 '   <div class="diff-body">' +
-'       {{#each diff.detail}}' +
+'       <% _.each(diff.detail, function(detail){ %>' +
 '       <div class="diff-item-container">' +
-'               <div class="item-header clearfix"><h3 id="chg-{{{this.filename}}}" class="heading">{{{this.filename}}}</h3><a href="{{{this.filepath}}}" class="view-file">View File</a></div>' +
+'               <div class="item-header clearfix"><h3 id="chg-<%-detail.filename%>" class="heading"><%-detail.filename%></h3><a href="<%-detail.filepath%>" class="view-file">View File</a></div>' +
 '               <div class="item-body">' +
 '                 <div class="data-container">' +
-'                   {{#each this.linediff}}' +
-'                       {{#each this}}' +
-'                       <div class="{{{this.[3]}}}">' +
-'                           <a href="javascript:void(0)" class="line-numbers"><span class="l1">{{{this.[0]}}}</span><span class="l2">{{{this.[1]}}}</span></a>' +
-'                           <pre class="data">{{{this.[2]}}}</pre>' +
+'                   <% _.each(detail.linediff, function(linediff){ %>' +
+'                       <% _.each(linediff, function(linediff_item){ %>' +
+'                       <div class="<%-linediff_item[3]%>">' +
+'                           <a href="javascript:void(0)" class="line-numbers"><span class="l1"><%-linediff_item[0]%></span><span class="l2"><%-linediff_item[1]%></span></a>' +
+'                           <pre class="data"><%=linediff_item[2]%></pre>' +
 '                       </div>' +
-'                       {{/each}}' +
-'                   {{/each}}' +
+'                       <% }) %>' +
+'                   <% }) %>' +
 '                </div>' +
 '               </div>' +
 '           </div>' +
-'       {{/each}}' +
+'       <% }); %>' +
 '   </div>' +
 '</div>';
 
-var repo_diff_tmpl = Handlebars.compile(repo_diff_template);
+var repo_diff_tmpl = _.template(repo_diff_template);
 
