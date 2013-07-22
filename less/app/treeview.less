@@ -1,0 +1,40 @@
+.treeview { 
+	a.selected {
+		background-color: #eee;
+	}
+	ul { 
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		li {
+			margin: 0;
+			&.collapsable, &.expandable { }
+			&.last { }
+		}
+	}
+	.hitarea {
+		.transition(all ease-in-out .2s);
+		height: 20px;
+		width: 20px;
+		margin-left: -20px;
+		float: left;
+		cursor: pointer;
+		&.expandable-hitarea {
+			background: transparent url(/static/img/icons/Folding-Collapsed.png) center center no-repeat; }
+		&.collapsable-hitarea {
+			.transform(rotate(90deg));
+			background: transparent url(/static/img/icons/Folding-Collapsed.png) center center no-repeat; }
+	}
+
+
+	#treecontrol { margin: 1em 0; display: none; }
+	.hover { color: red; cursor: pointer; }
+
+	.placeholder {
+		height: 16px;
+		width: 16px;
+		display: block; }
+}
+
+.filetree li { padding: 3px 0 2px 16px; }
+.filetree span.folder, .filetree span.file { padding: 1px 0 1px 16px; display: block; }

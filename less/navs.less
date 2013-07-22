@@ -59,7 +59,7 @@
 
 	// Nav tabs
 	&.nav-tabs {
-		border-bottom: 3px solid #e5e5e5;
+		border-bottom: 3px solid #cecece;
 		li { padding: 0 13px; }
 		.active a { 
 			color: @dark;
@@ -84,9 +84,10 @@
 
 // Pagination
 .pagination {
-	.clearfix();
+	overflow: hidden;
 	.nav {
 		.unstyledList();
+		overflow: hidden;
 		li { 
 			float: left;
 			margin-right: 15px;
@@ -105,8 +106,8 @@
 		min-width: 160px;
 		padding: 5px 0;
 		background-color: @white;
-		.bordered(solid; 1px; ~"#ddd #ccc #ccc #ddd");
-		.boxShadow(0 1px 5px fadeout(@black,80%));
+		.bordered(solid; 1px; fadeout(@black, 65%));
+		.boxShadow(0 0 3px fadeout(@black,70%));
 		z-index: @zindexDropdown;
 		#positions > #abs > .topLeft(100%, auto); }
 	&.open {

@@ -2,6 +2,8 @@
 .navbar {
 	height: 45px;
 	background-color: #3b9d9a;
+	border-bottom: 1px solid #29898e;
+	.boxShadow(0 1px 0 fadeout(@white, 20%));
 	.navbar-inner {
 		.brand {
 			.size(78px; 45px);
@@ -11,10 +13,14 @@
 			background: transparent url('/static/img/logo.png') 0 0 no-repeat; }
 		.nav {
 			&.global {
-				a { color: #737373; }
+				a { color: @white; font-weight: bold; }
 			}
 			&.account {
 				float: right;
+				// welcome
+				.welcome-msg {
+					color: @white;
+					a { display: inline; color: @white; font-weight: bold; padding-left: 5px; padding-right: 5px; } }
 				.notification, .dropdown {
 					padding: 10px 0; }
 				.label {
@@ -25,27 +31,27 @@
 					right: 0; 
 					min-width: 250px;
 					padding: 0;
+					background-color: #f2f3f4;
 					.arrowTopRight(6px; 5px; #ccc; #eee; absolute);
 					.header {
 						.clearfix();
-						background-color: #eee;
+						background-color: #e6e7e8;
 						padding: 10px 15px;
-						border-bottom: 1px solid #ddd;
-						.boxShadow(inset 0 1px 0 rgba(255, 255, 255, .85));
+						border-bottom: 1px solid #d3d4d5;
 						h1, .email { margin: 0; }
 						h1 { 
 							font-size: 1.75em; a { padding: 0; .userid { display: none; margin-left: 10px;} } 
 						}
-						.email { color: @grey; font-style: italic; margin-top: 5px; }
+						.email { color: @darkLight; font-style: italic; margin-top: 5px; }
 					}
 						.repo-count {
 							float: none;
 							padding: 0 15px;
 							li { float: none; margin-bottom: 5px; }
 							h4 {
-								font-size: 10px;
-								color: @grey;
-								margin: 10px 0 0;
+								font-size: 11px;
+								color: @dark;
+								margin: 10px 0 3px;
 								span { font-size: 11px; font-weight: 400; font-style: italic; }
 								.used { margin-left: 10px; }
 								.divider {
@@ -69,23 +75,30 @@
 	}
 }
 
+// #container
+#container {
+}
+
 // footer
 #footer {
 	color: @grey;
 	font-size: @fontSizeMini;
-	.box(~"10px 0"; ~"20px 0");
+	.box(~"10px 0"; ~"10px 0 0");
+	background-color: #2b2b2b;
 	//.boxShadow(inset 0 10px 10px fadeout(@black, 95%));
-	border-top: 1px solid #c5c8d0;
+	border-top: 1px solid fadeout(@white, 10%);
 	.nav {
 		a {
-			color: #8792a8;
+			color: @greyLight;
 			margin-right: 10px;
+			text-decoration: none;
 			font-weight: bold;
 			display: inline-block;
+			&:hover { text-decoration: underline; }
 			&.about-gitshell { i { margin-left: 5px; text-decoration: none; } }
 			&.free-join { color: @green; }
 			&.help { cursor: help; color: @darkLight; }
 		}
 	}
-	.copyright { a { color: @grey; } }
+	.copyright { color: #666; a { color: #666; } }
 }
