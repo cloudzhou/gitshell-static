@@ -108,9 +108,8 @@
                     var commit = json.commits[x];
                     var commit_hash = commit.commit_hash;
                     if(commit_hash in exists_commit_hash_map) {
-                        var tmp_parent_commit_hashs = json.commits[x].parent_commit_hash.split(' ')
-                        for(y in tmp_parent_commit_hashs) {
-                            exists_commit_hash_map[tmp_parent_commit_hashs[y]] = 1;
+                        for(y in json.commits[x].parent_commit_hash) {
+                            exists_commit_hash_map[json.commits[x].parent_commit_hash[y]] = 1;
                         }
                     }
                     var committer_moment = moment(new Date(commit.committer_date*1000)).fromNow();
