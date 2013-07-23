@@ -400,4 +400,43 @@
 		}
 	}
 
+
+}
+
+
+.repo {
+	.repo-create {
+		color: @black;
+		&.header {
+			.clearfix();
+			.heading { float: left; border-bottom: none; }
+			.ssh-setting {
+				margin: 15px 0 0;
+				float: right; }
+		}
+		.nav-tabs {
+			a { text-decoration: none; }
+		}
+		.repo-create-form {
+			@{inputs} {
+				height: 22px;
+				width: 400px;
+			}
+			textarea {
+				height: 100px;
+				resize: none;
+			}
+			.control-label { padding: 0; }
+			.controls {
+				ul {
+					.unstyledList();
+					.horizontal-list();
+					li { margin-right: 10px; }
+				}
+			}
+		}
+		.connect-github {
+			margin: 30px 0;
+		}
+	}
 }
