@@ -50,7 +50,12 @@
 	.repocrumb {
 		float: left;
 		font-weight: bold;
-		font-size: 18px; }
+		font-size: 18px;
+    sup {
+      a { color: @grey; }
+      &.synced { a { color: @green; } }
+    }
+  }
 	// Actions
 	.repo-actions {
 		float: right;
@@ -152,7 +157,8 @@
   background-color: #202020;
   overflow: auto;
   p { font-family: @monoFontFamily; line-height: 1.1; margin: 0; }
-  .label.label-info { padding: 2px 5px; .borderRadius(3px); line-height: 1; font-weight: bold; color: rgba(255, 255, 255, .85); background-color: #788aa2; background-image: none; border: none; }
+  .label { padding: 2px 5px; .borderRadius(3px); line-height: 1; font-size: 11px; font-weight: bold; color: rgba(255, 255, 255, .85); background-image: none; border: none; }
+  .label-info { color: @dark; }
   .c_commit_hash { color: #f79607; }
   .c_date_relative { color: #abd52e; }
   .c_commit { color: #fff; }
@@ -337,6 +343,17 @@
       font-weight: bold;
     }
     .chevron { margin: 0 20px; }
+    select {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: bold;
+      line-height: 25px;
+      height: 25px;
+      border: 1px solid #ddd;
+      .borderRadius(2px);
+      margin-bottom: 10px;
+
+    }
   }
 
 	.pull {

@@ -139,14 +139,16 @@ legend {
 	.bordered(solid; 1px; #b3b3b3);
 	.boxShadow(inset 0 1px 1px fadeout(@dark, 80%));
 	.placeholder();
-	background-color: @white; 
-  &[readonly] {
-    .boxShadow(none);
-    background-color: #f9f9f9;
-    border-color: #e5e5e5;
-    resize: none;
-  }
-}
+	background-color: @white; }
+
+html * [readonly="readonly"] {
+  color: fadeout(@dark, 40%);
+  background-color: #f9f9f9;
+  border-color: #e5e5e5;
+  .boxShadow(none);
+  resize: none;
+  background-image: none; }
+
 
 .form-horizontal {
   margin-bottom: 8px;
