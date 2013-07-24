@@ -14,7 +14,12 @@
   // issues
   #issues_container {
     .table {
-      td { background-color: #f9f9f9; }
+      td { 
+        position: relative; 
+        background-color: #f9f9f9; 
+        .c_label { #positions > #abs > .topRight(5px; 10px); }
+        .label-mini { font-weight: bold; display: inline-block; line-height: 1; padding: 2px 4px; .borderRadius(3px); }
+      }
     }
   }
 
@@ -40,7 +45,7 @@
 			}
 			.todo-list {
 				&#id_todoList {
-					.todo-item { color: @black; font-weight: bold; }
+					.todo-item { color: @black; font-weight: bold; cursor: move; background-color: white; }
 				}
 				&#id_todoneList { .cl_todo_text { text-decoration: line-through; } }
 				.todo-item {

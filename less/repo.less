@@ -37,6 +37,7 @@
 .repo {
 	& > .header {
 		padding: 10px 0;
+    margin-bottom: 10px;
 		border-bottom: 1px solid #e5e5e5;
 	} 
 	.header {
@@ -93,7 +94,6 @@
 	position: relative;
 	padding: 10px;
 	margin-bottom: 15px;
-	border-top: 1px solid fadeout(@dark, 80%);
 	border-bottom: 1px solid fadeout(@dark, 80%);
 	background-color: fadeout(@grey, 80%);
 	dl.url {
@@ -110,27 +110,22 @@
 
 .repo {
 	.inner-container {
-	}
-}
-
-
-.files {
-	.branches {
-		float: left;
-		font-weight: bold;
-		.btn { display: block; }
-		.dropdown-menu {
-			.master { a {  } }
-			a {
-				position: relative;
-				display: block;
-				color: @darkLight;
-				padding: 7px 10px;
-				&:hover {
-					text-decoration: none;
-					background-color: #ddd; }
-			}
-			.active { i[class^="icon-"] { #positions > #abs > .topRight(7px; 10px); } }
+    .branches {
+      float: left;
+      font-weight: bold;
+      .btn { display: block; }
+      .dropdown-menu {
+        .master { a {  } }
+        a {
+          position: relative;
+          display: block;
+          color: @darkLight;
+          padding: 7px 10px;
+          &:hover {
+            text-decoration: none;
+            background-color: #ddd; }
+        }
+        .active { i[class^="icon-"] { #positions > #abs > .topRight(7px; 10px); } }
 		}
 	}
 	.current-branch-name {
@@ -140,6 +135,33 @@
 		padding: 3px 0;
 		font-size: 14px;
 		font-weight: bold; }
+	}
+}
+
+
+#i_branches {
+  .branch-name { width: 40%; .heading { font-size: 16px; } }
+  .meta { width: 40%; }
+  .actions { width: 20%; .btn { margin-left: 10px; } }
+}
+
+#i_log_graph {
+  color: #d4d3fa;
+  font-size: 12px;
+  padding: 5px;
+  background-color: #202020;
+  overflow: auto;
+  p { font-family: @monoFontFamily; line-height: 1.1; margin: 0; }
+  .label.label-info { padding: 2px 5px; .borderRadius(3px); line-height: 1; font-weight: bold; color: rgba(255, 255, 255, .85); background-color: #788aa2; background-image: none; border: none; }
+  .c_commit_hash { color: #f79607; }
+  .c_date_relative { color: #abd52e; }
+  .c_commit { color: #fff; }
+  a { color: @grey; } }
+
+.files {
+  #i_source_code {
+    code { font-size: 12px !important; font-family: @monoFontFamily !important; }
+  }
 	.table {
 		font-family: @sansFontFamily;
 		tr { &:hover { background-color: #f5f5f5; 
@@ -171,6 +193,14 @@
 			}
 		}
 	}
+
+
+  .readme {
+    border-top: 2px solid #ddd;
+    padding: 20px 0;
+    margin-top: 20px;
+    pre { font-family: @sansFontFamily; }
+  }
 }
 
 
@@ -181,7 +211,7 @@
 			padding: 10px 0; }
 		.msg {
 			font-weight: bold;
-			a { color: @grey; } }
+			a {  } }
 		.meta {
 		  margin-bottom: 0;
 			font-size: @fontSizeSmall;
@@ -300,6 +330,15 @@
 		.status { .label { font-weight: bold; } }
 	}
 
+  .repo-refs-container {
+    .well();
+    margin-bottom: 20px;
+    .repo-refs {
+      font-weight: bold;
+    }
+    .chevron { margin: 0 20px; }
+  }
+
 	.pull {
 		ul.horizontal-list {
 			font-size: @baseFontSize * 1.25;
@@ -373,6 +412,14 @@
 		.subject { color: @grey; font-weight: 400; font-style: italic; margin-left: 10px; }
 		.meta { color: @grey; }
 	}
+  .activity {
+    .user-plugin {
+      margin-right: 20px; 
+      .info { float: none; margin-left: 50px; 
+        .meta { p { margin: 5px 0; } }
+      }
+    }
+  }
 }
 
 .home {
