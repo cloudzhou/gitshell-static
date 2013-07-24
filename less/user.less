@@ -1,5 +1,24 @@
 .user {
 
+	// pulls
+	#pull_container {
+		.table {
+			th { padding: 8px 10px; }
+      tr { td { background-color: #f9f9f9; } }
+			td { padding: 10px; }
+			td:first-child { .id { font-size: 14px; font-weight: bold; margin-right: 5px; } .puller { margin-left: 5px; color: @grey; text-decoration: underline; } .label-mini { .borderRadius(3px); padding: 3px; line-height: 1; font-weight: bold; } }
+			td.cl_merge_repo_branch { font-size: 12px; font-family: @monoFontFamily; letter-spacing: -1px; line-height: 1.8; a { &.repo-name { font-weight: bold; color: @linkColor; } color: @darkLight; padding: 2px; background-color: fadeout(@greyLight, 80%); .borderRadius(3px); } }
+		}
+	}
+
+  // issues
+  #issues_container {
+    .table {
+      td { background-color: #f9f9f9; }
+    }
+  }
+
+	// todo
 	&.todo{
 		#todo_container {
 			padding: 15px 0;
