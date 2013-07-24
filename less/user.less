@@ -1,4 +1,48 @@
 .user {
+
+	&.todo{
+		#todo_container {
+			padding: 15px 0;
+			.todo-controls {
+				.clearfix();
+				input[type="text"] {
+					width: 500px;
+					height: 25px;
+				}
+				.todo-category {
+					.clearfix();
+					.dropdown { float: left; margin-right: 2px; 
+						.dropdown-menu {
+							a { display: block; font-size: 13px; text-decoration: none; font-weight: bold; padding: 3px 10px; &:hover { background-color: #e9e9e9; } }
+							#id_addScene { border-top: 1px solid #ddd; margin-top: 5px; padding-top: 5px; }
+						}
+					}
+				}
+			}
+			.todo-list {
+				&#id_todoList {
+					.todo-item { color: @black; font-weight: bold; }
+				}
+				&#id_todoneList { .cl_todo_text { text-decoration: line-through; } }
+				.todo-item {
+					color: @grey;
+					font-size: @baseFontSize;
+					padding: 4px 0;
+					border-bottom: 1px solid #f3f3f3;
+					position: relative;
+					.drag-todo {
+						float: left;
+						margin-right: 10px;
+						a { color: @greyLight; .opacity(0); }
+					}
+					.cl_todo_control { #positions > #abs > .topRight(4px; 0); .btn-mini { padding: 2px 5px; line-height: 1; font-size: 10px; i { margin-right: 0; } } }
+					.cl_todo_text { margin: 0; }
+				}
+			}
+		}
+	}
+
+
 	.member {
 		position: relative;
 		border-bottom: 1px solid #ccc;
@@ -135,9 +179,6 @@
 		}
 		.half { width: 50%; }
 	}
-
-
-
 
 
 }
