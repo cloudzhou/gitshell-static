@@ -43,6 +43,30 @@
 	.header {
 		.heading { margin: 0; padding: 9px 0; border-bottom: 1px solid #ddd; }
 	}
+  &.setting {
+    #setting-toggler { font-weight: bold; text-decoration: underline; margin-bottom: 10px; }
+    .more-settings {
+      background-color: #fdfdfd;
+      border: 1px solid #ddd;
+      border-top: 0;
+      .table { margin-bottom: 0; }
+    }
+    .form-horizontal { 
+      margin-top: 20px;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 30px;
+      .control-label { padding-top: 0; }
+      #id_desc { width: 600px; height: 120px; max-width: 600px; min-width: 600px; min-height: 120px; max-height: 300px; }
+      .controls {
+        ul {
+          .unstyledList();
+          .clearfix();
+          li { float: left; margin-right: 15px; }
+        }
+      }
+    }
+  }
+  .destroy { text-align: center; padding: 15px 10px; border-width: 0; }
 }
 
 .repo-actions-bar {
@@ -176,6 +200,9 @@
 		td {
 			padding: 5px 0;
 			border-color: #f5f5f5;
+      &.icon {
+        color: @linkColor;
+      }
 			&.file-name {
 				font-family: @monoFontFamily;
 				letter-spacing: -1px;
