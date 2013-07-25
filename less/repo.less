@@ -41,6 +41,7 @@
 		border-bottom: 1px solid #e5e5e5;
 	} 
 	.header {
+    position: relative;
 		.heading { margin: 0; padding: 9px 0; border-bottom: 1px solid #ddd; }
 	}
   &.setting {
@@ -120,14 +121,27 @@
 
 
 .url-container {
-	position: relative;
 	padding: 10px;
 	margin-bottom: 15px;
 	border-bottom: 1px solid fadeout(@dark, 80%);
 	background-color: fadeout(@grey, 80%);
 	dl.url {
 		margin: 0;
-	.url-data {
+    .btn { cursor: pointer; 
+      &.active {
+        color: @white;
+        .textShadow(0 -1px 0 fadeout(@black, 60%));
+        @boxShadow: inset 0 1px 0 fadeout(@white, 85%), 1px 0 0 #175492;
+        .boxShadow(@boxShadow);
+        .btn.btn-primary();
+        position: relative;
+        z-index: 9;
+      }
+    }
+    #url-js-copy:hover, #url-js-copy.hover { position: relative; color: @dark; font-weight: bold; text-decoration: none; cursor: pointer; overflow: hidden; }
+    #url-js-copy:active, #url-js-copy.active { position: relative; color: @dark; font-weight: bold; text-decoration: none; cursor: pointer; overflow: hidden; }
+    #url-info { display: inline-block; margin: 7px 5px; font-weight: bold; }
+	#url-data {
 		font-family: @monoFontFamily;
 		width: 500px; 
 		.linearGradient(top; @white; @white);
@@ -365,7 +379,7 @@
 
   .repo-refs-container {
     .well();
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     .repo-refs {
       font-weight: bold;
     }
@@ -381,6 +395,14 @@
       margin-bottom: 10px;
 
     }
+  }
+
+  #i_merge_pullrequest {
+    font-size: 14px;
+    #positions > #abs > .topRight(15px; 0);
+  }
+  #i_pull_request_commits {
+    .table { th, td { text-align: left; line-height: 1; background-color: #f9f9f9; padding: 7px 10px; code { font-family: @monoFontFamily; font-weight: bold; color: @linkColor; margin-right: 5px; } } }
   }
 
 	.pull {
