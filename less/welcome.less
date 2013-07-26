@@ -1,16 +1,31 @@
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+body.welcome {
+  background-color: #f2f2f2;
+  font-family: "Open Sans", Arial, sans-serif;
+  .footer { margin-top: 0; border-top: none; }
+}
+
 .index {
 	width: 100%;
 	max-width: 100%;
 	margin-top: -15px;
+  .container {
+    width: 100%;
+    max-width: 100%;
+    background-color: #e3e4e6;
+    padding: 30px 0;
+    border-bottom: 1px solid #cacaca;
+    .boxShadow(inset 0 1px 0 fadeout(@white, 10%));
+  }
 }
 // Banner
 .banner {
 	color: @white;
 	text-align: center;
 	padding: 70px 0;
-	background: fadeout(@linkColor, 30%);
+	background: @linkColor;
 	h1 {
-		font-size: 4.5em;
+		font-size: 4em;
 		line-height: 1;
 		margin: 10px 0;
 	}
@@ -18,26 +33,33 @@
 	.authorize { padding-top: 0; }
 	.btn-large {
 		display: inline-block;
-		padding: 15px 40px;
+		padding: 10px 40px;
+    border-color: fadeout(@black, 60%);
 	}
 }
 
 // Welcome Summary
 .welcome-details { 
 	max-width: 1000px;
-	margin: 30px auto;
+	margin: 0 auto;
+  padding: 10px 0;
+  color: #575a60;
+  text-transform: capitalize;
+  .textShadow(0 1px 0 fadeout(@white, 20%));
 	li {
-		width: 25.3333333%;
-		padding: 0 8% 0 0;
-		min-height: 150px;
-		margin-bottom: 10px;
+		width: 25.11111%;
+		padding: 0 5% 0 0;
+		min-height: 110px;
+    margin-right: 3%;
+    border-right: 1px solid #cacaca;
+    .boxShadow(1px 0 0 rgba(255, 255, 255, .65));
+    &:last-child{ border-right: none; .boxShadow(none); }
 		h2 {
-			font-size: 20px;
-			line-height: 1.2;
-			margin: 5px 0; }
+			font-size: 18px;
+			line-height: 1;
+			margin: 10px 0; }
 		p {
-			color: #919191;
-			line-height: @baseLineHeight;
+			line-height: @baseLineHeight * 1.3;
 			font-size: 13px; }
 	}
 }

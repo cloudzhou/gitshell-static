@@ -2,13 +2,12 @@
 
 	// pulls
 	#pull_container {
-		.table {
-			th { padding: 8px 10px; }
-      tr { td { background-color: #f9f9f9; } }
-			td { padding: 10px; }
-			td:first-child { .id { font-size: 14px; font-weight: bold; margin-right: 5px; } .puller { margin-left: 5px; color: @grey; text-decoration: underline; } .label-mini { .borderRadius(3px); padding: 3px; line-height: 1; font-weight: bold; } }
-			td.cl_merge_repo_branch { font-size: 12px; font-family: @monoFontFamily; letter-spacing: -1px; line-height: 1.8; a { &.repo-name { font-weight: bold; color: @linkColor; } color: @darkLight; padding: 2px; background-color: fadeout(@greyLight, 80%); .borderRadius(3px); } }
-		}
+    .header { padding: 10px 0; }
+    .pull.well { padding: 0; margin-bottom: 10px; background-color: white; border-color: #c5d5de;
+      .heading { margin: -1px -1px 0 -1px; .borderRadius(2px 2px 0 0); .linearGradient(top; #f5f8f9; #e5ebee); border-color: #c5d5de; p { margin: 0; } h3 { float: left; margin: 0; a { font-size: 16px; } .label { line-height: 1; .borderRadius(3px); .textShadow(none); } } }
+      .meta { padding: 10px; p { margin: 10px 0 0 0; }  color: @grey; a { color: @grey; } }
+      .branches { display: block; .clearfix(); font-size: 14px; font-weight: bold; font-family: @monoFontFamily; letter-spacing: -1px; .btn { float: left; text-indent: 10px; .boxShadow(none); border-color: #cedee6; .linearGradient(top; #fff; #eff4f6); display: inline-block; padding: 8px 0; width: 483px; &:first-child { border-right: none; .borderRadius(2px 0 0 2px); } &:last-child { .borderRadius(0 2px 2px 0); } } a { color: @darkLight; } }
+    }
 	}
 
   // issues
