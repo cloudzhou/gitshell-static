@@ -1,50 +1,48 @@
-/**
- * Gitshell theme for Highcharts JS
- * @author Yuwen Song
- */
-
 Highcharts.theme = {
-	colors: ["#f1803b", "#7798BF", "#55BF3B", "#DF5353", "#aaeeee", "#ff0066", "#eeaaee",
-		"#55BF3B", "#2871c5", "#7798BF", "#aaeeee"],
+  colors: ["#1860A8","#ea7613", "#3F7C20", "#F06078", "#F0C000", "#903060", "#F09000","#55BF3B", "#DF5353", "#7798BF", "#D8DA86"],
 	chart: {
-		backgroundColor: '#f7f7f7',
-		borderRadius: 'none',
-		border: '1px solid #ddd',
+		backgroundColor: "#fff",
+		borderWidth: 0,
+		borderRadius: 15,
 		plotBackgroundColor: null,
 		plotShadow: false,
+    shadow: false,
 		plotBorderWidth: 0
 	},
 	title: {
 		style: {
-			color: '#222',
-			font: '16px Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
+			color: '#FFF',
+			font: '16px Helvetica, Arial, sans-serif'
 		}
 	},
 	subtitle: {
 		style: {
-			color: '#999',
-			font: '12px Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
+			color: '#DDD',
+			font: '12px Helvetica, Arial, sans-serif'
 		}
 	},
 	xAxis: {
 		gridLineWidth: 0,
+		lineColor: '#999',
+		tickColor: '#999',
 		labels: {
 			style: {
-				color: '#999',
-				fontSize: '11px'
+				color: '#333',
+				fontWeight: 'bold'
 			}
 		},
 		title: {
 			style: {
 				color: '#AAA',
-				font: 'bold 12px Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
+				font: 'bold 12px Helvetica, Arial, sans-serif'
 			}
 		}
 	},
 	yAxis: {
+    gridLineWidth: 0,
 		alternateGridColor: null,
 		minorTickInterval: null,
-		gridLineColor: '#efefef',
+		gridLineColor: 'rgba(255, 255, 255, .1)',
 		lineWidth: 0,
 		tickWidth: 0,
 		labels: {
@@ -56,13 +54,15 @@ Highcharts.theme = {
 		title: {
 			style: {
 				color: '#AAA',
-				font: 'bold 12px Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
+				font: 'bold 12px Helvetica, Arial, sans-serif'
 			}
 		}
 	},
 	legend: {
+    borderRadius: 0,
 		itemStyle: {
-			color: '#CCC'
+			color: '#CCC',
+      font: '12px Helvetica,Arial'
 		},
 		itemHoverStyle: {
 			color: '#FFF'
@@ -77,10 +77,46 @@ Highcharts.theme = {
 		}
 	},
 	tooltip: {
-		backgroundColor: 'rgba(0, 0, 0, .85)',
+    borderRadius: 0,
+		backgroundColor: "#222",
 		borderWidth: 0,
 		style: {
 			color: '#FFF'
+		}
+	},
+
+
+	plotOptions: {
+		line: {
+			dataLabels: {
+				color: '#CCC',
+        shadow: false,
+        backgroundColor: "#fff"
+			},
+			marker: {
+				lineColor: '#333',
+        shadow: false,
+        backgroundColor: "#fff"
+			}
+		},
+		spline: {
+			marker: {
+				lineColor: '#333',
+        shadow: false,
+        backgroundColor: "#fff"
+			}
+		},
+		scatter: {
+			marker: {
+				lineColor: '#333',
+        shadow: false,
+        backgroundColor: "#fff"
+			}
+		},
+		candlestick: {
+			lineColor: 'white',
+      shadow: false,
+      backgroundColor: "#fff"
 		}
 	},
 
@@ -99,17 +135,23 @@ Highcharts.theme = {
 					[0.6, '#333333']
 				]
 			},
-			borderColor: '#000000'
+			borderColor: '#000000',
+			symbolStroke: '#C0C0C0',
+			hoverSymbolStroke: '#FFFFFF'
 		}
 	},
 
 	exporting: {
 		buttons: {
 			exportButton: {
-				symbolFill: '#55BE3B'
+        borderWidth: 0,
+				backgroundColor: '#fff',
+				symbolFill: '#666',
 			},
 			printButton: {
-				symbolFill: '#7797BE'
+        borderWidth: 0,
+				backgroundColor: '#fff',
+				symbolFill: '#666'
 			}
 		}
 	},
@@ -124,6 +166,7 @@ Highcharts.theme = {
 					[0.6, '#555']
 				]
 			},
+			stroke: '#000000',
 			style: {
 				color: '#CCC',
 				fontWeight: 'bold'
@@ -152,7 +195,7 @@ Highcharts.theme = {
 					},
 					stroke: '#000000',
 					style: {
-						color: '#2871c5'
+						color: 'yellow'
 					}
 				}
 			}
@@ -172,10 +215,12 @@ Highcharts.theme = {
 			borderColor: '#AAA'
 		},
 		outlineColor: '#CCC',
-		maskFill: '#2871c5',
+		maskFill: 'rgba(16, 16, 16, 0.5)',
 		series: {
-			color: '#2871c5',
-			lineColor: '#2871c5'
+			color: '#7798BF',
+			lineColor: '#A6C7ED',
+      shadow: false,
+      backgroundColor: "#fff"
 		}
 	},
 
@@ -209,7 +254,7 @@ Highcharts.theme = {
 	},
 
 	// special colors for some of the demo examples
-	legendBackgroundColor: '#2871c5',
+	legendBackgroundColor: 'rgba(48, 48, 48, 0.8)',
 	legendBackgroundColorSolid: 'rgb(70, 70, 70)',
 	dataLabelsColor: '#444',
 	textColor: '#E0E0E0',

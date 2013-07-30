@@ -182,8 +182,10 @@
 			}
 		}
 
-
 	}
+  .inner-container {
+    & > .header { padding: 0; margin: 10px 0; border-bottom: 1px solid #ddd; .heading { border-bottom: none; } }
+  }
 
 
 	.cloner {
@@ -334,7 +336,6 @@
 
 	}
 
-
 	// Pulls
 	.pulls {
 		.inner-container { margin-top: 10px; padding: 10px; }
@@ -350,4 +351,94 @@
 
 
 
+}
+
+
+.explore {
+	.activity, .recently { width: 50%; }
+	.user-plugin { 
+		padding: 10px 0;
+		border-bottom: 1px solid #f1f1f1;
+		.subject { color: @grey; font-weight: 400; font-style: italic; margin-left: 10px; }
+		.meta { color: @grey; }
+	}
+  .activity {
+    .user-plugin {
+      margin-right: 20px; 
+      .info { float: none; margin-left: 50px; 
+        .meta { p { margin: 5px 0; } }
+      }
+    }
+  }
+}
+
+.home {
+	.explore();
+	.user-plugin {
+		.name { font-weight: 400; a { font-weight: bold; } }
+		.author { font-weight: 400; margin-right: 10px; }
+	}
+
+
+	.timeline {
+		.feedtime {
+			padding: 10px;
+			.header { .date { color: @dark; padding-bottom: 10px; margin-bottom: 0; border-bottom: 1px solid #ddd; } }
+			&.current { background-color: white; }
+			.avatar { .box(~"10px 0"; ~"0 0 10px"); img { margin-right: 10px; } a { font-size: @fontSizeLarge; font-weight: bold; } }
+			dl.item {
+				padding-left: 15px;
+				dt.leader { }
+				dd { 
+					margin-left: 15px; 
+					p { margin: 1px 0; line-height: @baseLineHeight * 0.9; .hash { font-size: @fontSizeSmall; font-family: @monoFontFamily; font-weight: bold; padding: 2px 5px; margin-right: 5px; .borderRadius(3px); background-color: #f7f7f7; border: 1px solid #e1e1e1; display: inline-block; } }
+				}
+			}
+		}
+	}
+
+
+}
+
+
+.repo {
+	.repo-create {
+		color: @black;
+    .repo-title { font-size: 14px; }
+		&.header {
+			.clearfix();
+			.heading { float: left; border-bottom: none; }
+			.ssh-setting {
+				margin: 15px 0 0;
+				float: right; }
+		}
+		.nav-tabs {
+			a { text-decoration: none; }
+		}
+    #id-github-repos {
+      .repo {
+      }
+    }
+		.repo-create-form {
+			@{inputs} {
+				height: 22px;
+				width: 400px;
+			}
+			textarea {
+				height: 100px;
+				resize: none;
+			}
+			.control-label { padding: 0; }
+			.controls {
+				ul {
+					.unstyledList();
+					.horizontal-list();
+					li { margin-right: 10px; }
+				}
+			}
+		}
+		.connect-github {
+			margin: 30px 0;
+		}
+	}
 }
