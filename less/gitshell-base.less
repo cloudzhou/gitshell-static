@@ -4,75 +4,75 @@
 	background-color: #3b9d9a;
 	border-bottom: 1px solid #29898e;
 	.boxShadow(0 1px 0 fadeout(@white, 20%));
-	.navbar-inner {
-		.brand {
-			.size(78px; 45px);
-			text-indent: -9999em;
-			overflow: hidden;
-			.box(0; ~"0 20px 0 0");
-			background: transparent url('/static/img/logo.png') 0 0 no-repeat; }
-		.nav {
-			&.global {
-				a { color: @white; font-weight: bold; }
-			}
-			&.account {
-				float: right;
-				// welcome
-				.welcome-msg {
-					color: @white;
-					a { display: inline; color: @white; font-weight: bold; padding-left: 5px; padding-right: 5px; } }
-				.notification, .dropdown {
-					padding: 10px 0; }
-				.label {
-					color: @white;
-					padding: 2px 10px; }
-					.dropdown-toggle { .square(22px); padding: 0; margin-left: 5px; img { .square(22px); } }
-				.dropdown-menu { 
-					right: 0; 
-					min-width: 250px;
-					padding: 0;
-					background-color: #f2f3f4;
-					.arrowTopRight(6px; 5px; #ccc; #eee; absolute);
-					.header {
-						.clearfix();
-						background-color: #e6e7e8;
-						padding: 10px 15px;
-						border-bottom: 1px solid #d3d4d5;
-						h1, .email { margin: 0; }
-						h1 { 
-							font-size: 1.75em; a { padding: 0; .userid { display: none; margin-left: 10px;} } 
-						}
-						.email { color: @darkLight; font-style: italic; margin-top: 5px; }
-					}
-						.repo-count {
-							float: none;
-							padding: 0 15px;
-							li { float: none; margin-bottom: 5px; }
-							h4 {
-								font-size: 11px;
-								color: @dark;
-								margin: 10px 0 3px;
-								span { font-size: 11px; font-weight: 400; font-style: italic; }
-								.used { margin-left: 10px; }
-								.divider {
-									color: @grey;
-									margin: 0 3px; }
-							}
-						}
-					.nav {
-						float: none;
-						border-top: 1px solid #ddd;
-						padding: 10px 0;
-						margin-top: 10px;
-						font-size: @baseFontSize - 1;
-						a { display: block; padding: 4px 15px; border-bottom: 1px dotted #ddd; 
-							&.logout { &:hover { background-color: @red; color: @white; } }
-							&:hover { background-color: #efefef; } }
-					}
-				}
-			}
-		}
-	}
+  .brand {
+    display: block;
+    .size(78px; 45px);
+    text-indent: -9999em;
+    overflow: hidden;
+    .box(0; ~"0 20px 0 0");
+    background: transparent url('/static/img/logo.png') 0 0 no-repeat; }
+  .nav {
+    &.main-nav {
+      a { color: @white; font-weight: bold; }
+    }
+    &.userbar {
+      float: right;
+      .msgs, .dropdown {
+        padding: 10px 0; }
+      .label {
+        color: @white;
+        padding: 2px 10px; }
+        .dropdown-toggle { .square(22px); padding: 0; margin-left: 5px; img { .square(22px); } }
+      .dropdown-menu { 
+        right: 0; 
+        min-width: 250px;
+        padding: 0;
+        background-color: #f2f3f4;
+        .arrowTopRight(6px; 5px; #ccc; #eee; absolute);
+        .header {
+          .clearfix();
+          background-color: #e6e7e8;
+          padding: 10px 15px;
+          border-bottom: 1px solid #d3d4d5;
+          h2, .email { margin: 0; }
+          h2 { 
+            font-size: 1.75em; a { padding: 0; .userid { display: none; margin-left: 10px;} } 
+          }
+          .email { color: @darkLight; font-style: italic; margin-top: 5px; }
+        }
+          .repo-count {
+            float: none;
+            padding: 0 15px;
+            li { float: none; margin-bottom: 5px; }
+            h4 {
+              font-size: 11px;
+              color: @dark;
+              margin: 10px 0 3px;
+              span { font-size: 11px; font-weight: 400; font-style: italic; }
+              .used { margin-left: 10px; }
+              .divider {
+                color: @grey;
+                margin: 0 3px; }
+            }
+          }
+        .nav {
+          float: none;
+          border-top: 1px solid #ddd;
+          padding: 10px 0;
+          margin-top: 10px;
+          font-size: @baseFontSize - 1;
+          a { display: block; padding: 4px 15px; border-bottom: 1px dotted #ddd; 
+            &.logout { &:hover { background-color: @red; color: @white; } }
+            &:hover { background-color: #efefef; } }
+        }
+      }
+    }
+  }
+  // welcome
+  .welcome-msg {
+    float: right;
+    color: @white;
+    a { display: inline; color: @white; font-weight: bold; padding-left: 5px; padding-right: 5px; } }
 }
 
 // #container
