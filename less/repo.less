@@ -484,20 +484,20 @@
 
 
 .explore {
-	.activity, .recently { width: 50%; }
-	.user-plugin { 
-		padding: 10px 0;
-		border-bottom: 1px solid #f1f1f1;
-		.subject { color: @grey; font-weight: 400; font-style: italic; margin-left: 10px; }
-		.meta { color: @grey; }
-	}
-  .activity {
-    .user-plugin {
-      margin-right: 20px; 
-      .info { float: none; margin-left: 50px; 
-        .meta { p { margin: 5px 0; } }
-      }
+	.activity { width: 30%; }
+  .recently { width: 70%;
+    .latest-commit {
+      padding: 8px 0;
+      margin-right: 20px;
+      border-bottom: 1px solid #f5f5f5;
+      .meta { color: @greyLight; font-size: 12px; margin-left: 10px; }
+      .subject { margin-left: 10px; }
+      .info { font-weight: bold; font-size: 13px; }
     }
+  }
+  .activity {
+    padding: 10px 0;
+    .name { font-size: 14px; }
   }
 }
 
@@ -512,19 +512,38 @@
 	.timeline {
 		.feedtime {
 			padding: 10px;
-			.header { .date { color: @dark; padding-bottom: 10px; margin-bottom: 0; border-bottom: 1px solid #ddd; } }
+			.header { .date { color: @dark; padding-bottom: 10px; margin-bottom: 0; border-bottom: 1px solid #ddd; font-size: 20px; } }
 			&.current { background-color: white; }
-			.avatar { .box(~"10px 0"; ~"0 0 10px"); img { margin-right: 10px; } a { font-size: @fontSizeLarge; font-weight: bold; } }
+			.avatar { .box(~"10px 0"; 0); img { margin-right: 10px; } a { font-weight: bold; } }
 			dl.item {
-				padding-left: 15px;
-				dt.leader { }
+				padding: 0 10px;
+        margin: 2px 0;
+        border-left: 3px solid fadeout(@linkColor, 50%);
+        .transition(all ease-in .1s);
+        &:hover { border-left-color: @linkColor; }
+				dt.leader { line-height: 1; margin-bottom: 5px; color: @darkLight; a { color: @dark; } }
 				dd { 
-					margin-left: 15px; 
-					p { margin: 1px 0; line-height: @baseLineHeight * 0.9; .hash { font-size: @fontSizeSmall; font-family: @monoFontFamily; font-weight: bold; padding: 2px 5px; margin-right: 5px; .borderRadius(3px); background-color: #f7f7f7; border: 1px solid #e1e1e1; display: inline-block; } }
+					margin-left: 10px; 
+					p { margin: 1px 0; line-height: @baseLineHeight * 0.9; .hash { font-size: 12px; font-family: @monoFontFamily; font-weight: bold; margin-right: 5px; } .date { color: @grey; } }
 				}
 			}
+      p.issue { margin: 0; }
 		}
 	}
+
+  .feeds {
+    .feedtime {
+      margin-bottom: 20px;
+      .header { margin-bottom: 15px; 
+        .date { border-bottom: 1px solid #ddd; margin-bottom: 0; padding-bottom: 5px; font-size: 20px; line-height: 1; } }
+      .user-plugin { padding: 2px 0; margin-left: 20px;
+        .author { font-weight: bold; }
+        .repo-name { font-weight: bold; margin-left: 5px; }
+        .subject { margin-right: 5px; }
+        time { color: @grey; margin-left: 10px; }
+      }
+    }
+  }
 
 
 }
