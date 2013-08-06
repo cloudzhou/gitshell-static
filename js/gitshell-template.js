@@ -27,7 +27,7 @@ var repo_commits_diff_nav_template =
 var repo_commits_template = 
 '   <table class="table table-striped"><thead class="fixed"><tr><th width="20%">提交HASH (作者)</th><th width="10%">时间</th><th>日志</th></tr></thead><tbody>' +
 '       <% _.each(commits, function(commit){ %>' +
-'           <tr><td><code><%-commit.commit_hash%></code><span>(<%-commit.committer%>)</span></td><td><span style="display: inline;"><%-commit.committer_moment%></span></td><td><%-commit.commit_message%></td></tr>' +
+'           <tr><td><code><%-commit.commit_hash%></code><span>(<%-commit.committer_name%>)</span></td><td><span style="display: inline;"><%-commit.committer_moment%></span></td><td><%-commit.commit_message%></td></tr>' +
 '       <% }); %>' + 
 '   </tbody></table>';
 var repo_commits_tmpl = _.template(repo_commits_template);
