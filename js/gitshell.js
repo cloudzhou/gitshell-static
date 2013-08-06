@@ -8,6 +8,9 @@
     // global action
     _.mixin(_.str.exports())
     moment.lang('zh-cn')
+    $('body').contents().filter(function(){
+        return this.nodeType == 8;
+    }).remove();
     $('.unixtime').each(function(index){ 
         $(this).html(moment(new Date($(this).html()*1000)).fromNow());
         $(this).show();
