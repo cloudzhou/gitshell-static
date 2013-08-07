@@ -38,6 +38,7 @@ repo_diff_template =
 '   <p>没有不同的地方</p>' + 
 '   <% } %>' +
 '   <div class="diff-header">' +
+'       <p>修改文件(<%-diff.changedfiles_count%>), 添加行数(<%-diff.total_add_line%>), 删除行数(<%-diff.total_delete_line%>), 总计行数(<%-diff.abs_change_line%>)</p>' +
 '       <ul class="diff-list">' +
 '       <% _.each(diff.numstat, function(numstat){ %>' +
 '           <li class="clearfix"><span class="diff-linenumber clearfix"><span class="added">+ <%-numstat[0]%></span><span class="removed">- <%-numstat[1]%></span></span><a href="#chg-<%-numstat[2]%>"><%-numstat[2]%></a></li>' +
