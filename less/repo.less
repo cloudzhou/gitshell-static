@@ -204,9 +204,12 @@
 
 
 #i_branches, #tags {
-  .branch-name { width: 40%; .heading { font-size: 16px; } }
-  .meta { width: 40%; }
-  .actions { width: 20%; .btn { margin-left: 10px; } }
+  .branch-name, .meta, .actions {
+    padding-left: 0;
+    padding-right: 0; }
+  .branch-name { width: 20%; .heading { font-size: 16px; } }
+  .meta { width: 60%; }
+  .actions { width: 20%; text-align: right; .btn { margin-left: 10px; } }
 }
 
 #i_log_graph {
