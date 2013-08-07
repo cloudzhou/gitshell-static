@@ -101,6 +101,12 @@
 					padding: 7px 0; }
 					.controls {
 						margin-left: 110px;
+            &.avatar {
+              line-height: 50px;
+              overflow: hidden;
+              img { float: left; }
+              span { color: @grey; margin-left: 10px; a { color: @darkLight; } }
+            }
 						@controlsInputFields: ~"input[type='text'], input[type='password'], input[type='email'], input[type='url'], textarea";
 						@{controlsInputFields} {
 							margin: 0;

@@ -80,6 +80,18 @@
       a { color: @grey; }
       &.synced { a { color: @green; } }
     }
+    .forked {
+      font-size: 12px;
+      display: inline-block;
+      a.label.label-mini { color: @dark; padding: 3px 4px; line-height: 1;  text-decoration: none; &:hover { background-color: @darkLight; color: @white; } i { margin-right: 0; } }
+      .dropdown-menu {
+        min-width: 200px;
+        max-width: 300px;
+        hr { margin: 5px 0; }
+        h4 { margin: 5px 10px; }
+        p { margin: 5px 10px; font-weight: normal; }
+      }
+    }
   }
 	// Actions
 	.repo-actions {
