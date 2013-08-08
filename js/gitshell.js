@@ -119,7 +119,7 @@
                 if(source_commit_hash in exists_commit_hash_map) {
                     is_up_to_date = true;
                 }
-                var html = '<p>Already up-to-date. 你并不需要进行合并操作</p>';
+                var html = '<p>Already up-to-date.</p>';
                 if(!is_up_to_date) {
                     html = repo_commits_tmpl(json);
                 }
@@ -146,44 +146,44 @@
         selectCommits : function(before, after) {
         },
         navDiff : function() {
-            $('.c_pull_request_content').each(function(index){
+            $('.cPullRequestContent').each(function(index){
                 $(this).hide();
             });
-            $('#i_pull_request_diff').show();
+            $('#pullRequestDiff').show();
         },
         navCommits : function() {
-            $('.c_pull_request_content').each(function(index){
+            $('.cPullRequestContent').each(function(index){
                 $(this).hide();
             });
-            $('#i_pull_request_commits').show();
+            $('#pullRequestCommits').show();
         },
         renderCompare : function(selector, after_load_commits) {
             selector.html(repo_commits_diff_nav_template);
             var repoComparer = this;
-            $('.c_pull_request_action').click(function(){
+            $('.cPullRequestAction').click(function(){
                 var action = $(this).data('action');
-                $('.c_pull_request_action').each(function(index){
+                $('.cPullRequestAction').each(function(index){
                     $(this).removeClass('active');
                 });
                 $(this).addClass('active');
-                $('.c_pull_request_content').each(function(index){
+                $('.cPullRequestContent').each(function(index){
                     $(this).hide();
                 });
-                $('#i_ajax_loading').show();
+                $('#ajaxLoading').show();
                 if(action == 'commit') {
-                    $('#i_select_line_context').hide();
-                    repoComparer.loadCommits($('#i_pull_request_commits'), null, repoComparer.navCommits, after_load_commits);
+                    $('#selectLineContext').hide();
+                    repoComparer.loadCommits($('#pullRequestCommits'), null, repoComparer.navCommits, after_load_commits);
                 } else if(action == 'diff') {
-                    $('#i_select_line_context').show();
-                    repoComparer.loadDiff($('#i_pull_request_diff'), null, repoComparer.navDiff);
+                    $('#selectLineContext').show();
+                    repoComparer.loadDiff($('#pullRequestDiff'), null, repoComparer.navDiff);
                 }
             });
-            $('.c_line_context').click(function(){
+            $('.cLineContext').click(function(){
                 $('#i_line_context').text($(this).text());
                 repoComparer.setLineContext($(this).text());
-                repoComparer.loadDiff($('#i_pull_request_diff'), null, this.navDiff);
+                repoComparer.loadDiff($('#pullRequestDiff'), null, this.navDiff);
             });
-            this.loadCommits($('#i_pull_request_commits'), null, this.navCommits, after_load_commits);
+            this.loadCommits($('#pullRequestCommits'), null, this.navCommits, after_load_commits);
         },
 
 
