@@ -13,57 +13,87 @@
     background: transparent url('/static/img/logo.png') 0 0 no-repeat; }
   .nav {
     &.main-nav {
-      a { color: @white; font-weight: bold; }
+      li { border-style: solid; border-width: 0 1px; border-color: transparent;
+        &.active {
+          background-color: #2a898f;
+          border-color: transparent #237178;
+          @boxShadow: ~"1px 0 0 rgba(255, 255, 255, .2), inset 1px 0 0 rgba(255, 255, 255, .085)";
+          .boxShadow(@boxShadow);
+        }
+      }
+      a { color: @white; font-weight: bold; padding: 13px 10px 14px;
+        &.todo {
+          span { display: inline-block; background-color: #dd4d31; .borderRadius(2px); padding: 0 5px; margin-left: 5px; line-height: 1.4; }
+        }
+        &:hover { text-decoration: none; }
+      }
+      .dropdown {
+        .dropdown-menu {
+          padding: 0;
+          left: 10px;
+          .arrowTopLeft(6px; 5px; rgba(0, 0, 0, .35); #f2f3f3; absolute);
+          li { 
+            float: none; 
+            &.all { border-bottom: 1px solid #ccc; a { font-weight: bold; } }
+            &.leader { font-weight: bold; margin-top: 5px; span { padding: 4px 5px; } }
+            &.create { margin-top: 5px; border-top: 1px solid #ccc; a { display: block; color: @dark; font-weight: bold; padding: 10px 5px; &:hover { text-decoration: none; background-color: #e5e5e5; } } }
+          }
+          a { color: @linkColor; padding: 2px 5px; font-weight: 500; display: inline-block;
+            &:hover { text-decoration: underline; }
+          }
+        }
+      }
     }
     &.userbar {
       float: right;
-      .msgs, .dropdown {
-        padding: 10px 0; }
-      .label {
-        color: @white;
-        padding: 2px 10px; }
-        .dropdown-toggle { .square(22px); padding: 0; margin-left: 5px; img { .square(22px); } }
+      .dropdown {
+        padding: 8px 0; }
+        .dropdown-toggle { 
+          color: @white;
+          line-height: 1;
+          padding: 4px 5px;
+          border: 1px solid #21696f;
+          .borderRadius(4px);
+          .linearGradient(top; #43aeaa; #38918e);
+          .boxShadow(inset 0 1px 0 fadeout(@white, 70%));
+          text-align: center;
+          i[class^="icon-"] { margin-right: 0; font-size: 16px; font-weight: lighter; .textShadow(0 -1px 0 rgba(0, 0, 0, .4)); }
+          &:hover { text-decoration: none; }
+        }
       .dropdown-menu { 
         right: 0; 
         min-width: 250px;
         padding: 0;
-        background-color: #f2f3f4;
-        .arrowTopRight(6px; 5px; #ccc; #eee; absolute);
-        .header {
+        background-color: #e6e7e8;
+        .arrowTopRight(6px; 5px; rgba(0, 0, 0, .35); #f2f3f3; absolute);
+        .info {
           .clearfix();
-          background-color: #e6e7e8;
-          padding: 10px 15px;
+          background-color: #f2f3f3;
+          padding: 5px;
           border-bottom: 1px solid #d3d4d5;
-          h2, .email { margin: 0; }
-          h2 { 
-            font-size: 1.75em; a { padding: 0; .userid { display: none; margin-left: 10px;} } 
-          }
-          .email { color: @darkLight; font-style: italic; margin-top: 5px; }
-        }
-          .repo-count {
-            float: none;
-            padding: 0 15px;
-            li { float: none; margin-bottom: 5px; }
-            h4 {
-              font-size: 11px;
+          .detail {
+            float: left;
+            font-weight: bold;
+            h2, .actions { margin: 0; }
+            h2 { 
               color: @dark;
-              margin: 10px 0 3px;
-              span { font-size: 11px; font-weight: 400; font-style: italic; }
-              .used { margin-left: 10px; }
-              .divider {
-                color: @grey;
-                margin: 0 3px; }
+              font-size: 1.25em; }
+            .actions { color: @darkLight; margin-top: 3px; 
+              a { display: inline; padding: 1px 0; }
             }
           }
-        .nav {
-          float: none;
-          border-top: 1px solid #ddd;
-          padding: 10px 0;
-          margin-top: 10px;
-          font-size: @baseFontSize - 1;
-          a { display: block; padding: 4px 15px; border-bottom: 1px dotted #ddd; 
-            &.logout { &:hover { background-color: @red; color: @white; } }
-            &:hover { background-color: #efefef; } }
+          .avatar {
+            float: right;
+          }
+        }
+        .other {
+          overflow: hidden;
+          padding: 5px;
+          a { display: inline-block; padding: 5px 10px; color: @dark; }
+          .feedback {
+            float: right;
+            a { padding: 5px 0; font-size: 12px; }
+          }
         }
       }
     }
@@ -79,21 +109,42 @@
 .main {
   .bubble {
     position: relative;
-    border: 1px solid #d8d8d8;
+    border: 1px solid #ccc;
+    //.boxShadow(0 1px 0 rgba(0, 0, 0, .025));
     background-color: @white; }
+   .subhead {
+     background-color: #dadada;
+     border-bottom: 1px solid #c7c7c7;
+     @boxShadow: ~"0 1px 0 rgba(255, 255, 255, .7), inset 0 1px 0 rgba(255, 255, 255, .6)";
+     .boxShadow(@boxShadow);
+     .nav-tabs {
+       border-bottom-color: transparent;
+       margin-bottom: -1px;
+       a { color: @darkLight; }
+       .active { a { color: @linkColor; border-bottom-color: @linkColor; } }
+       .dropdown-menu {
+         padding: 0;
+         li { float: none; padding: 0;
+           a { display: block; border-bottom: none; margin-bottom: 0; padding: 10px 5px;
+             &:hover { background-color: #f5f5f5; }
+           }
+         }
+       }
+     }
+   }
 }
 
 // footer
 body > .footer {
-	color: fadeout(@darkLight, 40%);
+	color: fadeout(@white, 40%);
 	font-size: @fontSizeMini;
 	.box(~"10px 0"; ~"10px 0 0");
-	//background-color: #2b2b2b;
-	background-color: transparent;
+	//background-color: transparent;
+	background-color: #2b2b2b;
 	border-top: 1px solid fadeout(@black, 90%);
 	.nav {
 		a {
-			color: fadeout(@darkLight, 40%);
+			color: fadeout(@white, 40%);
 			margin-right: 10px;
 			text-decoration: none;
 			font-weight: bold;
@@ -101,10 +152,10 @@ body > .footer {
 			&:hover { text-decoration: underline; }
 			&.about-gitshell { i { margin-left: 5px; text-decoration: none; } }
 			&.free-join { color: @green; }
-			&.help { cursor: help; color: @darkLight; }
+			&.help { cursor: help; color: @white; }
 		}
 	}
-	.copyright { a { color: fadeout(@black, 40%); } }
+	.copyright { a { color: fadeout(@white, 40%); } }
 }
 
 #diff {

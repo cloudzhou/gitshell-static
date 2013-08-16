@@ -68,7 +68,9 @@
 		a {
 			font-weight: bold;
 			.bordered(solid; ~"0 0 3px 0"; transparent);
-			.box(~"10px 2px 10px 2px"; ~"0 0 -3px"); } } }
+			.box(~"10px 2px 10px 2px"; ~"0 0 -3px"); 
+      &:hover { text-decoration: none; }
+  } } }
 
 // Breadcrumb
 .breadcrumb {
@@ -103,10 +105,10 @@
 		display: none;
 		min-width: 160px;
 		padding: 5px 0;
-    border: 1px solid fadeout(@dark, 70%);
+    border: 1px solid rgba(0, 0, 0, .4);
+    background-clip: padding-box;
 		background-color: @white;
-		.bordered(solid; 1px; fadeout(@black, 65%));
-		.boxShadow(0 0 3px fadeout(@black,70%));
+		.boxShadow(0 0 5px fadeout(@black,60%));
 		z-index: @zindexDropdown;
 		#positions > #abs > .topLeft(100%, auto); }
 	&.open {

@@ -1,23 +1,30 @@
 // welcome
-.welcome {
-	.banner {
-		text-align: center;
-		padding: 10px 0;
-		h1 {
-			font-size: 2.5em;
-			line-height: 1;
-			margin: 0;
-			& + p {
-				font-size: 16px;
-				line-height: 1.4;
-				margin: 10px; }
-		}
-	}
+.index {
+  .container {
+    width: 860px;
+    min-width: 860px;
+    margin: 0 auto;
+    .banner {
+      color: @white;
+      text-align: center;
+      padding: 20px 0;
+      margin: 10px 0;
+      background-color: @black;
+      h1 {
+        font-size: 2.5em;
+        line-height: 1;
+        margin: 0;
+        & + p {
+          font-size: 16px;
+          line-height: 1.4;
+          margin: 10px; }
+      }
+    }
+  }
 }
 
 // Welcome Summary
-.welcome-details { 
-	max-width: 1000px;
+.summary { 
 	margin: 0 auto;
   padding: 10px 0;
   color: #575a60;
@@ -28,8 +35,6 @@
 		padding: 0 5% 0 0;
 		min-height: 110px;
     margin-right: 3%;
-    border-right: 1px solid #cacaca;
-    .boxShadow(1px 0 0 rgba(255, 255, 255, .65));
     &:last-child{ border-right: none; .boxShadow(none); }
 		h2 {
 			font-size: 18px;
