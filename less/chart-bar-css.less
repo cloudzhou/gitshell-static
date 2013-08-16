@@ -1,38 +1,22 @@
 .chart-bar-css{
-  width:520px;
-  dt{
-    width:220px;
-    float:left;
-    margin:0 20px 5px 0;
-    padding:2px 0;
-    display:inline;
-    font-weight:bold;
-    text-align:right;
-    line-height:10px;
-  }
-  dd{
-    width:250px;
-    float:left;
-    margin-bottom:12px;
-    display:inline;
-    line-height:10px;
-  }
-  dd span{
-    color:#fff;
-    background:#09f;
-    text-align:center;
-    padding:2px 0;
+  width:100%;
+  overflow: hidden;
+  .data-one{
     display:block;
-  
-    text-shadow:1px 1px 1px rgba(0,0,0,0.2);
-    -moz-border-radius:2px;
-    -webkit-border-radius:2px;
-    border-radius:2px;
-    background:-webkit-gradient(linear, left top,
-    left bottom, from(#09f), to(#077fd0));
-    -webkit-box-reflect:below 0
-    -webkit-gradient(linear, left top,
-    left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,0.25)));
+    float: left;
+    color: white;
+    font-weight: normal;
+    font-size: 11px;
+    font-family: @sansFontFamily;
+    text-align:center;
+    padding: 8px 0;
+    @boxShadow: ~"inset 1px 1px 0 rgba(0, 0, 0, .25), inset 0 -1px 0 rgba(0, 0, 0, .3)";
+    .boxShadow(@boxShadow);
+    .linearGradient(top; #68b4f8; #68b4f8);
+    cursor: help;
+    &:hover {
+      .linearGradient(top; #9dcdfe; #9dcdfe);
+    }
   }
   .data-one{
     -webkit-animation-name:bar-one;
