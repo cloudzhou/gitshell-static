@@ -1,12 +1,12 @@
 // navbar
 .navbar {
 	height: 45px;
-	background-color: #3b9d9a;
+	background-color: #038c8d;
 	border-bottom: 1px solid #29898e;
 	.boxShadow(0 1px 0 fadeout(@white, 20%));
   .brand {
     display: block;
-    .size(78px; 45px);
+    .size(92px; 45px);
     text-indent: -9999em;
     overflow: hidden;
     .box(0; ~"0 20px 0 0");
@@ -15,17 +15,23 @@
     &.main-nav {
       li { border-style: solid; border-width: 0 1px; border-color: transparent;
         &.active {
-          background-color: #2a898f;
-          border-color: transparent #237178;
-          @boxShadow: ~"1px 0 0 rgba(255, 255, 255, .2), inset 1px 0 0 rgba(255, 255, 255, .085)";
-          .boxShadow(@boxShadow);
+          background: transparent url(/static/img/main-nav-active-bg.png) center bottom no-repeat;
+          a { color: white; }
         }
       }
-      a { color: @white; font-weight: bold; padding: 13px 10px 14px;
+      a { 
+          color: fadeout(@white, 15%);
+          //font-family: 'ProximaNovaBold',Arial,sans-serif;
+          font-weight: bold; 
+          padding: 13px 10px 14px; 
+          .textShadow(0 1px 0 rgba(0, 0, 0, .25));
+          .transition(all ease-in-out .2s);
         &.todo {
-          span { display: inline-block; background-color: #dd4d31; .borderRadius(2px); padding: 0 5px; margin-left: 5px; line-height: 1.4; }
+          span { background-color: #dd4d31; .borderRadius(2px); padding: 0 5px; margin-left: 5px; line-height: 1.4; }
         }
-        &:hover { text-decoration: none; }
+        &:hover { 
+          text-decoration: none; 
+          color: white;  }
       }
       .dropdown {
         .dropdown-menu {
@@ -38,7 +44,7 @@
             &.leader { font-weight: bold; margin-top: 5px; span { padding: 4px 5px; } }
             &.create { margin-top: 5px; border-top: 1px solid #ccc; a { display: block; color: @dark; font-weight: bold; padding: 10px 5px; &:hover { text-decoration: none; background-color: #e5e5e5; } } }
           }
-          a { color: @linkColor; padding: 2px 5px; font-weight: 500; display: inline-block;
+          a { color: @linkColor; padding: 2px 5px; font-weight: 500; display: inline-block; .textShadow(none); font-size: @baseFontSize;
             &:hover { text-decoration: underline; }
           }
         }
@@ -109,7 +115,7 @@
 .main {
   .bubble {
     position: relative;
-    border: 1px solid #ccc;
+    border: 1px solid #dbdbdb;
     //.boxShadow(0 1px 0 rgba(0, 0, 0, .025));
     background-color: @white; }
    .subhead {
