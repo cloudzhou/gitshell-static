@@ -6,11 +6,22 @@
 	.boxShadow(0 1px 0 fadeout(@white, 20%));
   .brand {
     display: block;
-    .size(92px; 45px);
-    text-indent: -9999em;
-    overflow: hidden;
-    .box(0; ~"0 20px 0 0");
-    background: transparent url('/static/img/logo.png') 0 0 no-repeat; }
+    color: white;
+    font-size: 23px;
+    font-weight: normal;
+    font-style: italic;
+    padding: 0;
+    margin-right: 10px;
+    img {
+      float: left;
+      margin-right: 5px;
+      position: relative;
+      bottom: -9px; }
+      span { 
+        position: relative;
+        bottom: -10px;
+      }
+  }
   .nav {
     &.main-nav {
       li { border-style: solid; border-width: 0 1px; border-color: transparent;
@@ -18,26 +29,38 @@
           background: transparent url(/static/img/main-nav-active-bg.png) center bottom no-repeat;
           a { color: white; }
         }
-      }
+        &.create-repo {
+          a { 
+            font-size: 12px;
+            padding: 9px 10px; 
+            .button {
+              display: block;
+              padding: 3px 8px 5px;
+              .borderRadius(2px);
+              .bordered(solid; 1px; ~'#c94f4b #b73029 #b73029');
+              .boxShadow(inset 0 1px 0 rgba(255, 255, 255, .35));
+              .linearGradient(top; #dd6763; #d85955);
+            }
+          }
+        }//.create
+      }//li
       a { 
           color: fadeout(@white, 15%);
           //font-family: 'ProximaNovaBold',Arial,sans-serif;
+          font-size: 14px;
           font-weight: bold; 
           padding: 13px 10px 14px; 
           .textShadow(0 1px 0 rgba(0, 0, 0, .25));
-          .transition(all ease-in-out .2s);
-        &.todo {
-          span { background-color: #dd4d31; .borderRadius(2px); padding: 0 5px; margin-left: 5px; line-height: 1.4; }
-        }
-        &:hover { 
-          text-decoration: none; 
-          color: white;  }
+          //.transition(all ease-in-out .2s);
+        &.todo { span { background-color: #dd4d31; .borderRadius(2px); padding: 0 5px; margin-left: 5px; line-height: 1.4; } }
+        &:hover { color: white;  }
       }
       .dropdown {
         .dropdown-menu {
           padding: 0;
           left: 10px;
-          .arrowTopLeft(6px; 5px; rgba(0, 0, 0, .35); #f2f3f3; absolute);
+          top: 80%;
+          #arrow > .topLeft(6px; 5px; rgba(0, 0, 0, .35); #f2f3f3; absolute);
           li { 
             float: none; 
             &.all { border-bottom: 1px solid #ccc; a { font-weight: bold; } }
@@ -52,6 +75,14 @@
     }
     &.userbar {
       float: right;
+      .bell {
+        a { 
+          color: @white; 
+          font-size: 16px;
+          font-weight: lighter;
+          text-decoration: none;
+        }
+      }
       .dropdown {
         padding: 8px 0; }
         .dropdown-toggle { 
@@ -59,7 +90,8 @@
           line-height: 1;
           padding: 4px 5px;
           border: 1px solid #21696f;
-          .borderRadius(4px);
+          //.square(25px);
+          .borderRadius(3px);
           .linearGradient(top; #43aeaa; #38918e);
           .boxShadow(inset 0 1px 0 fadeout(@white, 70%));
           text-align: center;
@@ -71,7 +103,7 @@
         min-width: 250px;
         padding: 0;
         background-color: #e6e7e8;
-        .arrowTopRight(6px; 5px; rgba(0, 0, 0, .35); #f2f3f3; absolute);
+        #arrow > .topRight(6px; 5px; rgba(0, 0, 0, .35); #f2f3f3; absolute);
         .info {
           .clearfix();
           background-color: #f2f3f3;
@@ -90,6 +122,8 @@
           }
           .avatar {
             float: right;
+            .square(80px);
+            background-color: #e5e5e5;
           }
         }
         .other {
@@ -113,11 +147,6 @@
 
 // .main
 .main {
-  .bubble {
-    position: relative;
-    border: 1px solid #dbdbdb;
-    //.boxShadow(0 1px 0 rgba(0, 0, 0, .025));
-    background-color: @white; }
    .subhead {
      background-color: #dadada;
      border-bottom: 1px solid #c7c7c7;
@@ -152,10 +181,8 @@ body > .footer {
 		a {
 			color: fadeout(@white, 40%);
 			margin-right: 10px;
-			text-decoration: none;
 			font-weight: bold;
 			display: inline-block;
-			&:hover { text-decoration: underline; }
 			&.about-gitshell { i { margin-left: 5px; text-decoration: none; } }
 			&.free-join { color: @green; }
 			&.help { cursor: help; color: @white; }

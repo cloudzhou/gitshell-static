@@ -24,7 +24,8 @@
 	text-decoration: none;
 	padding: 6px 10px;
 	.textShadow(1px 1px 0 @white);
-	.bordered(solid; 1px; ~"#818183 #818183 #818183");
+	//.bordered(solid; 1px; ~"#818183 #818183 #818183");
+	.bordered(solid; 1px; ~"rgba(0, 0, 0, .5) rgba(0, 0, 0, .5) rgba(0, 0, 0, .55)");
 	.borderRadius(2px);
 	.linearGradient(top; #eff0f1; #d7d8da);
 	.boxShadow(0 1px 1px fadeout(@black, 90%));
@@ -47,26 +48,21 @@
      .boxShadow(inset 0 1px 2px rgba(0, 0, 0, .2));
    }
 	&.btn-primary {
-		border-color: #175492 #175492 #042b53;
-		.linearGradient(top; #326eaa; #175492);
+		//.linearGradient(top; #0d9a9f; #098c8f);
+		.linearGradient(top; @linkColorLight; @linkColor);
 		&:hover { } }
 	&.btn-notice {
-		border-color: #b66775 #b66775 #984856;
 		.linearGradient(top; #ea3653; #ea3653);
 		&:hover { } }
 	&.btn-success {
-		border-color: #54966b #54966b #4f8e66;
 		.linearGradient(top; #5da777; #5da777);
 		&:hover { 
-			border-color: #44875c #44875c #418057;
 			.linearGradient(top; #4c9666; #4c9666);
 		} }
 	&.btn-warning {
-		border-color: #faa400;
 		.linearGradient(top; #fbb433; #faab00);
 		&:hover { } }
 	&.btn-danger {
-		border-color: #b12f1f;
 		.linearGradient(top; #dc4d31; #d24a2e);
 		&:hover { } }
 
@@ -75,13 +71,16 @@
 		.textShadow(0 -1px 0 rgba(0, 0, 0, .8));
 		color: @white; }
 	
+  /*
 	.active & {
 		color: (@black * 0.9);
 		border-top-color: #bababa;
 		border-bottom-color: #c6c6c6;
 		.linearGradient(top; #e4e4e4; #e4e4e4);
 		@shadow: inset 0 1px 2px rgba(0, 0, 0, .1), -1px 0 0 rgba(0, 0, 0, .35), 0 1px 0 rgba(255, 255, 255, .9);
-		.boxShadow(@shadow); } }
+		.boxShadow(@shadow); }
+  */
+}
 
 
 // Labels
@@ -117,11 +116,27 @@
 // Alerts
 .alert {
   color: @dark;
-  padding: 8px 35px 8px 10px;
-	.bordered(solid; 1px; #f0c36d);
-	.borderRadius(2px);
-  background-color: #f9edbe;
-	.boxShadow(0 1px 1px rgba(0, 0, 0, .12));
+  font-size: @fontSizeSmall;
+  font-weight: bold;
+  padding: 5px 10px;
+	.bordered(solid; 2px; #f24e55);
+  background-color: #fedfe7;
+  position: relative;
+  .close {
+    color: rgba(255, 255, 255, .85);
+    background-color: @black;
+    border: 1px solid @black;
+    .circle(14px);
+    .borderRadius(50%);
+    #positions > #abs > .topRight(-7px; -7px);
+    cursor: pointer;
+    i { margin: 0; font-size: 10px; font-weight: normal; }
+    &:hover {
+      color: @white;
+      background-color: @black;
+      border-color: @black;
+    }
+  }//.close
 	&.alert-success {
 		color: @textSuccessColor;
 		border-color: fadeout(@textSuccessColor, 60%);

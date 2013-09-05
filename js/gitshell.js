@@ -169,7 +169,7 @@
                 $('.cPullRequestContent').each(function(index){
                     $(this).hide();
                 });
-                $('#ajaxLoading').show();
+                $('.ajaxLoader').show();
                 if(action == 'commit') {
                     $('#selectLineContext').hide();
                     repoComparer.loadCommits($('#pullRequestCommits'), null, repoComparer.navCommits, after_load_commits);

@@ -24,11 +24,11 @@
 }
 
 // Welcome Summary
+.index {
 .summary { 
 	margin: 0 auto;
   padding: 10px 0;
   color: #575a60;
-  text-transform: capitalize;
   .textShadow(0 1px 0 fadeout(@white, 20%));
 	li {
 		width: 25.11111%;
@@ -46,6 +46,7 @@
 	}
 }
 
+}
 
 // Authorize
 .authorize {
@@ -55,10 +56,66 @@
     .clearfix();
     .heading { font-size: 1.35em; }
   }
+  .guide {
+    width: 78%;
+    margin: 0 auto;
+    .clearfix();
+    .header {
+      padding: 10px 0;
+      border-bottom: 4px double #ddd;
+      .heading {
+        line-height: 1.5;
+      }
+    }//.header
+    .contact {
+      color: @dark;
+      font-size: @fontSizeSmall;
+      font-style: italic;
+      font-weight: bold;
+      padding: 10px;
+      .borderRadius(3px);
+      border-left-color: @red;
+      background-color: @yellow;
+    }//contact
+
+    .tutorial {
+      margin-top: 20px;
+      .simple-steps {
+        padding-left: 20px;
+        list-style-position: outside;
+        li {
+          p { 
+            //font-weight: bold; 
+            margin-bottom: 5px;
+            .label {
+              color: @red;
+              font-size: @fontSizeSmall;
+              font-weight: bold;
+              padding: 3px;
+              line-height: 1;
+              .borderRadius(2px);
+              position: relative;
+              top: -2px; }
+          }
+          .command {
+            .borderRadius(1px);
+            font-weight: bold;
+          }
+        }//li
+      }//ol.simple-steps
+      .addtions {
+        padding: 20px;
+      }
+    }//.tutorial
+    &.failure { padding: 80px 0; }
+
+  }//.guide
   .auth-container {
     width: 412px;
-    padding: 100px 0 150px;
+    padding: 25px 0;
     .centerBlock();
+    .clearfix();
+    .github-btn { display: block; padding: 8px 0; text-align: center; font-size: 14px; }
     .form {
       width: 415px;
       margin: 0 auto;
@@ -68,15 +125,21 @@
       input[type="password"] {
         display: block;
         font-size: 15px;
-        line-height: 28px;
-        .size(400px; 28px);
+        font-weight: bold;
+        line-height: 26px;
+        .size(400px; 26px);
         margin-bottom: 10px;
       }
       .btn {
         padding: 8px 30px;
       }
+      .checkbox { color: @darkLight; margin-left: 10px; }
+    }//.form
+    .alert {
+      margin-bottom: 15px;
+      p { margin: 0; }
     }
-  }
+  }//.auth-container
 }
 
 

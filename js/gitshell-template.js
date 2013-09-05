@@ -19,7 +19,7 @@ var repo_commits_diff_nav_template =
 '        </li>' +
 '    </ul>' +
 '    <div id="pullMetaData" class="bubble">' +
-'        <div id="ajaxLoading" class="cPullRequestContent"><img src=\'/static/img/loading.gif\' alt="loader"></div>' +
+'        <div class="ajaxLoader" class="cPullRequestContent"><img src=\'/static/img/loading.gif\' alt="loader"><p>正在加载...</p></div>' +
 '        <div id="pullRequestCommits" class="cPullRequestContent hide"></div>' +
 '        <div id="pullRequestDiff" class="cPullRequestContent hide"></div>' +
 '    </div>';
@@ -65,7 +65,3 @@ repo_diff_template =
 
 var repo_diff_tmpl = _.template(repo_diff_template);
 
-
-
-// Fake Data Template
-// by Yuwen

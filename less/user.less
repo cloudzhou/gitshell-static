@@ -1,3 +1,109 @@
+.profile {
+
+  .subhead {
+    padding: 3px 0;
+  }//.subhead
+
+  .content {
+    padding-top: 10px;
+    .container {
+      .bubble();
+    }
+  }//.content
+
+  .header {
+    .inner();
+    border-bottom: 1px solid #ddd;
+    .alert { margin-top: 0; }
+    .bios {
+      .clearfix();
+      .avatar { 
+        float: left;
+        .square(120px);
+        background-color: #f9f9f9;
+        img { } }
+      .details {
+        margin-left: 140px;
+        position: relative;
+        .name {
+          font-size: 1.85em;
+          font-weight: normal;
+          margin: 5px 0;
+          span {
+            color: @grey;
+            font-size: 13px;
+            font-weight: normal;
+            font-style: italic;
+            position: relative;
+            top: -2px; }
+        }//.name
+
+        .infos {
+          margin-top: 0;
+          dt, dd {
+            padding: 2px 0; }
+          .leader { 
+            float: left; 
+            color: @grey;
+            margin-right: 5px; }
+          dd {
+            color: @darkLight;
+            a { color: @darkLight; }
+          }
+        }//.infos
+        .follow-btn {
+          #positions > #abs > .topRight(30px; 10px);
+        }//.follow-btn
+      }//.details
+    }//.bios
+    .meta {
+      display: none;
+      border-top: 1px solid #e5e5e5;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 10px 0;
+      li {
+        text-align: center;
+        width: 33.333%;
+        a { display: block; font-size: 1.65em; margin-bottom: 5px; }
+        span { display: block; color: @grey; font-size: @fontSizeMini; font-weight: bold; }
+      }
+    }//.meta
+  }//.header
+
+
+
+  .primary {
+    .inner();
+    padding-top: 0;
+    .nav-tabs {
+      li {
+        width: 25%;
+        padding: 0;
+      }
+    }//.nav-tabs
+
+    .tab-pane {
+    }//.tab-pane
+
+    .repo-list {
+      .unstyledList();
+      li {
+        padding: 10px 0;
+        border-bottom: 1px dotted #ddd;
+        .title {
+          .heading { font-size: 16px; margin: 5px 0; }
+          .meta { color: @grey; }
+        }
+        .desc { color: @darkLight; margin: 5px 0; }//.desc
+      }//li
+    }//.list
+
+  }//.primary
+
+}//.profile
+
+
+
 .user {
 
 	// pulls
