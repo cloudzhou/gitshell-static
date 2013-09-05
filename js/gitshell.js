@@ -5,6 +5,17 @@
 (function (undefined) {
     // global variable
     var csrfmiddlewaretoken = $('meta[name=csrf-token]').attr("content");
+    // global action
+    _.mixin(_.str.exports())
+    moment.lang('zh-cn')
+    $('body').contents().filter(function(){
+        return this.nodeType == 8;
+    }).remove();
+    $('.unixtime').each(function(index){ 
+        $(this).html(moment(new Date($(this).html()*1000)).fromNow());
+        $(this).show();
+    });
+    $('.dropdown-toggle').dropdown();
     // repo comparer
     function RepoComparer(user_name, repo_name, from_refs, to_refs) {
         this.user_name = user_name;

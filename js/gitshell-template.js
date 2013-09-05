@@ -27,7 +27,7 @@ var repo_commits_diff_nav_template =
 var repo_commits_template = 
 '   <table class="table"><thead><tr><th>提交HASH (作者)</th><th>时间</th><th>日志</th></tr></thead><tbody>' +
 '       <% _.each(commits, function(commit){ %>' +
-'           <tr><td><code><%-commit.commit_hash%></code><span>(<%-commit.committer%>)</span></td><td><span><%-commit.committer_moment%></span></td><td><%-commit.commit_message%></td></tr>' +
+'           <tr><td><code><%-commit.commit_hash%></code><span>(<%-commit.committer_name%>)</span></td><td><span style="display: inline;"><%-commit.committer_moment%></span></td><td><%-commit.commit_message%></td></tr>' +
 '       <% }); %>' + 
 '   </tbody></table>';
 var repo_commits_tmpl = _.template(repo_commits_template);
@@ -37,6 +37,7 @@ repo_diff_template =
 '   <p>没有不同的地方</p>' + 
 '   <% } %>' +
 '   <div class="diff-header">' +
+'       <p>修改文件(<%-diff.changedfiles_count%>), 添加行数(<%-diff.total_add_line%>), 删除行数(<%-diff.total_delete_line%>), 总计行数(<%-diff.abs_change_line%>)</p>' +
 '       <ul class="diff-list">' +
 '       <% _.each(diff.numstat, function(numstat){ %>' +
 '           <li class="clearfix"><span class="diff-linenumber clearfix"><span class="added">+ <%-numstat[0]%></span><span class="removed">- <%-numstat[1]%></span></span><a href="#chg-<%-numstat[2]%>"><%-numstat[2]%></a></li>' +
