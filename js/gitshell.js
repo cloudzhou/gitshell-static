@@ -5,6 +5,7 @@
 (function (undefined) {
     // global variable
     var csrfmiddlewaretoken = $('meta[name=csrf-token]').attr("content");
+    var username = $('meta[name=username]').attr("content");
     // global action
     _.mixin(_.str.exports())
     moment.lang('zh-cn')
@@ -14,6 +15,42 @@
     $('.unixtime').each(function(index){ 
         $(this).html(moment(new Date($(this).html()*1000)).fromNow());
         $(this).show();
+    });
+    var repo_shortcut_loading = false;
+    $('.repo-shortcut').mouseover(function(){
+        if(!repo_shortcut_loading) {
+            $.post('/'+username+'/-/repo/recently/', {csrfmiddlewaretoken: csrfmiddlewaretoken}, function(json){
+                recently_view_repo = json.recently_view_repo;
+                recently_active_repo = json.recently_active_repo;
+                recently_update_repo = json.recently_update_repo;
+                html = [];
+                html.push('<li class="all"><a href="/'+username+'/-/repo/">所有仓库</a></li>');
+                if(recently_view_repo.length > 0) {
+                    html.push('<li class="leader"><span>最近查看</span></li>');
+                    for(x in recently_view_repo) {
+                        repo = recently_view_repo[x];
+                        html.push(_.sprintf('<li><a href="/%s/%s/">%s/%s</a></li>', repo.username, repo.name, repo.username, repo.name));
+                    }
+                }
+                if(recently_active_repo.length > 0) {
+                    html.push('<li class="leader"><span>最近参与</span></li>');
+                    for(x in recently_active_repo) {
+                        repo = recently_active_repo[x];
+                        html.push(_.sprintf('<li><a href="/%s/%s/">%s/%s</a></li>', repo.username, repo.name, repo.username, repo.name));
+                    }
+                }
+                if(recently_update_repo.length > 0) {
+                    html.push('<li class="leader"><span>最近更新</span></li>');
+                    for(x in recently_update_repo) {
+                        repo = recently_update_repo[x];
+                        html.push(_.sprintf('<li><a href="/%s/%s/">%s/%s</a></li>', repo.username, repo.name, repo.username, repo.name));
+                    }
+                }
+                html.push('<li class="all"><a href="/'+username+'/-/repo/create/">新建仓库</a></li>');
+                $('.repo-shortcut-ul').html(html.join(''));
+            });
+        }
+        repo_shortcut_loading = true;
     });
     $('.dropdown-toggle').dropdown();
     // repo comparer
