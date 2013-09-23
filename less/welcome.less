@@ -1,60 +1,45 @@
-// welcome
-.index {
-  .container {
-    width: 860px;
-    min-width: 860px;
+
+//.welcome
+.welcome {
+  padding-top: 10px;
+  .banner {
+    background-color: @yellow;
+    min-height: 380px;
+    padding: 30px 10px;
     margin: 0 auto;
-    .banner {
-      color: @white;
-      text-align: center;
-      padding: 20px 0;
-      margin: 10px 0;
-      background-color: @black;
-      h1 {
-        font-size: 2.5em;
+    .clearfix();
+  }//.banner
+
+  .summary { 
+    margin: 0 auto;
+    padding: 10px 0;
+    color: #575a60;
+    .textShadow(0 1px 0 fadeout(@white, 20%));
+    li {
+      width: 25.11111%;
+      padding: 0 5% 0 0;
+      min-height: 110px;
+      margin-right: 3%;
+      &:last-child{ border-right: none; .boxShadow(none); }
+      h2 {
+        font-size: 18px;
         line-height: 1;
-        margin: 0;
-        & + p {
-          font-size: 16px;
-          line-height: 1.4;
-          margin: 10px; }
-      }
+        margin: 10px 0; }
+      p {
+        line-height: @baseLineHeight * 1.3;
+        font-size: 13px; }
     }
-  }
-}
+  }//.summary
 
-// Welcome Summary
-.index {
-.summary { 
-	margin: 0 auto;
-  padding: 10px 0;
-  color: #575a60;
-  .textShadow(0 1px 0 fadeout(@white, 20%));
-	li {
-		width: 25.11111%;
-		padding: 0 5% 0 0;
-		min-height: 110px;
-    margin-right: 3%;
-    &:last-child{ border-right: none; .boxShadow(none); }
-		h2 {
-			font-size: 18px;
-			line-height: 1;
-			margin: 10px 0; }
-		p {
-			line-height: @baseLineHeight * 1.3;
-			font-size: 13px; }
-	}
-}
+}//.welcome
 
-}
-
-// Authorize
+//.authorize
 .authorize {
   background-color: @white;
   .subhead {
-    padding: 3px 0;
+    padding: 2px 0;
     .clearfix();
-    .heading { font-size: 1.35em; }
+    .heading { font-size: 16px; }
   }
   .guide {
     width: 78%;
@@ -111,29 +96,50 @@
 
   }//.guide
   .auth-container {
-    width: 412px;
+    width: 345px;
     padding: 25px 0;
     .centerBlock();
     .clearfix();
-    .github-btn { display: block; padding: 8px 0; text-align: center; font-size: 14px; }
+    .github-btn { display: block; padding: 7px 0; text-align: center; font-size: 14px; }
+    .divider {
+      margin: 20px 0;
+      height: 1px;
+      border-bottom: 1px solid #e5e5e5;
+      span {
+        .size(50px;20px);
+        .centerBlock();
+        color: @greyLight;
+        text-align: center;
+        font-weight: bold;
+        //font-family: @serifFontFamily;
+        background-color: white;
+        position: relative;
+        top: -10px;
+      }
+    }//.divider
     .form {
-      width: 415px;
+      width: 345px;
       margin: 0 auto;
-      legend { padding-bottom: 0; }
+      fieldset { .clearfix(); }
       input[type="text"],
       input[type="email"],
       input[type="password"] {
         display: block;
-        font-size: 15px;
-        font-weight: bold;
-        line-height: 26px;
-        .size(400px; 26px);
-        margin-bottom: 10px;
-      }
+        font-size: 14px;
+        line-height: 27px;
+        .size(330px; 27px);
+        margin-bottom: 10px; }
+      .checkbox { 
+        color: @darkLight; 
+        font-style: italic; 
+        input { position: relative; top: -1px; } 
+      }//.checkbox
       .btn {
-        padding: 8px 30px;
-      }
-      .checkbox { color: @darkLight; margin-left: 10px; }
+        display: block;
+        font-size: 16px;
+        width: 100%;
+        padding: 8px 0;
+        margin-top: 10px; }
     }//.form
     .alert {
       margin-bottom: 15px;
@@ -144,3 +150,32 @@
 
 
 
+
+//.error
+.error {
+  .content {
+    margin-top: 10px;
+    .inner {
+      color: @grey;
+      text-align: center;
+      padding: 40px 100px;
+      .title {
+        //font-family: @monoFontFamily;
+        h1 {
+          font-size: 4.75em;
+          line-height: 1.2;
+          padding: 20px 0;
+          border-top: 3px double #e5e5e5;
+          border-bottom: 3px double #e5e5e5;
+          span { color: fadeout(@red, 30%); }
+        }//h1
+        h2 {
+          &:before { content: '"'; }
+          &:after { content: '"'; }
+        }//h2
+      }//.title
+      .banner {
+      }//.banner
+    }//.inner
+  }//.content
+}//.error

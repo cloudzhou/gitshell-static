@@ -28,7 +28,7 @@
 	.bordered(solid; 1px; ~"rgba(0, 0, 0, .5) rgba(0, 0, 0, .5) rgba(0, 0, 0, .55)");
 	.borderRadius(2px);
 	.linearGradient(top; #eff0f1; #d7d8da);
-	.boxShadow(0 1px 1px fadeout(@black, 90%));
+	.boxShadow(0 1px 0 fadeout(@black, 90%));
 	&:hover {
 		color: @black;
 		text-decoration: none; }
@@ -39,25 +39,22 @@
 		color: fadeout(@darkLight, 20%);
 		border-color: #818183;
 		.boxShadow(inset 0 1px 1px fadeout(@black, 75%));
-		.linearGradient(top; #ddd; #ddd); }
+		.linearGradient(top; #cecece; #cecece); }
 	&.btn-large {
 		font-size: @baseFontSize * 1.25;
 		padding: 10px 20px; }
-   &.btn-disable {
-     .linearGradient(top; #e5e5e5; #e5e5e5);
-     .boxShadow(inset 0 1px 2px rgba(0, 0, 0, .2));
-   }
 	&.btn-primary {
 		//.linearGradient(top; #0d9a9f; #098c8f);
-		.linearGradient(top; @linkColorLight; @linkColor);
+		.linearGradient(top; fadeout(@linkColorLight, 40%); @linkColor);
 		&:hover { } }
 	&.btn-notice {
 		.linearGradient(top; #ea3653; #ea3653);
 		&:hover { } }
 	&.btn-success {
-		.linearGradient(top; #5da777; #5da777);
+		//.linearGradient(top; #63ba35; #409700);
+    .linearGradient(top; #13cc55; #12b94f);
 		&:hover { 
-			.linearGradient(top; #4c9666; #4c9666);
+			.linearGradient(top; #13cc55; #12b94f);
 		} }
 	&.btn-warning {
 		.linearGradient(top; #fbb433; #faab00);
@@ -68,7 +65,9 @@
 
 	@whiteFontBtns: ~".btn-notice, .btn-notice:hover, .btn-success, .btn-success:hover, .btn-primary, .btn-primary:hover, .btn-warning, .btn-warning:hover, .btn-danger, .btn-danger:hover";
 	&@{whiteFontBtns} { 
-		.textShadow(0 -1px 0 rgba(0, 0, 0, .8));
+    .boxShadow(none);
+    border-color: rgba(0, 0, 0, .1) rgba(0, 0, 0, .1) rgba(0, 0, 0, .2);
+		.textShadow(0 1px 0 rgba(0, 0, 0, .35));
 		color: @white; }
 	
   /*
@@ -88,11 +87,13 @@
 	color: @darkLight;
 	text-decoration: none;
 	display: inline-block;
-	padding: 6px 10px;
+  line-height: 1.2;
+	padding: 6px 10px 4px;
+  .borderRadius(2px);
 	background-color: #ededed;
 	&.label-mini {
 		font-size: 11px;
-		padding: 3px 4px; }
+		padding: 2px 4px 4px; }
 	&.label-success {
 		border-color: #308631 #308631 #308621;
 		background-color: #32982c; }
@@ -105,7 +106,7 @@
 	&.label-warning {
 		background-color: #d64c30; }
 
-	@labelFontLight: ~".label-success, .label-info, label-warning";
+	@labelFontLight: ~".label-success, .label-info, .label-warning";
 	@labelFontDarken: ~".label-info, .label-bubble";
 	&@{labelFontLight} {
 		color: @white; }

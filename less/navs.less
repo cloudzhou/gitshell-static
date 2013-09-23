@@ -31,7 +31,9 @@
 	li { 
 		float: left; }
 	a {
-		display: block; }
+		display: block; 
+    &:hover { text-decoration: none; }
+  }
 	// Nav list
 	&.nav-list { 
 		li { 
@@ -114,7 +116,7 @@
 		list-style: none;
 		display: none;
 		min-width: 160px;
-		padding: 5px 0;
+    .box(~"5px 0"; 0);
     border: 1px solid rgba(0, 0, 0, .4);
     background-clip: padding-box;
 		background-color: @white;

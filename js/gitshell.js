@@ -119,7 +119,7 @@
                 if(source_commit_hash in exists_commit_hash_map) {
                     is_up_to_date = true;
                 }
-                var html = '<p>Already up-to-date.</p>';
+                var html = '<p>已经是最新的.</p>';
                 if(!is_up_to_date) {
                     html = repo_commits_tmpl(json);
                 }

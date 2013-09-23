@@ -91,7 +91,7 @@
         padding: 10px 0;
         border-bottom: 1px dotted #ddd;
         .title {
-          .heading { font-size: 16px; margin: 5px 0; }
+          .heading { font-size: 14px; margin: 4px 0; }
           .meta { color: @grey; }
         }
         .desc { color: @darkLight; margin: 5px 0; }//.desc
@@ -114,7 +114,7 @@
       .meta { padding: 10px; p { margin: 10px 0 0 0; }  color: @grey; a { color: @grey; } }
       .branches { display: block; .clearfix(); font-size: 14px; font-weight: bold; font-family: @monoFontFamily; letter-spacing: -1px; .btn { float: left; text-indent: 10px; .boxShadow(none); border-color: #cedee6; .linearGradient(top; #fff; #eff4f6); display: inline-block; padding: 8px 0; width: 483px; &:first-child { border-right: none; .borderRadius(2px 0 0 2px); } &:last-child { .borderRadius(0 2px 2px 0); } } a { color: @darkLight; } }
     }
-	}
+	}//#pull_container
 
   // issues
   #issues_container {
@@ -147,7 +147,7 @@
 						}
 					}
 				}
-			}
+			}//.todo-control
 			.todo-list {
 				&#id_todoList {
 					.todo-item { color: @black; font-weight: bold; cursor: move; background-color: white; }
@@ -166,12 +166,12 @@
 					}
 					.cl_todo_control { #positions > #abs > .topRight(4px; 0); .btn-mini { padding: 2px 5px; line-height: 1; font-size: 10px; i { margin-right: 0; } } }
 					.cl_todo_text { margin: 0; }
-				}
-			}
-		}
-	}
+				}//.todo-item
+			}//.todo-list
+		}//#todo_container
+	}//&.todo
 
-
+  //.member
 	.member {
 		position: relative;
 		border-bottom: 1px solid #ccc;
@@ -199,7 +199,7 @@
 				.muted { font-weight: bold; }
 			}
 		}
-	}
+	}//.member
 
 	.bubble-inner {
 		width: 100%;
@@ -214,7 +214,7 @@
 				float: right;
 				text-decoration: underline;
 			}
-		}
+		}//.heading
 		.left{ 
 			width: 75%; 
 			#repo-tab {
@@ -237,8 +237,8 @@
 							border-top: 1px solid #e5e5e5;
 							margin-top: 10px;
 						}
-					}
-				}
+					}//.dropdown-menu
+				}//.dropdown
 				.repo {
 					position: relative;
 					padding: 20px 0;

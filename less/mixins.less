@@ -1,13 +1,4 @@
-.clearfix {
-	*zoom: 1;
-	&:before, &:after {
-		content: "";
-		display: table;
-		line-height: 0; }
-		&:after { 
-			clear: both; } }
-
-.placeholder(@color: @grey) {
+.placeholder(@color) {
 	&:-moz-placeholder { 
 		color: @color; }
 	&:-webkit-input-placeholder { 
@@ -83,34 +74,6 @@
 			right: @right;
 			.fixed(); } } }
 
-/*
-.arrowTopLeft(@backgroundBorderWidth; @frontBorderWidth; @backgroundBorderColor; @frontBorderColor; @position) {
-	position: @position;
-	&:before, &:after { content: ""; }
-	&:before {
-		.bordered(solid; ~"0 @{backgroundBorderWidth} @{backgroundBorderWidth}"; ~"transparent transparent @{backgroundBorderColor}");
-		#positions > #abs > .topLeft(-@backgroundBorderWidth; @backgroundBorderWidth);
-	}
-	&:after {
-		.bordered(solid; ~"0 @{frontBorderWidth} @{frontBorderWidth}"; ~"transparent transparent @{frontBorderColor}");
-		#positions > #abs > .topLeft(-@frontBorderWidth; (@backgroundBorderWidth + 1));
-	}
-}
-
-.arrowTopRight(@backgroundBorderWidth; @frontBorderWidth; @backgroundBorderColor; @frontBorderColor; @position) {
-	position: @position;
-	&:before, &:after { content: ""; }
-	&:before {
-		.bordered(solid; ~"0 @{backgroundBorderWidth} @{backgroundBorderWidth}"; ~"transparent transparent @{backgroundBorderColor}");
-		#positions > #abs > .topRight(-@backgroundBorderWidth; @backgroundBorderWidth);
-	}
-	&:after {
-		.bordered(solid; ~"0 @{frontBorderWidth} @{frontBorderWidth}"; ~"transparent transparent @{frontBorderColor}");
-		#positions > #abs > .topRight(-@frontBorderWidth; (@backgroundBorderWidth + 1));
-	}
-}
-*/
-
 #arrow {
   .prop(@backgroundBorderWidth; @frontBorderWidth; @backgroundBorderColor; @frontBorderColor; @position) {
     position: @position;
@@ -150,7 +113,7 @@
 .boxShadow(@arguments) {
 	box-shadow: @arguments;
 	-moz-box-shadow: @arguments;
-	-webkit20px: @arguments;
+	-webkit-box-shadow: @arguments;
 	-o-box-shadow: @arguments; }
 
 .linearGradient(@origin; @start; @stop) {

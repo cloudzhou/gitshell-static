@@ -10,14 +10,16 @@ body {
 	//text-rendering: optimizeLegibility;
 	line-height: @baseLineHeight;
 	.box(0, ~'0 auto');
-  max-width: 1200px;
+  max-width: 1100px;
   .boxShadow(0 0 5px rgba(0, 0, 0, .9));
+  .bordered(solid; ~'0 1px 1px'; ~'transparent rgba(0, 0, 0, .65) rgba(0, 0, 0, .65)');
+  background-clip: padding-box;
 	background-color: #f1f1f1; }
 
 // Type
 a {
 	color: @linkColor;
-	text-decoration: underline;
+	text-decoration: none;
 	&:hover {
 		color: @linkColorHover;
 		text-decoration: underline; }
@@ -109,10 +111,8 @@ img {
 
 // Lists
 ul, ol {
-	.box(0; ~"0 0 (@{baseLineHeight} / 2) 25px"); 
-	list-style-position: inside;
-	ul, ol {
-		margin-bottom: 0; } }
+	.box(0; ~"0 0 9px 25px"); 
+	list-style-position: inside; }
 
 .unstyledList {
 	list-style: none;
@@ -140,15 +140,33 @@ legend {
 	padding-bottom: 10px;
 	margin-bottom: 10px; }
 
-@inputFields: ~"input[type='text'], input[type='password'], input[type='email'], input[type='phone'], textarea";
-@{inputFields} {
+input[type='text'], input[type='password'], input[type='email'], input[type='phone'], textarea {
 	outline: 0 none;
+  color: @dark;
 	font-family: @sansFontFamily;
 	font-size: @baseFontSize;
 	padding: 3px 5px;
-	.bordered(solid; 1px; ~"#ccc");
-	.placeholder();
-	background-color: @white; 
+	.bordered(solid; 1px; @grey);
+	.placeholder(@greyLight);
+  .borderRadius(2px);
+  //.transition(all ease-in-out .2s);
+	background-color: white; 
+  /*
+  &:focus {
+    border-color: fadeout(@linkColor, 20%);
+    .boxShadow(0 0 3px fadeout(@linkColor, 50%));
+    background-color: fadeout(@linkColor, 98%);
+  }
+  */
+}
+
+button,select {
+  //-webkit-appearance: none;
+  //.borderRadius(2px);
+  //.linearGradient(top; #ffffff; #e9edea);
+  //border: 1px solid #cdcdcd;
+  //background-clip: padding-box;
+  //border: 1px solid rgba(0, 0, 0, .45);
 }
 
 html * [readonly="readonly"] {
@@ -227,6 +245,22 @@ hr {
   }
 }
 
-p.info { /*border: 2px solid #ff8500;*/ .borderRadius(3px); padding: 10px; background-color: #f9ec41; font-size: @fontSizeSmall; font-weight: bold; color: @dark; 
-  img { margin-right: 5px; position: relative; bottom: -3px; }
+p, span {
+  &.info {  
+    .infoStyle();
+    img { margin-right: 5px; position: relative; bottom: -3px; }
+  }
+}
+
+.infoStyle {
+  .borderRadius(3px);
+  padding: 10px;
+  background-color: #f9ec41;
+  font-size: @fontSizeSmall;
+  font-weight: bold;
+  color: @dark;
+}
+
+.alert {
+  p { margin: 0; }
 }

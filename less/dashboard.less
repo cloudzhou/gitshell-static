@@ -49,24 +49,59 @@
     //Notifs
     .notifs {
       .notif-item {
-        padding: 4px 10px;
-        margin: 4px 0;
-        border-bottom: 1px solid #f1f1f1;
-        font-weight: bold;
-        .from {
-          color: @darkLight;
-          font-weight: 400;
-          font-size: 12px;
-        }
-        p {
-          margin: 0;
-          .subject {
-            color: @dark;
-            font-weight: normal;
-            font-size: @fontSizeSmall;
-          }
-        }
-      }
+        padding: 6px 10px;
+        margin: 0;
+        border-bottom: 1px solid #e5e5e5;
+        .clearfix();
+        .notif-type {
+          float: left;
+          .square(30px);
+          margin-right: 10px;
+          .opacity(40);
+          /*
+          &:before {
+            content: "";
+            width: 1px;
+            //background-color: #ccc;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 52px; }
+            */
+          &.type-commit { background: transparent url(/static/img/commit.png) center no-repeat; }
+          &.type-issue { background: transparent url(/static/img/issue.png) center no-repeat; }
+          &.type-pull { background: transparent url(/static/img/pull.png) center no-repeat; }
+          &.type-issue-comment { background: transparent url(/static/img/comments.png) center no-repeat; }
+        }//.notif-type
+        .summary {
+          margin-left: 30px;
+          p { margin: 0; }
+          a { color: @dark; }
+          .user { font-weight: bold; img { position: relative; bottom: -3px; margin-right: 3px; } }
+          .action-type {
+            color: @darkLight;
+            text-transform: capitalize;
+          }//.action-type
+          .notif-title { 
+            font-weight: bold;
+            .borderRadius(2px);
+            .id, .subject { }
+            .id {
+              color: @darkLight;
+              //background-color: #68cc00;
+              //.borderRadius(2px 0 0 2px);
+              margin-right: 3px;
+            }//.id
+            .subject { 
+              //background-color: #ccc;
+              //.borderRadius(0 2px 2px 0);
+            }//.subject
+          }//.notif-title
+          .path { margin: 0 1px; }
+          .parent, .parent a { font-family: menlo,@monoFontFamily; letter-spacing: -1px; font-weight: bold; color: @linkColor; }
+        }//.summary
+        .unixtime { color: @greyLight; font-size: @fontSizeSmall; float: right; }
+      }//.notif-item
     }//.notifs
 
     .primary {
@@ -87,7 +122,7 @@
             width: 1px;
             background-color: #ccc;
             position: absolute;
-            left: 102px;
+            left: 30px;
             top: 0;
             bottom: 0;
             z-index: 0;
@@ -110,32 +145,32 @@
         }
         .feed-item {
           padding: 8px 10px;
-          border-bottom: 1px solid #ccc;
+          border-bottom: 1px solid #f5f5f5;
           overflow: hidden;
           .timeline();
           .avatar { 
             float: left; 
-            .square(60px);
+            margin-left: 50px;
+            .square(40px);
             background-clip: padding-box;
-            img { .square(60px); }
+            img { .square(40px); }
           }
           .info {
             padding: 8px 20px;
-            margin-left: 102px;
+            margin-left: 90px;
             position: relative;
             .feed-type {
               text-align: center;
-              line-height: 32px;
-              .square(32px);
+              .circle(30px);
               background-color: #f9f9f9;
               border: 1px solid #ccc;
               .borderRadius(50%);
-              #positions > #abs > .topLeft(0; -26px);
+              #positions > #abs > .topLeft(0; -86px);
               i { 
                 margin-right: 0;
                 font-size: 16px;
-                color: @grey; }
-              & + p { font-weight: bold; font-size: 13px; margin-bottom: 6px; } }
+              color: @grey; }
+            & + p { font-weight: bold; font-size: 13px; margin-bottom: 6px; } }
             .author { color: @dark; font-weight: bold; margin-right: 5px; }
             .repo-name { margin-left: 5px; }
             .subject { color: #777; margin: 0 5px; &.label-mini { font-weight: bold; padding: 0 5px; height: 14px; } }
@@ -145,13 +180,15 @@
               color: @dark;
               line-height: 15px;
               img { float: left; margin-right: 5px; }
-              a { color: @linkColor; } }
+            a { color: @linkColor; } }
             .commits {
               .unstyledList();
               font-size: @fontSizeSmall;
+              padding-left: 10px;
+              border-left: 1px solid #ccc;
               li {
                 margin: 4px 0;
-              } }
+            } }
             .date { 
               display: none;
               color: @dark; 
@@ -279,129 +316,101 @@
         p {
           font-size: 1.5em;
         }
-      }
-      .pulls-head {
+      }//.wall
+      .header {
         padding: 10px;
-        .heading { margin: 0 0 5px; }
-        p { margin: 0; color: @grey; font-style: italic; font-size: @fontSizeSmall;
-          a { margin: 0 2px; font-size: 14px; font-weight: bold; }
-        }
-      }
-      .pull-item {
+        border-bottom: 1px solid #ddd;
+        background-color: #f9f9f9;
+        .clearfix();
+        .heading { margin: 5px; float: left; font-size: 16px; }
+        .sortable { 
+          display: block;
+          float: left;
+          font-weight: bold;
+          margin-left: 10px;
+          a { display: block; color: @dark; font-weight: bold; }//a
+        }//p
+      }//.pulls-head
+    }//.pulls
+
+
+    .issues {
+      .pagination { padding: 20px 10px; }
+      .issue-item {
         padding: 10px;
-        //margin-bottom: 5px;
         border-bottom: 1px solid #f1f1f1;
-        .pull {
-          margin-bottom: 5px;
-          .clearfix();
-          .avatar { float: left; .square(38px); }
-          .info {
-            margin-left: 48px;
-            .heading {
-              font-size: 14px;
-              margin: 5px 0;
-              a { color: @dark; }
-              .label.label-mini {
-                font-size: 12px;
-                float: right;
-                .borderRadius(1px);
-                line-height: 1; } }
-            .branches {
-              font-size: @fontSizeSmall;
-              color: @grey;
-              .master, .sub {
-                display: inline-block;
-                position: relative;
-                top: -1px;
-                color: @dark;
-                font-family: @monoFontFamily;
-                font-size: @fontSizeMini;
-                font-weight: bold;
-                letter-spacing: -1px;
-                line-height: 1;
-                padding: 2px;
-                margin-right: 2px;
-                .borderRadius(3px);
-                //background-color: #e8f0f9;
-                //border-bottom: 1px solid #cbd2da;
-              }
-              .master {
-                //background-color: #d8f5c9;
-                //border-bottom-color: #a6d789;
-              }
-              .puller { a { color: @darkLight; margin-right: 2px; } }
-            }//.branches
-            .desc { color: @darkLight; margin: 5px 0; }
-          }//.info
-        }//.pull
-        }//.pull-item
-      }//.pulls
-
-
-      .issues {
-        .pagination {
-          padding: 20px 10px;
-        }
-        .issue-item {
-          padding: 8px 10px;
-          border-bottom: 1px solid #f1f1f1;
-          position: relative;
-          .clearfix();
-          .tracker {
-            float: left;
-            width: 50px;
-            .label, .issue-id {
-              display: block;
-              text-align: center;
-              line-height: 20px;
-              height: 20px;
-              padding: 0; }
-            .label {
-              color: @white;
-              font-size: @fontSizeMini;
-              &.defect { background-color: #9a4542; }
-              &.feature { background-color: #0a9a5a; }
-              &.support { background-color: #ffc500; }
-            }
-            .issue-id {
-              color: @darkLight;
-              font-weight: bold;
-              background-color: #f1f1f1;
-            }
-          }//.tracker
-          .summary {
-            margin-left: 60px;
+        position: relative;
+        .clearfix();
+        .tracker {
+          float: left;
+          width: 60px;
+          .label {
+            color: @dark;
+            display: block;
+            text-align: center;
+            line-height: 19px;
+            height: 19px;
             padding: 0;
-            .title {
-              margin-bottom: 4px;
-              .heading {
-                display: inline;
-                font-size: 13px;
-                a { color: @dark; }
-              }
-            }//.title
-            .meta {
-              color: @grey;
-              font-size: 12px;
-              margin-bottom: 0;
-              a { color: @grey; }
-            }
-            .comment {
-              display: none;
-            }//.comment
-            .actions {
-              #positions > #abs > .topRight(10px; 50px);
-              span {
-                cursor: pointer;
-              }
-            }//.actions
-          }//.summary
-          .avatar {
-            .square(36px);
-            #positions > #abs > .topRight(10px; 10px);
+            .borderRadius(0);
+            border-bottom: 1px solid rgba(0, 0, 0, .055);
+            &.issue-id { color: @darkLight; }
+            &.status { font-size: @fontSizeMini; font-weight: bold; }
+            &.open { background-color: #b7c7b1; }
+            &.assigned { background-color: #bfbbc8; }
+            &.processing { background-color: #aac1c9; }
+            &.resolved { background-color: #a8c9b8; }
+            &.closed { background-color: #c9c0be; }
+            &.rejected { background-color: #bdc3c7; }
           }
-        }//.issue-item
-      }//.issues
+          .issue-id {
+            //font-weight: bold;
+            background-color: #ecf0f1;
+          }//.issue-id
+        }//.tracker
+        .summary {
+          margin-left: 70px;
+          padding: 0;
+          .title {
+            margin-bottom: 4px;
+            .heading {
+              display: inline;
+              font-size: @baseFontSize;
+              .label {
+                color: @white;
+                font-size: @fontSizeMini;
+                padding: 3px 5px; 
+                line-height: 1; 
+                position: relative; 
+                top: -2px;
+                .borderRadius(1px);
+                border-bottom: 1px solid rgba(0, 0, 0, .25);
+                &.reponame { background-color: #3297e1; }
+                &.defect { background-color: #f17388; }
+                &.feature { background-color: #1fbc99; }
+                &.support { background-color: #a469c4; }
+              }
+              a { color: @dark; }
+            }
+          }//.title
+          .meta {
+            color: @grey;
+            font-size: 13px;
+            margin-bottom: 0;
+            a { color: @grey; }
+          }
+          .comment {
+            display: none;
+          }//.comment
+          .actions {
+            #positions > #abs > .topRight(20px; 10px);
+            .btn {
+              cursor: pointer;
+              font-weight: bold;
+            }
+          }//.actions
+        }//.summary
+      }//.issue-item
+    }//.issues
 
 
 
@@ -410,75 +419,94 @@
 
 
   .user-repos {
-    .bubble { background-color: #f9f9f9; }
-    .primary {
-      float: left;
-      width: 75%;
-      .boxShadow(1px 0 0 #ddd);
-      background-color: @white;
+
+    //.repo
       .repo {
         .clearfix();
         position: relative;
-        padding-bottom: 15px;
-        margin: 15px 10px;
-        border-bottom: 1px solid #f1f1f1;
+        padding: 5px 10px;
+        margin: 10px 0;
+        .clearfix();
+        &:hover { 
+          .meta {
+            li { a { color: @linkColor; } }
+          }
+        }//&:hover
         &:last-child { margin-bottom: 0; }
         .meta {
           display: block;
           .unstyledList();
-          #positions > #abs > .topRight(0; 0);
+          float: right;
           margin: 5px 0;
           li {
             float: left;
-            margin-left: 10px;
+            margin-left: 15px;
             padding-right: 10px;
             border-right: 1px dotted #e5e5e5;
             &:last-child { border-right: none; }
             a {
+              color: @greyLight;
               display: inline-block;
               text-decoration: none;
               .count, .meta-type {
                 display: block;
-                text-align: center; }
+              text-align: center; }
               .count {
-                color: @grey;
-                font-size: 15px;
-                margin-bottom: 5px; }
+                font-size: 18px;
+              margin-bottom: 5px; }
               .meta-type {
-                color: @greyLight;
                 font-size: 11px;
-                font-weight: bold; }
+              font-weight: bold; }
+              &:hover {
+                color: @linkColor;
+              }//
             }//a
-          }
+          }//li
         }//.meta
+        .repo-avatar {
+          float: left;
+          .size(48px; 34px);
+          margin-right: 10px;
+          position: relative;
+          .private {
+            display: block;
+            //color: white;
+            font-size: 10px;
+            .circle(12px);
+            border: 1px solid #33455e;
+            background-color: @white;
+            #positions > #abs > .bottomRight(-6px;0);
+          }//.private
+        }//.repo-avatar
         .summary {
           .heading {
             position: relative;
             margin: 0;
-            i { 
-              color: @grey; 
-              #positions > #abs > .topLeft(2px; -15px);
-            }
             h3 {
               color: @darkLight;
               margin: 0;
               line-height: 1;
-              a { font-size: 15px; text-decoration: underline; }
+              a { 
+                color: @dark; 
+                font-size: 18px; 
+                //font-family: @monoFontFamily;
+                letter-spacing: -1px;
+                font-weight: bold;
+              }//a
+              .icon-lock { color: @greyLight; }
             }
             .origin {
               display: none;
-              color: @grey;
+              color: @greyLight;
               font-size: 12px;
-              font-style: italic;
               margin: 5px 0;
-              a { color: @grey; margin-left: 2px; }
+              a { color: @greyLight; margin-left: 2px; font-family: @monoFontFamily;; }
             }
           }//.heading
           .detail {
             .desc {
-              margin: 3px 0; 
-              color: @darkLight;
-              //font-style: italic;
+              color: @grey;
+              margin: 5px 0; 
             }
             .list {
               .unstyledList();
@@ -496,91 +524,19 @@
           }//.details
         }//.summary
       }//.repo
-      .pagination {
-        padding: 20px 10px;
-        .active { 
-          font-weight: bold; 
-          span { display: inline-block; }
-        }
-        a { 
-          font-size: 14px;
-          text-decoration: underline;
-        }//a
-      }//.pagination
-    }//.primary
-    .sidebar {
-      float: right;
-      width: 25%;
-      .heading {
-        font-size: 15px; }
-      .section {
-        padding: 10px; }
-      .create {
-        padding: 10px;
-        .inner { padding: 10px; background-color: #f1f1f1; border: 1px solid #ddd; 
-          p { margin: 10px 0 0; color: @darkLight; text-align: center; 
-            span { margin: 0 2px; font-size: 25px; font-style: italic; position: relative; bottom: -3px; }
-          }
-        }//.inner
-        .btn {
-          display: block;
-          padding: 9px 0;
-          font-size: 14px;
-          line-height: 1;
-          text-align: center; 
-        }
-      }//.create
-      /*
-      .capacities {
-        display: none;
-        .inner {
-          padding: 10px;
-          border: 2px dashed #999;
-        }
-        .item {
-          margin-bottom: 15px;
-          &:last-child { margin-bottom: 0; }
-          .dt {
-            color: @grey;
-            font-size: @fontSizeSmall;
-            font-weight: bold;
-            margin-bottom: 3px;
-            //text-align: center;
-            .used { margin-left: 5px; color: @darkLight; }
-            .divider { color: @grey; margin: 0 3px; }
-            .capacity { color: @darkLight; }
-          }//.dt
-          .progress {
-            height: 16px;
-            .bar {
-              height: 16px;
-            }
-          }//.progress
-        }//.itme
-      }//.capacities
-      */
-      .activity {
-        .heading {
-          padding-bottom: 7px;
-          border-bottom: 1px solid #ccc;
-          .boxShadow(0 1px 0 white);
-        }
-        .nav-list {
-          li { 
-            padding: 3px 0; 
-            i { color: @grey; }
-            a {
-              display: inline;
-              font-size: 14px;
-              font-style: italic;
-              .user { }
-              .divider { color: @greyLight; }
-              .repo-name { font-weight: bold; }
-            }//a
-          }//li
-        }//.nav-list
-      }//.activity
-    }//.sidebar
+
+    // pagination
+    .pagination {
+      padding: 20px 10px;
+      .active { 
+        font-weight: bold; 
+        span { display: inline-block; }
+      }
+      a { 
+        font-size: 14px;
+        text-decoration: underline;
+      }//a
+    }//.pagination
   }//.user-repo
 
 }//.dashboard

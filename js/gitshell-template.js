@@ -4,21 +4,17 @@
 
 var repo_commits_diff_nav_template =
 '    <ul class="nav nav-tabs">' +
-'        <li class="cPullRequestAction active" data-action="commit"><a href="javascript:void(0)">Commits</a></li>' +
+'        <li class="cPullRequestAction active" data-action="commit"><a href="javascript:void(0)">提交</a></li>' +
 '        <li class="cPullRequestAction" data-action="diff">' +
-'            <a href="javascript:void(0)">Diff</a>' +
-'        </li>' +
-'        <li id="selectLineContext" class="dropdown hide">' +
-'            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">Diff Context 上下行数(<span id="lineContext">3</span>) <b class="caret"></b></a>' +
-'            <ul class="dropdown-menu">' +
-'                <li><a class="cLineContext" href="javascript:void(0)">3</a></li>' +
-'                <li><a class="cLineContext" href="javascript:void(0)">5</a></li>' +
-'                <li><a class="cLineContext" href="javascript:void(0)">10</a></li>' +
-'                <li><a class="cLineContext" href="javascript:void(0)">20</a></li>' +
-'            </ul>' +
-'        </li>' +
-'    </ul>' +
-'    <div id="pullMetaData" class="bubble">' +
+'            <a href="javascript:void(0)">代码差异</a>' +
+'        </li></ul>' +
+'    <div id="selectLineContext" class="diff-context-option">' +
+'    <p class="alert alert-error">选择差异代码的上下文代码行数' +
+'       <span class="btn-group"><a id="lineContext" class="cLineContext btn btn-mini btn-disable first" href="javascript:void(0)">3行</a>' +
+'       <a class="cLineContext btn btn-mini middle" href="javascript:void(0)">5行</a>' +
+'       <a class="cLineContext btn btn-mini middle" href="javascript:void(0)">10行</a>' +
+'       <a class="cLineContext btn btn-mini last" href="javascript:void(0)">20行</a></span></p></div>' +
+'    <div id="pullMetaData">' +
 '        <div class="ajaxLoader" class="cPullRequestContent"><img src=\'/static/img/loading.gif\' alt="loader"><p>正在加载...</p></div>' +
 '        <div id="pullRequestCommits" class="cPullRequestContent hide"></div>' +
 '        <div id="pullRequestDiff" class="cPullRequestContent hide"></div>' +
