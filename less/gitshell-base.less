@@ -159,9 +159,16 @@
                   color: @dark;
                   font-size: 1.25em; }
                 .actions { color: @darkLight; margin-top: 3px; 
-                  a { display: inline; padding: 1px 0; }
-                }
-              }
+                  a {
+                    display: inline-block; 
+                    padding: 1px 0; 
+                    &.create-team-link {
+                      font-size: @fontSizeSmall;
+                      margin-top: 5px;
+                    }
+                  }//a
+                }//.actions
+              }//.detail
               .avatar {
                 float: right;
                 .square(80px);

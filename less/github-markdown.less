@@ -1,15 +1,14 @@
 // thanks to https://gist.github.com/andyferra/2554919
 .markdown {
-  font-family: Helvetica, arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  color: @dark;
+  font-family: @sansFontFamily;
+  font-size: @baseFontSize;
+  line-height: 1.4;
+  padding: 30px;
   background-color: white;
   background-clip: padding-box;
-  border: 1px solid #d9d9d9;
-  outline: 3px solid rgba(0, 0, 0, .055);
-  padding: 20px;
+  //border: 1px solid #d9d9d9;
+  //outline: 3px solid rgba(0, 0, 0, .055);
   
   > *:first-child {
     margin-top: 0 !important; }
@@ -17,7 +16,7 @@
     margin-bottom: 0 !important; }
   
   a {
-    color: #4183C4; }
+    color: @linkColor; }
   a.absent {
     color: #cc0000; }
   a.anchor {
@@ -31,11 +30,9 @@
     bottom: 0; }
   
   h1, h2, h3, h4, h5, h6 {
-    margin: 20px 0 10px;
+    margin: 15px 0;
     padding: 0;
     font-weight: bold;
-    -webkit-font-smoothing: antialiased;
-    cursor: text;
     position: relative; }
   
   h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
@@ -61,13 +58,15 @@
     font-size: inherit; }
   
   h1 {
-    font-size: 28px;
-    color: black; }
+    font-size: 24px;
+    margin: 15px 0;
+    line-height: 1.2;
+    color: @dark; }
   
   h2 {
     font-size: 24px;
-    border-bottom: 1px solid #cccccc;
-    color: black; }
+    border-bottom: 1px solid #e5e5e5;
+    color: @dark; }
   
   h3 {
     font-size: 18px; }
@@ -83,7 +82,7 @@
     font-size: 14px; }
   
   p, blockquote, ul, ol, dl, li, table, pre {
-    margin: 15px 0; }
+    margin: 5px 0; }
   
   hr {
     background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
@@ -116,7 +115,7 @@
     display: inline-block; }
   
   ul, ol {
-    padding-left: 30px; }
+    padding-left: 20px; }
   
   ul :first-child, ol :first-child {
     margin-top: 0; }
@@ -269,13 +268,14 @@
     border-radius: 3px; }
   
   pre {
-    background-color: #f8f8f8;
-    border: 1px solid #cccccc;
+    background-color: #f9f9f9;
+    border-left: 2px solid @linkColor;
+    color: @dark;
     font-size: 13px;
-    line-height: 19px;
     overflow: auto;
     padding: 6px 10px;
-    border-radius: 3px; }
+    .borderRadius(2px);
+  }
     pre code, pre tt {
       background-color: transparent;
       border: none; }

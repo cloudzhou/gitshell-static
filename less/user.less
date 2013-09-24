@@ -11,6 +11,7 @@
     }
   }//.content
 
+  //header 
   .header {
     .inner();
     border-bottom: 1px solid #ddd;
@@ -83,6 +84,18 @@
     }//.nav-tabs
 
     .tab-pane {
+      .clearfix();
+      .user {
+        float: left;
+        margin: 15px 20px 15px 0;
+        .avatar {
+          .name { 
+            margin: 5px 0; 
+            text-align: center;
+            a { color: @darkLight; }
+          }//.name
+        }//.avatar
+      }//.user
     }//.tab-pane
 
     .repo-list {
@@ -91,7 +104,7 @@
         padding: 10px 0;
         border-bottom: 1px dotted #ddd;
         .title {
-          .heading { font-size: 14px; margin: 4px 0; }
+          .heading { font-size: 18px; margin: 4px 0; }
           .meta { color: @grey; }
         }
         .desc { color: @darkLight; margin: 5px 0; }//.desc
@@ -101,6 +114,11 @@
   }//.primary
 
 }//.profile
+
+
+.user-stats {
+  .content { padding-top: 10px; }
+}//.user-stats
 
 
 

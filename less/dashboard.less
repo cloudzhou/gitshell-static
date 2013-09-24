@@ -20,6 +20,8 @@
 
 .dashboard {
   //background-color: white;
+
+  //.subhead
   .subhead {
     .nav-tabs {
       li { margin: 0 20px; }
@@ -36,71 +38,38 @@
 
   .notif {
 
-    .container {
-    }
-    .sidebar {
-      //float: right;
-      //width: 39.8999999%;
-      .month-group-pagination {
-        margin: 10px 0;
-      }
-    } //.sidebar
-
     //Notifs
     .notifs {
+
       .notif-item {
-        padding: 6px 10px;
+        padding: 8px 10px;
         margin: 0;
-        border-bottom: 1px solid #e5e5e5;
+        border-bottom: 1px solid #f3f3f3;
         .clearfix();
         .notif-type {
           float: left;
           .square(30px);
           margin-right: 10px;
-          .opacity(40);
-          /*
-          &:before {
-            content: "";
-            width: 1px;
-            //background-color: #ccc;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 52px; }
-            */
+          .opacity(30);
           &.type-commit { background: transparent url(/static/img/commit.png) center no-repeat; }
           &.type-issue { background: transparent url(/static/img/issue.png) center no-repeat; }
           &.type-pull { background: transparent url(/static/img/pull.png) center no-repeat; }
           &.type-issue-comment { background: transparent url(/static/img/comments.png) center no-repeat; }
         }//.notif-type
+        .unixtime { color: @greyLight; font-size: @fontSizeSmall; font-weight: normal; float: right; }
         .summary {
-          margin-left: 30px;
-          p { margin: 0; }
-          a { color: @dark; }
-          .user { font-weight: bold; img { position: relative; bottom: -3px; margin-right: 3px; } }
-          .action-type {
-            color: @darkLight;
-            text-transform: capitalize;
-          }//.action-type
-          .notif-title { 
+          margin-left: 50px;
+          .title { 
             font-weight: bold;
-            .borderRadius(2px);
-            .id, .subject { }
-            .id {
-              color: @darkLight;
-              //background-color: #68cc00;
-              //.borderRadius(2px 0 0 2px);
-              margin-right: 3px;
-            }//.id
-            .subject { 
-              //background-color: #ccc;
-              //.borderRadius(0 2px 2px 0);
-            }//.subject
-          }//.notif-title
-          .path { margin: 0 1px; }
-          .parent, .parent a { font-family: menlo,@monoFontFamily; letter-spacing: -1px; font-weight: bold; color: @linkColor; }
+            margin: 0 0 5px;
+          }//.title
+          .subject { 
+            color: @grey;
+            margin: 5px 0;
+            border-left: 1px solid #ddd;
+            padding-left: 10px;
+          }//.subject
         }//.summary
-        .unixtime { color: @greyLight; font-size: @fontSizeSmall; float: right; }
       }//.notif-item
     }//.notifs
 
@@ -108,14 +77,15 @@
       //float: left;
       //width: 60%;
 
-
       .feed-group {
         .clearfix();
         &:first-child {
-          .feed-date { border-top: none; }
+          .feed-date {
+          }
         }
         .timeline {
           position: relative;
+          /*
           &:before {
             content: '';
             display: inline-block;
@@ -127,80 +97,104 @@
             bottom: 0;
             z-index: 0;
           }
-        }
+          */
+        }//.timeline
+
         .feed-date {
-          display: none;
-          color: @darkLight;
-          font-size: 14px;
-          font-weight: bold;
+          .hide();
+          .invisible();
           padding: 10px;
-          border-top: 1px solid #f1f1f1;
-          border-bottom: 1px solid #f1f1f1;
-          //background-color: #fcfcfc;
-          .date {
-            padding: 3px 5px;
-            position: relative;
-            z-index: 2;
-          }
-        }
+        }//feed-date
+
         .feed-item {
-          padding: 8px 10px;
-          border-bottom: 1px solid #f5f5f5;
-          overflow: hidden;
-          .timeline();
-          .avatar { 
-            float: left; 
-            margin-left: 50px;
-            .square(40px);
-            background-clip: padding-box;
-            img { .square(40px); }
-          }
-          .info {
-            padding: 8px 20px;
+          padding: 7px 10px;
+          border-bottom: 1px solid #f3f3f3;
+          .clearfix();
+          .feed-type {
+            float: left;
+            color: @grey;
+            font-size: @fontSizeMini;
+            font-weight: bold;
+            text-indent: -9999em;
+            .square(32px);
+            margin-right: 10px;
+            overflow: hidden;
+            .opacity(30);
+            background-color: transparent;
+            background-size: auto;
+            background-repeat: no-repeat;
+            background-position: center top;
+            &.commit {
+              background-image: url(/static/img/commit.png);
+            }
+            &.issue {
+              background-image: url(/static/img/issue.png);
+            }
+            &.pull {
+              background-image: url(/static/img/pull.png);
+            }
+          }//.feed-type
+
+          .avatar {
+            float: left;
+            .square(30px);
+            img { width: 30px; }
+          }//.avatar
+
+          .detail {
             margin-left: 90px;
-            position: relative;
-            .feed-type {
-              text-align: center;
-              .circle(30px);
-              background-color: #f9f9f9;
-              border: 1px solid #ccc;
-              .borderRadius(50%);
-              #positions > #abs > .topLeft(0; -86px);
-              i { 
-                margin-right: 0;
-                font-size: 16px;
-              color: @grey; }
-            & + p { font-weight: bold; font-size: 13px; margin-bottom: 6px; } }
-            .author { color: @dark; font-weight: bold; margin-right: 5px; }
-            .repo-name { margin-left: 5px; }
-            .subject { color: #777; margin: 0 5px; &.label-mini { font-weight: bold; padding: 0 5px; height: 14px; } }
-            .issue-id { margin: 0 5px; }
-            p, .commits {
-              margin: 0 0 5px; 
-              color: @dark;
-              line-height: 15px;
-              img { float: left; margin-right: 5px; }
-            a { color: @linkColor; } }
-            .commits {
-              .unstyledList();
-              font-size: @fontSizeSmall;
-              padding-left: 10px;
-              border-left: 1px solid #ccc;
-              li {
-                margin: 4px 0;
-            } }
             .date { 
-              display: none;
-              color: @dark; 
-              #positions > #abs > .topRight(10px; 0);
+              //.hide();
+              float: right;
+              color: @greyLight;
+              font-size: @fontSizeSmall;
+              line-height: 1; 
             }//.date
-          }//.info
+            .title {
+              font-weight: bold;
+              margin: 0 0 6px;
+              .date { font-weight: normal; }
+            }//.title
+            .subject {
+              color: @darkLight;
+              margin: 5px 0;
+              img {
+                .hide();
+                position: relative;
+                bottom: -3px;
+                margin-right: 3px;
+              }//img
+              .action {
+                float: none;
+                color: @white;
+                font-size: @fontSizeMini;
+                font-weight: bold;
+                line-height: 1;
+                padding: 2px 3px;
+                margin-left: 5px;
+                border-bottom: 1px solid rgba(0, 0, 0, .2);
+                background-color: #3096e7;
+                position: relative;
+                top: -2px;
+              }//.action
+              &.commits {
+                list-style: none;
+                padding-left: 10px;
+                border-left: 1px solid #ddd;
+                li { margin: 5px 0; }
+                .hash { margin-right: 3px; }
+              }//&.commits
+            }//.subject
+
+          }//.detail
+
         }//.feed-item
-      }
+      }//.feed-group
 
     } //.primary
 
 
+    // todos
     .todos {
       .clearfix();
       min-height: 500px;
@@ -309,6 +303,7 @@
       }//.todo-list
     }//.todos
 
+    // pulls
     .pulls {
       min-height: 350px;
       .wall {
@@ -333,7 +328,7 @@
       }//.pulls-head
     }//.pulls
 
-
+    // issues
     .issues {
       .pagination { padding: 20px 10px; }
       .issue-item {
@@ -412,118 +407,116 @@
       }//.issue-item
     }//.issues
 
-
-
-
   }//.notif
 
 
+  // user-repos
   .user-repos {
 
     //.repo
-      .repo {
-        .clearfix();
-        position: relative;
-        padding: 5px 10px;
-        margin: 10px 0;
-        .clearfix();
-        &:hover { 
-          .meta {
-            li { a { color: @linkColor; } }
-          }
-        }//&:hover
-        &:last-child { margin-bottom: 0; }
+    .repo {
+      .clearfix();
+      position: relative;
+      padding: 5px 0;
+      margin: 10px 0;
+      .clearfix();
+      &:hover { 
         .meta {
-          display: block;
-          .unstyledList();
-          float: right;
-          margin: 5px 0;
-          li {
-            float: left;
-            margin-left: 15px;
-            padding-right: 10px;
-            border-right: 1px dotted #e5e5e5;
-            &:last-child { border-right: none; }
-            a {
-              color: @greyLight;
-              display: inline-block;
-              text-decoration: none;
-              .count, .meta-type {
-                display: block;
-              text-align: center; }
-              .count {
-                font-size: 18px;
-              margin-bottom: 5px; }
-              .meta-type {
-                font-size: 11px;
-              font-weight: bold; }
-              &:hover {
-                color: @linkColor;
-              }//
-            }//a
-          }//li
-        }//.meta
-        .repo-avatar {
+          li { a { color: @linkColor; } }
+        }
+      }//&:hover
+      &:last-child { margin-bottom: 0; }
+      .meta {
+        display: block;
+        .unstyledList();
+        float: right;
+        margin: 5px 0;
+        li {
           float: left;
-          .size(48px; 34px);
-          margin-right: 10px;
+          margin-left: 15px;
+          padding-right: 10px;
+          border-right: 1px dotted #e5e5e5;
+          &:last-child { border-right: none; }
+          a {
+            color: @greyLight;
+            display: inline-block;
+            text-decoration: none;
+            .count, .meta-type {
+              display: block;
+            text-align: center; }
+            .count {
+              font-size: 18px;
+            margin-bottom: 5px; }
+            .meta-type {
+              font-size: 11px;
+            font-weight: bold; }
+            &:hover {
+              color: @linkColor;
+            }//
+          }//a
+        }//li
+      }//.meta
+      .repo-avatar {
+        float: left;
+        .size(48px; 34px);
+        margin-right: 10px;
+        position: relative;
+        .private {
+          display: block;
+          //color: white;
+          font-size: 10px;
+          .circle(12px);
+          border: 1px solid #33455e;
+          background-color: @white;
+          #positions > #abs > .bottomRight(-6px;0);
+        }//.private
+      }//.repo-avatar
+      .summary {
+        .heading {
           position: relative;
-          .private {
-            display: block;
-            //color: white;
-            font-size: 10px;
-            .circle(12px);
-            border: 1px solid #33455e;
-            background-color: @white;
-            #positions > #abs > .bottomRight(-6px;0);
-          }//.private
-        }//.repo-avatar
-        .summary {
-          .heading {
-            position: relative;
+          margin: 0;
+          h3 {
+            color: @darkLight;
             margin: 0;
-            h3 {
-              color: @darkLight;
-              margin: 0;
-              line-height: 1;
-              a { 
-                color: @dark; 
-                font-size: 18px; 
-                //font-family: @monoFontFamily;
-                letter-spacing: -1px;
-                font-weight: bold;
-              }//a
-              .icon-lock { color: @greyLight; }
+            line-height: 1;
+            a { 
+              color: @dark; 
+              font-size: 18px; 
+              //font-family: @monoFontFamily;
+              letter-spacing: -1px;
+              font-weight: bold;
+            }//a
+            .icon-lock { color: @greyLight; }
+          }
+          .origin {
+            display: none;
+            color: @greyLight;
+            font-size: 12px;
+            margin: 5px 0;
+            a { color: @greyLight; margin-left: 2px; font-family: @monoFontFamily;; }
+          }
+        }//.heading
+        .detail {
+          .desc {
+            color: @grey;
+            margin: 5px 0; 
+          }
+          .list {
+            .unstyledList();
+            color: @darkLight;
+            padding-left: 7px;
+            border-left: 2px solid fadeout(@linkColor, 30%);
+            img {
+              position: relative;
+              bottom: -2px;
+              margin-right: 3px;
             }
-            .origin {
-              display: none;
-              color: @greyLight;
-              font-size: 12px;
-              margin: 5px 0;
-              a { color: @greyLight; margin-left: 2px; font-family: @monoFontFamily;; }
-            }
-          }//.heading
-          .detail {
-            .desc {
-              color: @grey;
-              margin: 5px 0; 
-            }
-            .list {
-              .unstyledList();
-              color: @darkLight;
-              padding-left: 7px;
-              border-left: 2px solid fadeout(@linkColor, 30%);
-              img {
-                position: relative;
-                bottom: -2px;
-                margin-right: 3px;
-              }
-              .hash { margin-right: 5px; }
-              .date { color: @grey; }
-            }//.list
-          }//.details
-        }//.summary
-      }//.repo
+            .hash { margin-right: 5px; }
+            .date { color: @grey; }
+          }//.list
+        }//.details
+      }//.summary
+    }//.repo
 
     // pagination
     .pagination {
@@ -537,6 +530,7 @@
         text-decoration: underline;
       }//a
     }//.pagination
+
   }//.user-repo
 
 }//.dashboard

@@ -31,26 +31,39 @@
         sup { color: @darkLight; } 
         &.repo-nav {
           .dropdown-toggle {
-            span { font-size: 12px; position: relative; top: -2px; }
+            text-decoration: none;
+            cursor: default;
+            .btn {
+              display: inline-block;
+              font-size: 12px;
+              position: relative;
+              top: -2px; 
+              padding: 3px 4px;
+              line-height: 1;
+              cursor: pointer;
+              i { margin-right: 0; }
+            }
           }
           .dropdown-menu {
             font-size: @baseFontSize;
             //font-weight: normal;
+            background-color: #42a8ab;
             li {
               margin: 3px 0;
               a {
-                color: @dark;
+                color: @white;
                 padding: 4px 5px;
                 border-left: 2px solid transparent;
                 i { display: none; .circle(20px); }
                 &:hover {
+                  color: #42a8ab;
                   text-decoration: none;
-                  border-left-color: @linkColorLight;
-                  background-color: #f3f3f3;
+                  border-left-color: @white;
+                  background-color: @white;
                 }
               }//a
               &.active {
-                a { color: @linkColor; border-left-color: @linkColorLight; }
+                a { border-left-color: @white; }
               }//.active
             }//li
           }//.dropdown-menu
@@ -458,7 +471,7 @@
 				dd { margin-left: 0; }
 				a {
 					display: block;
-          color: @dark;
+          color: @darkLight;
 					//font-weight: bold;
 					padding: 2px 0 2px 10px;
 					border-left: 2px solid transparent;
