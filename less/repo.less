@@ -76,15 +76,25 @@
 			.clearfix();
 			li { 
         float: left; 
-        margin-left: 10px; 
+        margin-left: 10px;
         .btn { display: block; border-color: rgba(0, 0, 0, .5) rgba(0, 0, 0, .5) rgba(0, 0, 0, .55); .boxShadow(0 1px 0 fadeout(@black, 90%)); }
-        &.dropdown {
-          .dropdown-menu {
+        &.clone-url {
+          position: relative;
+          .menu-toggle {
+            display: inline-block;
+          }//.menu-toggle
+          .clone-menu {
             //#arrow > .topLeft(6px;5px;rgba(0, 0, 0, .85);rgba(255, 255, 255, 1); absolute);
             width: 300px;
             top: 120%;
             left: -150%;
             padding: 10px;
+            position: absolute;
+            z-index: @zindexDropdown;
+            background-color: @white;
+            background-clip: padding-box;
+            border: 1px solid rgba(0, 0, 0, .35);
+            .boxShadow(0 0 5px rgba(0, 0, 0, .2));
             .dropdown-menu {
               min-width: 80px;
               width: 80px;
@@ -103,8 +113,13 @@
                   }//&:hover
                 }//a
               }//li
-            }//.dropdown
-          }
+            }//.dropdown-menu
+            .url-holder {
+              input.btn {
+                padding: 3px;
+              }//input.btn
+            }//.url-holder
+          }//.clone-menu
         }//.dropdown
       }//li
 		}//.repo-actions
@@ -207,7 +222,7 @@
           .textShadow(0 1px 0 fadeout(@white, 10%)); }
         li { 
           .clearfix(); 
-          padding-left: 16px;
+          padding: 1px 5px 1px 16px;
           span.fold { color: @dark; padding: 4px 0; img { position: relative; bottom: -2px; margin-right: 3px; } }
           a.file { padding: 2px 0; img { position: relative; bottom: -2px; margin-right: 3px; } }
           a { 
@@ -316,7 +331,7 @@
           margin-right: 10px; }
         .summary {
           .msg, .meta { margin: 3px 0; }
-          .msg { font-weight: bold; font-size: @baseFontSize + 1; }
+          .msg { font-weight: bold; font-size: @baseFontSize; }
           .meta { color: @grey; a { color: @grey; } }
         }//.sumamry
 			}//.commiter
@@ -760,12 +775,12 @@
   //.pull-form
   .pull-form {
     .heading {
-      border-bottom: 1px solid #e5e5e5;
     }
     .repo-refs {
-      background-color: #ecebe8;
-      .infoStyle();
-      padding: 10px;
+      .well();
+      //background-color: #ecebe8;
+      padding: 20px 10px;
+      margin: 10px 0;
       .chevron {
         margin: 0 10px;
         i { margin-right: 0; }
@@ -776,25 +791,51 @@
         //.boxShadow(@boxShadow);
         width: 150px;
         .textOverflow();
-        //.btn();
+        .btn();
       }//select
     }//.repo-refs
 
-    .diff-context-option {
-      .alert { padding: 10px; }
-      .btn-group {
-        float: right;
-        display: inline-block; 
-        position: relative;
-        top: -3px;
-        margin-left: 15px;
-      }//.btn-group
-    }
+    .form-horizontal {
+      padding: 20px 0;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #f1f1f1;
+      .control-label {
+        font-weight: bold;
+      }//.control-label
+      .controls {
+        input { width: 400px; height: 26px; }
+        textarea { width: 400px; max-width: 400px; min-height: 100px; }
+      }//.controls
+    }//.form-horizontal
+
   }//.pull-form
 
   //.compare
   .compare {
     .pull-form();
+    .table {
+      &.commits {
+        th {
+          text-align: left;
+          padding: 5px 10px;
+          &.hash, &.date { text-align: right; font-family: @sansFontFamily; }
+        }//th
+        td {
+          padding: 7px 10px;
+          border-bottom: 1px solid #f3f3f3;
+          &.author {
+            width: 10%;
+            a {
+              color: @darkLight;
+              img { position: relative; bottom: -3px; margin-right: 3px; }
+            }//a
+          }
+          &.hash { width: 10%; text-align: right; }
+          &.msg { width: 70%; color: @darkLight; }
+          &.date { width: 10%; text-align: right; color: @grey; font-size: @fontSizeSmall; }
+        }//td
+      }//.commits
+    }//.table
   }//.compare
 
   //.stats
@@ -802,6 +843,63 @@
 		.inner-container { .clearfix(); margin-top: 10px; padding: 10px; }
 		.repo_chart { max-width: 50%; float: left; }
 	}//.stats
+
+
+  //.graph
+  .graph {
+    .header {
+      padding: 10px;
+      background-color: #252c32;
+      border-bottom: 2px solid #2a343a;
+      .dropdown-toggle {
+        .branch { font-weight: bold; }
+      }//.dropdown-toggle
+      .dropdown-menu {
+        padding: 5px 0;
+        border-color: rgba(0, 0, 0, .75);
+        a {
+          padding: 0 5px;
+          .icon-ok { float: right; }
+          &:hover { background-color: @linkColor; color: white; }
+        }//a
+      }//.dropdown-menu
+    }//.header
+    .refs-graph {
+      padding: 10px 0;
+      background-color: #252c32;
+      p {
+        color: #84898c;
+        padding: 2px 0;
+        line-height: 1;
+        margin: 0 5px;
+        //border-bottom: 1px solid #f9f9f9;
+        &:hover {
+          background-color: #2a343a;
+        }//
+        .label {
+          padding: 2px 4px;
+          font-size: @fontSizeMini;
+          font-weight: bold;
+        }//.label
+        .c_commit_hash {
+          color: #7ec952;
+          font-family: @monoFontFamily;
+          margin-left: 5px;
+        }//c_commit_hash
+        .c_date_relative {
+          color: #9a9a8d;
+          font-style: italic;
+          float: right;
+        }//c_date_relative
+        .c_commit {
+          color: #f0f0f0;
+        }//c_commit
+        .c_author {
+          color: #dda875;
+        }//c_author
+      }//
+    }//.refs-graph
+  }//.graph
 
   //.settings
   .settings {
@@ -840,16 +938,20 @@
   .subhead {
     //padding: 2px 0;
     .clearfix();
-    &.create {
-      .heading {
-        font-size: 16px;
-      }
-    }//.create
+    .create-repo {
+      font-size: 16px;
+      margin: 12px 0;
+      em {
+        font-size: @baseFontSize;
+        font-weight: normal;
+        margin-left: 10px; }
+    }
   }//.subhead
 
 	.content {
-    &.create {
-      padding-top: 0;
+    .create-repo {
+      padding: 10px 0;
+
       .nav.nav-tabs {
         margin-top: 5px;
         li {
@@ -866,7 +968,8 @@
           .size(500px; 120px);
           resize: none;
         }
-        .control-group { margin-bottom: 10px; 
+        .control-group {
+          margin-bottom: 10px; 
           &.source-repo-auth {
             display: none;
             .controls {
@@ -879,7 +982,7 @@
               }
             }
           }
-        }
+        }//.control-group
         .control-label { 
           font-weight: bold;
         }
@@ -893,14 +996,12 @@
             margin: 5px;
           }
           .private { font-size: 12px; font-weight: bold; margin-left: 5px; cursor: pointer; }
-          .alert { 
-            margin-left: 10px; 
+          .text-warning { 
+            margin: 0;
           }
-        }
-      }
-      .connect-github {
-        margin: 30px 0;
-      }
+        }//.controls
+      }//.form-horizontal
+
       .form-alert {
         position: relative;
         margin: 15px 0;
@@ -914,29 +1015,52 @@
         p { margin: 0; }
       }//.form-alert
 
-      .tab-content {
-        .bubble();
-        .tab-pane {
-          padding: 10px;
-        }
-        .repo {
-          position: relative;
-          .clearfix();
-          padding: 5px 0;
-          &:hover { background-color: fadeout(@yellow, 75%); }
-          .repo-fig {
-            float: left;
-            margin-right: 10px;
-            img { .square(36px); }
-          }//.repo-fig
-          .heading { margin: 0; }
-          .hash { color: @grey; font-size: @fontSizeSmall; font-weight: bold; margin: 0; }
-          .import-repo-button {
-            #positions > #abs > .topRight(10px; 10px);
+      .repo {
+        padding: 10px;
+        border-bottom: 1px solid #f3f3f3;
+        .clearfix();
+        &.hovered { background-color: #f9f9f9; }
+        .action {
+          float: right;
+          margin-top: 10px;
+        }//.action
+        .repo-avatar {
+          float: left;
+        }//.repo-avatar
+        .summary {
+          margin-left: 70px;
+          .title,.meta,.desc,.url {
+            margin: 3px 0;
           }
-        }//.repo
-      }//.tab-content
-    }//.create
+          .title {
+            font-size: 18px;
+            font-weight: normal;
+            line-height: 1.2;
+            margin-top: 0;
+            a { color: @dark; }
+          }
+          .meta {
+            display: none;
+            color: @grey;
+            .size { margin-right: 20px; }
+            a { color: @grey; font-size: @fontSizeSmall; }
+          }//.meta
+          .desc {
+            color: @darkLight;
+          }//.desc
+          .url {
+            color: @darkLight;
+            font-family: Monaco, Menlo, @monoFontFamily;
+            font-size: @fontSizeSmall;
+            letter-spacing: -1px;
+          }
+        }//.summary
+      }//.repo #Github-import
+      .connect-github {
+        margin: 0 10px;
+      }//.connect-github
+
+    }//.create-repo
   }//.content
 
 

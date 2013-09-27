@@ -8,35 +8,36 @@ var repo_commits_diff_nav_template =
 '        <li class="cPullRequestAction" data-action="diff">' +
 '            <a href="javascript:void(0)">代码差异</a>' +
 '        </li></ul>' +
-'    <div id="selectLineContext" class="diff-context-option">' +
-'    <p class="alert alert-error">选择差异代码的上下文代码行数' +
-'       <span class="btn-group"><a id="lineContext" class="cLineContext btn btn-mini btn-disable first" href="javascript:void(0)">3行</a>' +
-'       <a class="cLineContext btn btn-mini middle" href="javascript:void(0)">5行</a>' +
-'       <a class="cLineContext btn btn-mini middle" href="javascript:void(0)">10行</a>' +
-'       <a class="cLineContext btn btn-mini last" href="javascript:void(0)">20行</a></span></p></div>' +
 '    <div id="pullMetaData">' +
-'        <div class="ajaxLoader" class="cPullRequestContent"><img src=\'/static/img/loading.gif\' alt="loader"><p>正在加载...</p></div>' +
+'        <div class="ajaxLoader cPullRequestContent"><img src=\'/static/img/loading.gif\' alt="loader"><p>正在加载...</p></div>' +
 '        <div id="pullRequestCommits" class="cPullRequestContent hide"></div>' +
 '        <div id="pullRequestDiff" class="cPullRequestContent hide"></div>' +
 '    </div>';
 
 var repo_commits_template = 
-'   <table class="table"><thead><tr><th>提交HASH (作者)</th><th>时间</th><th>日志</th></tr></thead><tbody>' +
+'   <table class="table commits"><thead><tr><th class="author">提交者</th><th class="hash">Hash</th><th class="msg">注释</th><th class="date">时间</th></tr></thead><tbody>' +
 '       <% _.each(commits, function(commit){ %>' +
-'           <tr><td><code><%-commit.commit_hash%></code><span>(<%-commit.committer_name%>)</span></td><td><span style="display: inline;"><%-commit.committer_moment%></span></td><td><%-commit.commit_message%></td></tr>' +
+'           <tr><td class="author"><a href="/<%-commit.committer_name%>/"><img src="https://gravatar.com/avatar/<%-commit.committer_name%>?s=16" alt="<%-commit.committer_name%>"><%-commit.committer_name%></a></td><td class="hash"><a href="#"><%-commit.commit_hash%></a></td><td class="msg"><%-commit.commit_message%></td><td class="date"><time pubdate="pubdate"><%-commit.committer_moment%></time></td></tr>' +
 '       <% }); %>' + 
 '   </tbody></table>';
 var repo_commits_tmpl = _.template(repo_commits_template);
 
 repo_diff_template =
 '   <% if(diff.numstat.length == 0){ %>' +
-'   <p>没有不同的地方</p>' + 
+'   <p class="alert alert-info">没有不同的地方</p>' + 
 '   <% } %>' +
 '   <div class="diff-header">' +
-'       <p>修改文件(<%-diff.changedfiles_count%>), 添加行数(<%-diff.total_add_line%>), 删除行数(<%-diff.total_delete_line%>), 总计行数(<%-diff.abs_change_line%>)</p>' +
+'       <div class="title"><h3 class="heading">修改文件<strong><%-diff.changedfiles_count%></strong><span class="detail">添加行数<strong><%-diff.total_add_line%></strong>, 删除行数<strong><%-diff.total_delete_line%></strong>, 总计行数<strong><%-diff.abs_change_line%></strong></span></h3>' +
+'    <div id="selectLineContext" class="diff-context-option">' +
+'       <span class="txt" data-toggle="tooltip" title="显示代码修改部分的上下文代码行数">上下文<i class="icon-question-sign"></i></span>' +
+'       <span class="btn-group"><a id="lineContext" class="cLineContext btn btn-mini btn-disable first" href="javascript:void(0)">3行</a>' +
+'       <a class="cLineContext btn btn-mini middle" href="javascript:void(0)">5行</a>' +
+'       <a class="cLineContext btn btn-mini middle" href="javascript:void(0)">10行</a>' +
+'       <a class="cLineContext btn btn-mini last" href="javascript:void(0)">20行</a></span></div>' +
+'    </div>' +
 '       <ul class="diff-list">' +
 '       <% _.each(diff.numstat, function(numstat){ %>' +
-'           <li class="clearfix"><span class="diff-linenumber clearfix"><span class="added">+ <%-numstat[0]%></span><span class="removed">- <%-numstat[1]%></span></span><a href="#chg-<%-numstat[2]%>"><%-numstat[2]%></a></li>' +
+'           <li><span class="diff-linenumber clearfix"><span class="added">+ <%-numstat[0]%></span><span class="removed">- <%-numstat[1]%></span></span><a href="#chg-<%-numstat[2]%>" class="file"><%-numstat[2]%></a></li>' +
 '       <% }); %>' +
 '       </ul>' +
 '   </div>' +

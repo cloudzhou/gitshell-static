@@ -46,7 +46,7 @@
                         html.push(_.sprintf('<li><a href="/%s/%s/">%s/%s</a></li>', repo.username, repo.name, repo.username, repo.name));
                     }
                 }
-                html.push('<li class="all"><a href="/'+username+'/-/repo/create/">新建仓库</a></li>');
+                html.push('<li class="create"><a href="/'+username+'/-/repo/create/">新建仓库</a></li>');
                 $('.repo-shortcut-ul').html(html.join(''));
             });
         }
@@ -167,7 +167,7 @@
                 if(source_commit_hash in exists_commit_hash_map) {
                     is_up_to_date = true;
                 }
-                var html = '<p>已经是最新的.</p>';
+                var html = '<p class="alert alert-info">已经是最新的.</p>';
                 if(!is_up_to_date) {
                     html = repo_commits_tmpl(json);
                 }
@@ -227,7 +227,7 @@
                 }
             });
             $('.cLineContext').click(function(){
-                $('#i_line_context').text($(this).text());
+                $('#lineContext').text($(this).text());
                 repoComparer.setLineContext($(this).text());
                 repoComparer.loadDiff($('#pullRequestDiff'), null, this.navDiff);
             });
