@@ -75,7 +75,7 @@
             &.repo-loading { padding: 4px 5px; text-align: center; }
             &.all { border-bottom: 1px solid #ccc; a { font-weight: bold; } }
             &.leader { font-weight: bold; margin-top: 5px; span { padding: 4px 5px; } }
-            &.create { margin-top: 5px; border-top: 1px solid #ccc; a { display: block; color: @dark; font-weight: bold; padding: 10px 5px; &:hover { text-decoration: none; background-color: #e5e5e5; } } }
+            &.create { margin-top: 5px; border-top: 1px solid #ccc; a { display: block; font-weight: bold; padding: 10px 5px; &:hover { text-decoration: none; background-color: #e5e5e5; } } }
           }//li
           a { color: @linkColor; padding: 2px 5px; font-weight: 500; display: inline-block; .textShadow(none); font-size: @baseFontSize;
             &:hover { text-decoration: underline; }
@@ -151,7 +151,7 @@
               .clearfix();
               background-color: #f2f3f3;
               padding: 5px;
-              border-bottom: 1px solid #d3d4d5;
+              border-bottom: 1px solid #ccc;
               .detail {
                 float: left;
                 font-weight: bold;
@@ -176,6 +176,25 @@
                 background-color: #e5e5e5;
               }
             }//.info
+            .team-accounts {
+              float: none;
+              padding: 5px 0;
+              border-bottom: 1px solid #ccc;
+              background-color: white;
+              li {
+                padding: 2px 5px;
+                a {
+                  display: inline-block;
+                  padding: 0;
+                }//a
+                &.create { }
+                img {
+                  .size(20px; 12px);
+                  position: relative;
+                  bottom: -2px;
+                  margin-right: 5px; }
+              }//li
+            }//.team-accounts
             .other {
               overflow: hidden;
               padding: 5px;

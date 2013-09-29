@@ -46,7 +46,7 @@
                         html.push(_.sprintf('<li><a href="/%s/%s/">%s/%s</a></li>', repo.username, repo.name, repo.username, repo.name));
                     }
                 }
-                html.push('<li class="create"><a href="/'+username+'/-/repo/create/">新建仓库</a></li>');
+                html.push('<li class="create"><a href="/'+username+'/-/repo/create/"><i class="icon-pencil"></i>新建仓库</a></li>');
                 $('.repo-shortcut-ul').html(html.join(''));
             });
         }
