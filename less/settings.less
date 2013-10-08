@@ -1,4 +1,4 @@
-.HS { //only used as a less function
+.HS { //only used as a less mixin
   .sidebar {
     float: left;
     width: 20%;
@@ -241,6 +241,22 @@
       .action { font-size: .8em; }
     }//.ssh
 
+    .relative-accounts {
+      .unstyledList();
+      li {
+        font-size: 1.2em;
+        padding: 10px 0;
+        border-bottom: 1px solid #e5e5e5;
+        &:first-child {
+          border-top: 1px solid #e5e5e5;
+        }
+        .disconnect {
+          float: right;
+          font-size: .85em;
+        }
+      }//li
+    }//.relative-accounts
+
     table.team {
       width: 100%;
       td {
@@ -296,7 +312,7 @@
       .control-group {
         margin-bottom: 8px;
         .control-label {
-          color: @grey;
+          //color: @grey;
           font-size: @fontSizeSmall;
           font-weight: bold;
           padding: 7px 0; }

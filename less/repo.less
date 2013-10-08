@@ -48,6 +48,7 @@
             font-size: @baseFontSize;
             //font-weight: normal;
             background-color: #42a8ab;
+            right: 0;
             li {
               margin: 3px 0;
               a {
@@ -234,7 +235,13 @@
         .caret { width: 25px; padding: 2px 0; text-align: center; #positions > #abs > .topRight(3px; 0); i { margin-right: 0; } }
         .nav-list {
           width: 100%;
-          li { &:hover { background-color: fadeout(@black, 90%); } }
+          li {
+            padding: 0;
+            &:hover { background-color: fadeout(@black, 90%); }
+            a {
+              padding: 5px;
+            }//a
+          }//li
         }//.nav-list
       }//.branches
       .nav-list {
@@ -433,14 +440,14 @@
   }//.tags
 
   //.cloner
-	.cloner {
+	.pulse {
 		.inner-container { margin-top: 10px; padding: 0 10px; }
 		// Clone Watchers
 		[class*="repo-"] {
-			padding-left: 10px;
-			padding-right: 10px;
-			p.meta {  line-height: @baseLineHeight; }
-			.info { float: none; }
+      padding: 15px 0;
+			.summary { float: none; }
+      .name, .meta { margin: 5px 0; }
+			.meta { line-height: @baseLineHeight; }
 		}//[class*="repo-"]
 		.header-ribbon {
 			height: 30px;
@@ -462,11 +469,21 @@
 				width: 25%;
 				padding: 10px 0;
 				a { text-decoration: none; &:hover { text-decoration: underline; } }
-				.avatar { .square(65px); }
-				.meta { color: @grey; }
+				.avatar {
+          .square(65px);
+          //.centerBlock();
+        }
+        .summary {
+          //text-align: center;
+          .name { margin: 5px 0; }
+          .meta { color: @grey; margin: 5px 0; }
+        }//.summary
 			}//.member
 		}//.watchers
-	}//.cloner
+    .stars {
+      .watchers;
+    }//.stars
+	}//.pulse
 
   //.network
 	.network {
@@ -891,6 +908,7 @@
       background-color: #252c32;
       p {
         color: #84898c;
+        font-family: @monoFontFamily;
         padding: 2px 0;
         line-height: 1;
         margin: 0 5px;
@@ -910,14 +928,17 @@
         }//c_commit_hash
         .c_date_relative {
           color: #9a9a8d;
+          font-family: @sansFontFamily;
           font-style: italic;
           float: right;
         }//c_date_relative
         .c_commit {
           color: #f0f0f0;
+          font-family: @sansFontFamily;
         }//c_commit
         .c_author {
           color: #dda875;
+          font-family: @sansFontFamily;
         }//c_author
       }//
     }//.refs-graph
