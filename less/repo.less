@@ -310,6 +310,73 @@
     }//.table-container
 	}//.files
 
+  //.file-list /.code
+  .file-list {
+    .header {
+      .clearfix();
+      margin-bottom: 10px;
+      .branches {
+        float: left;
+        .dropdown-toggle {
+          display: inline-block;
+          .btn();
+          padding: 3px 10px;
+        }
+        .dropdown-menu {
+          a {
+            padding: 3px 10px;
+            &:hover {
+              color: @white;
+              background-color: @linkColor;
+            }
+            .icon-ok {
+              float: right;
+            }
+          }//a
+        }//.dropdown-menu
+      }//.branches
+      .actions {
+        float: right;
+        .btn {
+          display: inline-block;
+        }
+      }//.actions
+    }//.header
+    .code {
+      line-height: 1;
+      .line {
+        display: inline-block;
+        color: @grey;
+        font-size: @fontSizeSmall;
+        font-weight: bold;
+        line-height: 20px;
+        height: 20px;
+        margin-right: 10px;
+        border-style: solid;
+        border-width: 0 1px;
+        border-color: transparent #f1f1f1 transparent;
+        background-color: #f9f9f9;
+        &:first-child {
+          border-top: 1px solid #f1f1f1;
+          .borderRadius(3px 3px 0 0); }
+        &:last-child {
+          border-bottom: 1px solid #f1f1f1;
+          .borderRadius(0 0 3px 3px); }
+        &:before {
+          border: none;
+          padding-right: 0;
+        }
+      }//.line
+      pre {
+        margin: 0;
+      }//pre
+      code {
+        padding: 10px 5px;
+        font: 13px Consolas, "Liberation Mono", Courier, monospace;
+      }//code
+    }//.code
+  }//.file-list
+
   //.commits
 	.commits {
     padding: 10px;
@@ -439,7 +506,7 @@
     padding: 10px;
   }//.tags
 
-  //.cloner
+  //.pulse
 	.pulse {
 		.inner-container { margin-top: 10px; padding: 0 10px; }
 		// Clone Watchers
@@ -777,14 +844,18 @@
       .refs {
         margin-bottom: 20px;
         //.well();
-        .txt {
-          margin: 0;
+        .label {
+          margin: 0 3px;
+          position: relative;
+          top: -1px;
+          font-family: Monaco, Menlo, @monoFontFamily;
+          letter-spacing: -1px;
         }//.txt
         .pull-id {
-          float: right;
           color: @darkLight;
           font-size: @baseFontSize;
-          font-weight: normal;
+          //font-weight: normal;
+          margin-right: 5px;
         }
       }//.refs
       .pull {
@@ -882,7 +953,6 @@
 		.inner-container { .clearfix(); margin-top: 10px; padding: 10px; }
 		.repo_chart { max-width: 50%; float: left; }
 	}//.stats
-
 
   //.graph
   .graph {
@@ -991,6 +1061,7 @@
     }
   }//.subhead
 
+  //.content
 	.content {
     .create-repo {
       padding: 10px 0;

@@ -43,7 +43,7 @@
             .button {
               display: block;
               padding: 3px 8px 5px;
-              .borderRadius(2px);
+              .borderRadius(3px);
               //.bordered(solid; 1px; ~'#c94f4b #b73029 #b73029'); //red
               .bordered(solid; 1px; ~'#068284 #068284 #046e6f');
               .boxShadow(inset 0 1px 0 rgba(255, 255, 255, .35));
@@ -87,7 +87,6 @@
     //.userbar
     &.userbar {
       float: right;
-
       .dropdown {
         padding: 8px 0;
 
@@ -98,6 +97,15 @@
           //.square(25px);
           text-align: center;
           &:hover { text-decoration: none; }
+          img {
+            position: relative;
+            bottom: -2px; }//img
+          .name {
+            display: inline-block;
+            position: relative;
+            top: -2px; }//.name
+          i {
+            font-size: @fontSizeMini; }//i
         }//.dropdown-toggle
 
         .dropdown-menu { 
@@ -322,24 +330,24 @@ body > .footer {
     .file {
       display: inline-block;
       font-size: 14px;
-      padding: 5px;
+      padding: 2px 5px;
       line-height: 16px; 
       &:visited { color: @grey; }
     }//.file
     .diff-linenumber {
       float: left;
       display: block;
-      margin-right: 15px;
+      margin-right: 10px;
       .added,
       .removed {
         display: inline-block;
         font-size: @fontSizeSmall;
         //font-weight: bold;
         line-height: 16px;
-        padding: 5px 0;
+        padding: 2px 0;
         text-align: center;
         border-bottom: #e5e5e5;
-      .size(100px; 16px); }
+      .size(80px; 16px); }
       .added {
         color: #399839;
         .borderRadius(1px 0 0 1px);

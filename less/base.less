@@ -81,6 +81,19 @@ q {
 	&:after {
 		content: ""; } }
 
+
+pre {
+  counter-reset: lines;
+  .line {
+    counter-increment: lines;
+     &:before {
+      content: counter(lines); text-align: right;
+      display: inline-block; width: 2em;
+      padding-right: 0.5em; margin-right: 0.5em;
+      color: #BBB; border-right: solid 1px; }
+  }//.line
+}//pre
+  
 address {
 	display: block;
 	font-style: normal;
@@ -101,6 +114,10 @@ address {
 
 .text-error {
 	color: @textErrorColor; }
+
+.text-shadow-reverse {
+  .textShadow(0 -1px 0 rgba(0, 0, 0, .3));
+}
 
 // Figure
 figure {
