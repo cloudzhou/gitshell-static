@@ -98,3 +98,27 @@
     }//.meta
   }//.summary
 }//.pull-item
+
+.table {
+  &.commits {
+    th {
+      text-align: left;
+      padding: 5px 10px;
+      &.hash, &.date { text-align: right; font-family: @sansFontFamily; }
+    }//th
+    td {
+      padding: 7px 10px;
+      border-bottom: 1px solid #f3f3f3;
+      &.author {
+        width: 15%;
+        a {
+          color: @darkLight;
+          img { position: relative; bottom: -3px; margin-right: 3px; }
+        }//a
+      }
+      &.hash { width: 10%; text-align: right; }
+      &.msg { width: 65%; color: @darkLight; }
+      &.date { width: 10%; text-align: right; color: @grey; font-size: @fontSizeSmall; }
+    }//td
+  }//.commits
+}//.table

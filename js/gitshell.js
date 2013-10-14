@@ -33,7 +33,7 @@
                     }
                 }
                 if(recently_active_repo.length > 0) {
-                    html.push('<li class="leader"><span>最近参与</span></li>');
+                    html.push('<li class="leader"><span>最近贡献</span></li>');
                     for(x in recently_active_repo) {
                         repo = recently_active_repo[x];
                         html.push(_.sprintf('<li><a href="/%s/%s/">%s/%s</a></li>', repo.username, repo.name, repo.username, repo.name));
