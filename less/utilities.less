@@ -121,4 +121,132 @@
       &.date { width: 10%; text-align: right; color: @grey; font-size: @fontSizeSmall; }
     }//td
   }//.commits
+
 }//.table
+
+// user-repos
+.user-repos {
+
+//.repo
+.repo {
+  .clearfix();
+  position: relative;
+  padding: 5px 0;
+  margin: 10px 0;
+  border-bottom: 1px solid #f3f3f3;
+  .clearfix();
+  &:hover { 
+    .meta {
+      li { a { color: @linkColor; } }
+    }
+  }//&:hover
+  &:last-child { margin-bottom: 0; }
+  .meta {
+    display: block;
+    .unstyledList();
+    float: right;
+    margin: 5px 0;
+    li {
+      float: left;
+      margin-left: 15px;
+      padding-right: 10px;
+      border-right: 1px dotted #e5e5e5;
+      &:last-child { border-right: none; }
+      a {
+        color: @greyLight;
+        display: inline-block;
+        text-decoration: none;
+        .count, .meta-type {
+          display: block;
+        text-align: center; }
+        .count {
+          font-size: 18px;
+        margin-bottom: 5px; }
+        .meta-type {
+          font-size: 11px;
+        font-weight: bold; }
+        &:hover {
+          color: @linkColor;
+        }//
+      }//a
+    }//li
+  }//.meta
+  .repo-avatar {
+    float: left;
+    .size(48px; 34px);
+    margin-right: 20px;
+    position: relative;
+    .private {
+      display: block;
+      color: white;
+      font-size: 10px;
+      .circle(12px);
+      .borderRadius(10px);
+      border: 1px solid @darkLight;
+      background-color: @darkLight;
+      #positions > #abs > .bottomRight(-5px;-5px);
+    }//.private
+  }//.repo-avatar
+  .summary {
+    .heading {
+      position: relative;
+      margin: 0;
+      h3 {
+        color: @darkLight;
+        font-size: 18px; 
+        font-weight: normal;
+        margin: 0;
+        line-height: 1;
+        a { 
+          color: @dark; 
+        }//a
+        .icon-lock { color: @greyLight; }
+        .meta {
+            float: none;
+            font-size: @baseFontSize;
+        }//.meta
+      }
+      .origin {
+        display: none;
+        color: @greyLight;
+        font-size: 12px;
+        margin: 5px 0;
+        a { color: @greyLight; margin-left: 2px; font-family: @monoFontFamily;; }
+      }
+    }//.heading
+    .detail {
+      .desc {
+        color: @grey;
+        margin: 5px 0; 
+      }
+      .list {
+        .unstyledList();
+        color: @darkLight;
+        padding-left: 7px;
+        border-left: 2px solid fadeout(@linkColor, 30%);
+        img {
+          position: relative;
+          bottom: -2px;
+          margin-right: 3px;
+        }
+        .hash { margin-right: 5px; }
+        .date { color: @grey; }
+      }//.list
+    }//.details
+  }//.summary
+}//.repo
+
+// pagination
+.pagination {
+  padding: 20px 10px;
+  .active { 
+    font-weight: bold; 
+    span { display: inline-block; }
+  }
+  a { 
+    font-size: 14px;
+    text-decoration: underline;
+  }//a
+}//.pagination
+
+}//.user-repo
