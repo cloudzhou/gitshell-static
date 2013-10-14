@@ -30,6 +30,7 @@
       li {
         sup { color: @darkLight; } 
         &.repo-nav {
+          margin-left: 10px;
           .dropdown-toggle {
             text-decoration: none;
             cursor: default;
@@ -920,7 +921,7 @@
             font-style: italic;
             padding: 5px 10px;
             border-left: 1px solid #ddd;
-            p { color: @darkLight; margin: 0 0 10px; }
+            p { color: @darkLight; margin: 0 0 10px; .textOverflow(); }
           }//.desc
           .actions {
             float: none;
