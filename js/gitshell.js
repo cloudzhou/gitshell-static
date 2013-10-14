@@ -74,6 +74,7 @@
             this.line_context = line_context;
         },
         loadDiff : function(selector, before, after) {
+            var line_context = this.line_context;
             var url = this.is_pull ?
                         _.sprintf('/%s/%s/pull/diff/%s:%s..%s:%s/%s/', this.user_name, this.repo_name, this.source_repo_username, this.from_refs, this.desc_repo_username, this.to_refs, this.line_context) :
                         _.sprintf('/%s/%s/diff/%s..%s/%s/', this.user_name, this.repo_name, this.from_refs, this.to_refs, this.line_context) ;
@@ -130,6 +131,8 @@
                 }
                 var html = repo_diff_tmpl(json);
                 selector.html(html);
+                $('.cLineContext').removeClass('btn-disable');
+                $('#lineContext' + line_context).addClass('btn-disable');
                 if(after) {
                     after(json);
                 }
@@ -226,9 +229,9 @@
                     repoComparer.loadDiff($('#pullRequestDiff'), null, repoComparer.navDiff);
                 }
             });
-            $('.cLineContext').click(function(){
-                $('#lineContext').text($(this).text());
-                repoComparer.setLineContext($(this).text());
+            $('.cLineContext').live('click', function(){
+                var line = $(this).data('line');
+                repoComparer.setLineContext(line);
                 repoComparer.loadDiff($('#pullRequestDiff'), null, this.navDiff);
             });
             this.loadCommits($('#pullRequestCommits'), null, this.navCommits, after_load_commits);

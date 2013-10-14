@@ -269,19 +269,53 @@
 
     //.table-container
     .table-container { 
-      margin-left: 200px;
+      //margin-left: 200px;
       background-color: #fff;
-      border-left: 1px solid #d8d8d8;
+      //border-left: 1px solid #d8d8d8;
       position: relative;
       z-index: 2;
       //.theme-selector
       .theme-selector { 
+        .clearfix();
         .linearGradient(top; #eceef2; #eceef2);
-        border-bottom: 1px solid #d3d3d3;
-        .boxShadow(inset 1px 0 0 fadeout(@white, 10%));
+        background-clip: border-box;
+        .branches {
+            float: left;
+            padding: 5px;
+            .dropdown-toggle {
+                font-weight: bold;
+                .btn();
+                padding: 2px 6px;
+            }//.dropdown-toggle
+            .dropdown-menu {
+                a {
+                    padding: 3px 5px;
+                    &:hover {
+                        color: @white;
+                        background-color: @linkColor;
+                    }
+                }
+            }//.dropdown-menu
+        }//.branches
+        .current-branch-name {
+            margin-left: 10px;
+           display: inline-block;
+           font-weight: bold; 
+           position: relative;
+           bottom: -8px;
+           .divider { color: @grey; font-weight: normal; margin: 0 5px; }
+        }//.current-branch-name
+        .group {
+            .current-branch-name {
+                bottom: 0; }
+            .views {
+                padding: 5px;
+                a { .btn(); padding: 2px 5px; font-size: @fontSizeSmall; line-height: 1.2; }
+            }//.views
+        }//.group
         #switcher {
           display: inline-block;
-          padding: 5px 30px; 
+          padding: 5px 5px 5px 30px; 
           color: @dark;
           font-weight: bold;
           font-size: @fontSizeSmall;
@@ -298,6 +332,7 @@
             float: left; 
             padding: 0; 
             &:hover { background: #29898e; }
+            &.active { background-color: transparent; a { color: @linkColorLight; } }
             a { color: @white; font-size: @fontSizeSmall; font-weight: bold; text-decoration: none; .textShadow(0 -1px 0 fadeout(@black, 60%)); padding: 8px 10px; display: inline-block; } 
           }//li
         }//.theme-list
@@ -452,8 +487,14 @@
       .clearfix();
       border-bottom: 1px solid #f1f1f1;
       .heading {
+        font-size: 15px;
         float: left;
       }//.heading
+        .create {
+            display: inline-block;
+            font-weight: bold;
+            margin: 6px 15px;
+        }
       .branch-manage {
         float: right;
         padding: 4px 10px;
@@ -504,6 +545,14 @@
   //.tags
   .tags {
     padding: 10px;
+    .refs-create {
+        padding: 20px 10px;
+    }
+    .branch {
+        .actions {
+            li { float: right; }
+        }
+    }
   }//.tags
 
   //.pulse
@@ -817,11 +866,13 @@
       .fields {
         margin: 10px 0;
         .group {
+          display: inline-block;
           margin-right: 20px;
           b { margin-right: 5px; }
           select { margin-right: 3px; }
         }
-        textarea { display: block; width: 1044px; max-width: 1044px; min-height: 220px; }
+        #id_subject { width: 800px; height: 26px; }
+        textarea { display: block; width: 800px; min-height: 220px; }
       }//.fields
       .actions {
         float: none;
@@ -840,7 +891,6 @@
         border-bottom: 1px solid #e5e5e5;
       }
     }//.header
-    .tab-pane {
       .refs {
         margin-bottom: 20px;
         //.well();
@@ -879,7 +929,6 @@
           }//.actions
         }//.detail
       }//.pull
-    }//.tab-pane
 	}//.pulls
 
   //.pull-form
@@ -934,14 +983,14 @@
           padding: 7px 10px;
           border-bottom: 1px solid #f3f3f3;
           &.author {
-            width: 10%;
+            width: 15%;
             a {
               color: @darkLight;
               img { position: relative; bottom: -3px; margin-right: 3px; }
             }//a
           }
           &.hash { width: 10%; text-align: right; }
-          &.msg { width: 70%; color: @darkLight; }
+          &.msg { width: 65%; color: @darkLight; }
           &.date { width: 10%; text-align: right; color: @grey; font-size: @fontSizeSmall; }
         }//td
       }//.commits
