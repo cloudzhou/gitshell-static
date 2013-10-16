@@ -15,7 +15,7 @@ var repo_commits_diff_nav_template =
 '    </div>';
 
 var repo_commits_template = 
-'   <table class="table commits"><thead><tr><th class="author">提交者</th><th class="hash">Hash</th><th class="msg">注释</th><th class="date">时间</th></tr></thead><tbody>' +
+'   <table class="table commits"><thead><tr><th class="author">提交者</th><th class="hash">哈希</th><th class="msg">注释</th><th class="date">时间</th></tr></thead><tbody>' +
 '       <% _.each(commits, function(commit){ %>' +
 '           <tr><td class="author"><a href="/<%-commit.committer_name%>/"><img src="https://gravatar.com/avatar/<%-commit.committer_name%>?s=16" alt="<%-commit.committer_name%>"><%-commit.committer_name%></a></td><td class="hash"><a href="#"><%-commit.commit_hash%></a></td><td class="msg"><%-commit.commit_message%></td><td class="date"><time pubdate="pubdate"><%-commit.committer_moment%></time></td></tr>' +
 '       <% }); %>' + 
@@ -44,7 +44,7 @@ repo_diff_template =
 '   <div class="diff-body">' +
 '       <% _.each(diff.detail, function(detail){ %>' +
 '       <section class="diff-item-container">' +
-'               <header class="item-header clearfix"><h1 id="chg-<%-detail.filename%>" class="heading"><%-detail.filename%></h1><a href="<%-detail.filepath%>" class="view-file">View File</a></header>' +
+'               <header class="item-header clearfix"><h1 id="chg-<%-detail.filename%>" class="heading"><%-detail.filename%></h1><a href="<%-detail.filepath%>" class="view-file">查看原文件</a></header>' +
 '               <div class="item-body">' +
 '                 <div class="data-container">' +
 '                   <% _.each(detail.linediff, function(linediff){ %>' +

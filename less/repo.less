@@ -585,6 +585,7 @@
 				float: left;
 				width: 25%;
 				padding: 10px 0;
+        min-height: 140px;
 				a { text-decoration: none; &:hover { text-decoration: underline; } }
 				.avatar {
           .square(65px);
@@ -1202,6 +1203,48 @@
       }//.connect-github
 
     }//.create-repo
+
+    //.delete-repo
+    .delete-repo {
+      h1.heading {
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e5e5e5;
+      }
+      .notice {
+        margin: 10px 0;
+        .leader { font-size: 14px; }
+        dd {
+          padding-left: 20px;
+          font-style: italic;
+          line-height: @baseLineHeight * 1.2;
+        }
+      }//.notice
+      form {
+        text-align: center;
+      }//form
+    }//.delete-repo
+
+    //.collaborator
+    .collaborator {
+      .header {
+        .heading {
+          font-size: 18px;
+          line-height: 1;
+        }
+        .note {
+          color: @grey;
+          font-style: italic;
+        }
+      }//.header
+      .member {
+        float: left;
+        width: 23%;
+        .name,.meta {
+          margin: 5px 0;
+        }
+      }//.member
+    }//.collaborator
+
   }//.content
 
 
