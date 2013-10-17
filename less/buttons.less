@@ -140,7 +140,7 @@
     }
   }//.close
   &.blank-alert {
-    color: @linkColor;
+    color: fadeout(@red, 25%);
     font-size: 16px;
     text-align: center;
     line-height: 1;
@@ -148,6 +148,7 @@
     margin: 0;
     border: none;
     background: none;
+    &:after { content: "......"; }
   }
 	&.alert-success {
 		color: @textSuccessColor;
