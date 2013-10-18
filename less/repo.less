@@ -621,7 +621,7 @@
   //.network
 	.network {
 		.inner-container { margin-top: 10px; }
-		.header { padding: 0 10px; .heading { font-size: @baseFontSize + 2; } }
+		.header { .heading { font-size: @baseFontSize + 2; } }
 		.members {
 			.clearfix();
 			.member {
@@ -632,7 +632,7 @@
 				&.active {
 					.boxShadow(0 0 3px fadeout(@black, 70%));
 				}
-				.avatar { .square(80px); }
+				.avatar { }
 				.delete-member {
 					position: absolute;
 					top: 20px;
@@ -1251,13 +1251,16 @@
           font-style: italic;
         }
       }//.header
-      .member {
-        float: left;
-        width: 23%;
-        .name,.meta {
-          margin: 5px 0;
-        }
-      }//.member
+      .members {
+        .clearfix();
+        .member {
+          float: left;
+          width: 23%;
+          .name,.meta {
+            margin: 5px 0;
+          }
+        }//.member
+      }//.members
     }//.collaborator
 
   }//.content
