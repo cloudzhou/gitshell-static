@@ -70,6 +70,19 @@
             }//li
           }//.dropdown-menu
         }//.repo-nav
+        &.forked {
+          font-size: 12px;
+          font-weight: normal;
+          padding-left: 10px;
+          p {
+            span {
+              color: @darkLight;
+              font-weight: bold;
+              margin-right: 5px;
+            }
+            margin: 0;
+          }//p
+        }
       }//li
 		}
 		.repo-actions {
@@ -811,27 +824,40 @@
         margin-left: 75px;
         position: relative;
         .content {
-          //font-style: italic;
-          padding: 5px 10px;
           margin: 5px 0;
-          border-left: 1px solid #ddd;
         }
         .meta { 
           display: inline-block;
-          color: @darkLight;
+          color: @grey;
           font-style: italic;
           font-size: @fontSizeSmall;
-          padding: 3px 5px;
           margin: 5px 0;
-          background-color: #f3f3f3;
+          //background-color: #f3f3f3;
           .clearfix();
-          a { color: @darkLight; } 
+          .label {
+            color: @white;
+            font-size: @fontSizeMini;
+            padding: 3px 5px; 
+            line-height: 1; 
+            position: relative; 
+            top: -2px;
+            .borderRadius(1px);
+            border-bottom: 1px solid rgba(0, 0, 0, .25);
+            &.reponame { background-color: #3297e1; }
+            &.defect { background-color: #f17388; }
+            &.feature { background-color: #1fbc99; }
+            &.support { background-color: #a469c4; }
+          }//.label
+          a { color: @grey; } 
           .assign {
             img { position: relative; bottom: -4px; }
             a { margin: 0 2px; }
           }
           .unixtime { margin-left: 10px; }
         }//.meta
+        .actions {
+          #positions > #abs > .topRight(0; 0);
+        }//.actions
       }//.detail
     }//.issue
   .comment {
@@ -856,10 +882,7 @@
         a { color: @darkLight; } 
       }
       .content {
-        padding: 5px 10px;
-        margin: 5px 0;
-        border-left: 1px solid #ddd;
-        margin: 5px 0; 
+        padding: 5px 0;
         textarea {
           width: 80%;
           min-height: 80px;
