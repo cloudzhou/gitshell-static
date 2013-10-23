@@ -208,6 +208,14 @@
             });
             $('#pullRequestCommits').show();
         },
+        registerLineContextEvent : function(selector) {
+            var repoComparer = this;
+            $('.cLineContext').live('click', function(){
+                var line = $(this).data('line');
+                repoComparer.setLineContext(line);
+                repoComparer.loadDiff(selector, null, this.navDiff);
+            });
+        },
         renderCompare : function(selector, after_load_commits) {
             selector.html(repo_commits_diff_nav_template);
             var repoComparer = this;
@@ -229,11 +237,7 @@
                     repoComparer.loadDiff($('#pullRequestDiff'), null, repoComparer.navDiff);
                 }
             });
-            $('.cLineContext').live('click', function(){
-                var line = $(this).data('line');
-                repoComparer.setLineContext(line);
-                repoComparer.loadDiff($('#pullRequestDiff'), null, this.navDiff);
-            });
+            this.registerLineContextEvent($('#pullRequestDiff'));
             this.loadCommits($('#pullRequestCommits'), null, this.navCommits, after_load_commits);
         },
 
