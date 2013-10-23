@@ -27,7 +27,7 @@ repo_diff_template =
 '   <p class="alert alert-info">没有不同的地方</p>' + 
 '   <% } %>' +
 '   <div class="diff-header">' +
-'       <div class="title"><h3 class="heading">修改文件<strong><%-diff.changedfiles_count%></strong><span class="detail">添加行数<strong><%-diff.total_add_line%></strong>, 删除行数<strong><%-diff.total_delete_line%></strong>, 总计行数<strong><%-diff.abs_change_line%></strong></span></h3>' +
+'       <div class="title"><h3 class="heading">修改<strong><%-diff.changedfiles_count%></strong>个文件<span class="detail">添加行数<strong><%-diff.total_add_line%></strong>, 删除行数<strong><%-diff.total_delete_line%></strong>, 总计行数<strong><%-diff.abs_change_line%></strong></span></h3>' +
 '    <div id="selectLineContext" class="diff-context-option">' +
 '       <span class="txt" data-toggle="tooltip" title="显示代码修改部分的上下文代码行数">上下文<i class="icon-question-sign"></i></span>' +
 '       <span class="btn-group"><a id="lineContext3" class="cLineContext btn btn-mini first" data-line="3" href="javascript:void(0)">3行</a>' +
