@@ -132,7 +132,7 @@
                 var html = repo_diff_tmpl(json);
                 selector.html(html);
                 $('.cLineContext').removeClass('btn-disable');
-                $('#lineContext' + line_context).addClass('btn-disable');
+                $('.lineContext' + line_context).addClass('btn-disable');
                 if(after) {
                     after(json);
                 }
