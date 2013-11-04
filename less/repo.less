@@ -29,6 +29,9 @@
       font-size: @baseFontSize * 1.2;
       li {
         sup { color: @darkLight; } 
+        i[class*="lock"] {
+          color: @linkColor;
+        }
         &.repo-nav {
           margin-left: 10px;
           .dropdown-toggle {
@@ -315,18 +318,16 @@
             }//.dropdown-menu
         }//.branches
         .current-branch-name {
-            margin-left: 10px;
+           padding: 8px;
            display: inline-block;
            font-weight: bold; 
-           position: relative;
-           bottom: -8px;
            .divider { color: @grey; font-weight: normal; margin: 0 5px; }
         }//.current-branch-name
         .group {
             .current-branch-name {
                 bottom: 0; }
             .views {
-                padding: 5px;
+                padding: 8px;
                 a { .btn(); padding: 2px 5px; font-size: @fontSizeSmall; line-height: 1.2; }
             }//.views
         }//.group
@@ -429,39 +430,35 @@
         }
       }//.actions
     }//.header
-    .code {
-      line-height: 1;
-      .line {
-        display: inline-block;
-        color: @grey;
-        font-size: @fontSizeSmall;
-        font-weight: bold;
-        line-height: 20px;
-        height: 20px;
-        margin-right: 10px;
-        border-style: solid;
-        border-width: 0 1px;
-        border-color: transparent #f1f1f1 transparent;
-        background-color: #f9f9f9;
-        &:first-child {
-          border-top: 1px solid #f1f1f1;
-          .borderRadius(3px 3px 0 0); }
-        &:last-child {
-          border-bottom: 1px solid #f1f1f1;
-          .borderRadius(0 0 3px 3px); }
-        &:before {
-          border: none;
-          padding-right: 0;
-        }
-      }//.line
+    #i_source_code {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    .highlighttable {
+      display: table;
+      width: 100%;
+      border-spacing: 0;
+      border-collapse: collapse;
+      font-size: 12px;
       pre {
         margin: 0;
-      }//pre
-      code {
-        padding: 10px 5px;
-        font: 13px Consolas, "Liberation Mono", Courier, monospace;
-      }//code
-    }//.code
+      }
+      .linenos {
+        background-color: @white;
+        &.pined {
+          position: absolute;
+        }//.pined
+        pre {
+          color: @greyLight;
+          text-align: right;
+          border-right: 1px solid #ddd;
+          padding: 0 5px;
+        }
+      }//.linenos
+      .highlight {
+        padding: 0 8px;
+      }
+    }//.highlighttable
   }//.file-list
 
   //.commits

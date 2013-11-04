@@ -82,18 +82,13 @@ q {
 	&:after {
 		content: ""; } }
 
-
 pre {
-  counter-reset: lines;
-  .line {
-    counter-increment: lines;
-     &:before {
-      content: counter(lines); text-align: right;
-      display: inline-block; width: 2em;
-      padding-right: 0.5em; margin-right: 0.5em;
-      color: #BBB; border-right: solid 1px; }
-  }//.line
-}//pre
+  font-family: Courier, Monaco, Menlo, Consolas, 'Courier New', monospace, 'Open Sans', 'Microsoft Yahei', sans-serif;
+  counter-reset: line-numbering;
+  padding: 0;
+  line-height: @baseLineHeight;
+  white-space: pre;
+}
   
 address {
 	display: block;
