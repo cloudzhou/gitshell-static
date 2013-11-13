@@ -76,7 +76,7 @@
         loadDiff : function(selector, before, after) {
             var line_context = this.line_context;
             var url = this.is_pull ?
-                        _.sprintf('/%s/%s/pull/diff/%s:%s..%s:%s/%s/', this.user_name, this.repo_name, this.source_repo_username, this.from_refs, this.desc_repo_username, this.to_refs, this.line_context) :
+                        _.sprintf('/%s/%s/pull/diff/%s:%s..%s:%s/%s/', this.user_name, this.repo_name, this.desc_repo_username, this.to_refs, this.source_repo_username, this.from_refs, this.line_context) :
                         _.sprintf('/%s/%s/diff/%s..%s/%s/', this.user_name, this.repo_name, this.from_refs, this.to_refs, this.line_context) ;
             if(!this.is_pull && this.path != '') {
                 url = url + this.path;
@@ -141,7 +141,7 @@
         loadCommits : function(selector, before, after, after_load_commits) {
             var url = this.is_pull ?
                         _.sprintf('/%s/%s/pull/commits/%s:%s...%s:%s/', this.user_name, this.repo_name, this.desc_repo_username, this.to_refs, this.source_repo_username, this.from_refs) :
-                        _.sprintf('/%s/%s/commits/%s...%s/', this.user_name, this.repo_name, this.to_refs, this.from_refs) ;
+                        _.sprintf('/%s/%s/commits/%s...%s/', this.user_name, this.repo_name, this.from_refs, this.to_refs) ;
             var from_refs = this.from_refs;
             var to_refs = this.to_refs;
             var is_pull = this.is_pull;
@@ -153,7 +153,7 @@
                 var source_commit_hash = is_pull ? json.source_repo_refs_commit_hash.substr(0, 7) : json.from_commit_hash.substr(0, 7);
                 var desc_commit_hash = is_pull ? json.desc_repo_refs_commit_hash.substr(0, 7) : json.to_commit_hash.substr(0, 7);
                 var exists_commit_hash_map = {};
-                exists_commit_hash_map[desc_commit_hash] = 1
+                exists_commit_hash_map[source_commit_hash] = 1
     
                 for(var x in json.commits) {
                     var commit = json.commits[x];
@@ -167,7 +167,7 @@
                     commit.committer_moment = committer_moment;
                 }
 
-                if(source_commit_hash in exists_commit_hash_map) {
+                if(desc_commit_hash in exists_commit_hash_map) {
                     is_up_to_date = true;
                 }
                 var html = '<p class="alert alert-info">已经是最新的.</p>';
