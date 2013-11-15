@@ -22,7 +22,7 @@ var repo_commits_template =
 '   </tbody></table>';
 var repo_commits_tmpl = _.template(repo_commits_template);
 
-repo_diff_template =
+var repo_diff_template =
 '   <% if(diff.numstat.length == 0){ %>' +
 '   <p class="alert alert-info">没有不同的地方</p>' + 
 '   <% } %>' +
@@ -60,6 +60,89 @@ repo_diff_template =
 '           </section>' +
 '       <% }); %>' +
 '   </div>';
-
 var repo_diff_tmpl = _.template(repo_diff_template);
+
+var feed_template = 
+'    <% if(feeds.length == 0) { %>' +
+'      <div class="inner"><p class="alert blank-alert"><i class="icon-bell"></i><em>没有feed 信息，请多关注活跃开发者或者仓库</em></p></div>' +
+'    <% } else { %>' +
+'      <% _.each(feeds, function(feed){ %>' +
+'        <% if(feed.relative_obj === null) { %>' +
+'          <% return %>' +
+'        <% } %>' +
+'        <% if(feed.feed_type == 0) { %>' +
+'          <section class="feed-item">' +
+'            <span class="feed-type commit">提交更新</span>' +
+'            <figure class="avatar"><img src="https://gravatar.com/avatar/<%=feed.id%>?s=32"></figure>' +
+'              <div class="detail">' + 
+'                <time class="date unixtime" pubdate="pubdate"><%=feed.relative_obj.modify_time%></time>' +
+'                <p class="title">' +
+'                  <a href="/<%=feed.id%>/" class="author"><%=feed.id%></a>' +
+'                  提交更新到' +
+'                  <a class="issue-link" href="/<%=feed.id%>/"><%=feed.id%></a>' +
+'                </p>' +
+'                <ul class="subject commits">' +
+'                  <li>' +
+'                    <img src="https://gravatar.com/avatar/<%=feed.id%>?s=15">'+
+'                    <a href="/<%=feed.id%>/" class="author"><%=feed.id%></a>' +
+'                    - <span class="commit-msg"><%=feed.relative_obj.subject%></span>' +
+'                  </li>' +
+'                </ul>' +
+'              </div>' +
+'          </section>' +
+'        <% } else if(feed.feed_type == 2) { %>' +
+'          <section class="feed-item">' +
+'            <span class="feed-type commit">推送提交</span>' +
+'            <figure class="avatar"><img src="https://gravatar.com/avatar/<%=feed.id%>?s=32"></figure>' +
+'              <div class="detail">' + 
+'                <time class="date unixtime" pubdate="pubdate"><%=feed.relative_obj.modify_time%></time>' +
+'                <p class="title">' +
+'                  <a href="/<%=feed.id%>/" class="author"><%=feed.id%></a>' +
+'                  推送提交' +
+'                  <a class="issue-link" href="/<%=feed.id%>/"><%=feed.id%></a>' +
+'                </p>' +
+'                <ul class="subject commits">' +
+'                  <% _.each(feed.relative_obj.commits, function(commit){ %>' +
+'                  <li>' +
+'                    <img src="https://gravatar.com/avatar/<%=commit.id%>?s=15">'+
+'                    <a href="/<%=commit.id%>/" class="author"><%=commit.id%></a>' +
+'                    - <span class="commit-msg"><%=commit.subject%></span>' +
+'                  </li>' +
+'                  <% }); %>' + 
+'                </ul>' +
+'              </div>' +
+'          </section>' +
+'        <% } else if(feed.feed_type >= 100 && feed.feed_type <= 105) { %>' +
+'          <section class="feed-item">' +
+'            <span class="feed-type pull">合并请求</span>' +
+'              <figure class="avatar"><img src="https://gravatar.com/avatar/<%=feed.id%>?s=32" alt=""></figure>' +
+'              <div class="detail">' + 
+'                <time class="date unixtime" pubdate="pubdate"><%=feed.relative_obj.modify_time%></time>' +
+'                <p class="title">' +
+'                  <a href="/<%=feed.id%>/" class="author"><%=feed.id%></a>' +
+'                  <%=feed_type_action[feed.feed_type]%>' +
+'                  <a class="issue-link" href="/<%=feed.id%>/<%=feed.id%>/issues/<%=feed.id%>/"><%=feed.id%>/<%=feed.id%> #<%=feed.id%></a>' +
+'                </p>' +
+'              </div>' +
+'              <p class="subject"><span><%=feed.relative_obj.short_title%></span></p></div>' +
+'          </section>' +
+'        <% } else if(feed.feed_type >= 300 && feed.feed_type <= 302) { %>' +
+'          <section class="feed-item">' +
+'            <span class="feed-type issue">问题</span>' +
+'              <figure class="avatar"><img src="https://gravatar.com/avatar/<%=feed.id%>?s=32" alt=""></figure>' +
+'              <div class="detail">' + 
+'                <time class="date unixtime" pubdate="pubdate"><%=feed.relative_obj.modify_time%></time>' +
+'                <p class="title">' +
+'                  <a href="/<%=feed.id%>/" class="author"><%=feed.id%></a>' +
+'                  <%=feed_type_action[feed.feed_type]%>' +
+'                  <a class="issue-link" href="/<%=feed.id%>/<%=feed.id%>/issues/<%=feed.id%>/"><%=feed.id%>/<%=feed.id%> #<%=feed.id%></a>' +
+'                </p>' +
+'              </div>' +
+'              <p class="subject"><span><%=feed.relative_obj.subject%></span></p></div>' +
+'          </section>' +
+'        <% } %>' +
+'      <% }); %>' +
+'    <% } %>';
+var feed_tmpl = _.template(feed_template);
+
 

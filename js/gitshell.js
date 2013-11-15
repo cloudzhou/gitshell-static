@@ -9,9 +9,6 @@
     // global action
     _.mixin(_.str.exports())
     moment.lang('zh-cn')
-    $('body').contents().filter(function(){
-        return this.nodeType == 8;
-    }).remove();
     $('.unixtime').each(function(index){ 
         $(this).html(moment(new Date($(this).html()*1000)).fromNow());
         $(this).show();
@@ -65,15 +62,15 @@
     }
     RepoComparer.prototype = {
 
-        setPullUsername : function(source_repo_username, desc_repo_username) {
+        setPullUsername: function(source_repo_username, desc_repo_username) {
             this.source_repo_username = source_repo_username;
             this.desc_repo_username = desc_repo_username;
             this.is_pull = true;
         },
-        setLineContext : function(line_context) {
+        setLineContext: function(line_context) {
             this.line_context = line_context;
         },
-        loadDiff : function(selector, before, after) {
+        loadDiff: function(selector, before, after) {
             var line_context = this.line_context;
             var url = this.is_pull ?
                         _.sprintf('/%s/%s/pull/diff/%s:%s..%s:%s/%s/', this.user_name, this.repo_name, this.desc_repo_username, this.to_refs, this.source_repo_username, this.from_refs, this.line_context) :
@@ -138,7 +135,7 @@
                 }
             });
         },
-        loadCommits : function(selector, before, after, after_load_commits) {
+        loadCommits: function(selector, before, after, after_load_commits) {
             var url = this.is_pull ?
                         _.sprintf('/%s/%s/pull/commits/%s:%s...%s:%s/', this.user_name, this.repo_name, this.desc_repo_username, this.to_refs, this.source_repo_username, this.from_refs) :
                         _.sprintf('/%s/%s/commits/%s...%s/', this.user_name, this.repo_name, this.from_refs, this.to_refs) ;
@@ -192,23 +189,23 @@
                 }
             });
         },
-        selectDiff : function(before, after) {
+        selectDiff: function(before, after) {
         },
-        selectCommits : function(before, after) {
+        selectCommits: function(before, after) {
         },
-        navDiff : function() {
+        navDiff: function() {
             $('.cPullRequestContent').each(function(index){
                 $(this).hide();
             });
             $('#pullRequestDiff').show();
         },
-        navCommits : function() {
+        navCommits: function() {
             $('.cPullRequestContent').each(function(index){
                 $(this).hide();
             });
             $('#pullRequestCommits').show();
         },
-        registerLineContextEvent : function(selector) {
+        registerLineContextEvent: function(selector) {
             var repoComparer = this;
             $('.cLineContext').live('click', function(){
                 var line = $(this).data('line');
@@ -216,7 +213,7 @@
                 repoComparer.loadDiff(selector, null, this.navDiff);
             });
         },
-        renderCompare : function(selector, after_load_commits) {
+        renderCompare: function(selector, after_load_commits) {
             selector.html(repo_commits_diff_nav_template);
             var repoComparer = this;
             $('.cPullRequestAction').click(function(){
@@ -243,7 +240,61 @@
 
 
     }
+    // feed render
+    function Feed(feeds, mode) {
+        this.feeds = feeds;
+        this.mode = mode;
+        this.feed_type_action = {
+            100: '新建合并请求', 101: '合并', 102: '合并失败', 103: '拒绝合并请求', 104: '关闭合并请求', 105: '评论合并请求',
+            300: '新建问题', 301: '更新问题', 302: '编辑问题',
+        };
+    }
+    Feed.prototype = {
+        sorted_feed_ids: function() {
+            var _this = this;
+            var all_feed_ids = [];
+            for(x in _this.feeds) {
+                all_feed_ids = all_feed_ids.concat(_this.feeds[x]);
+            }
+            all_feed_ids.sort(function(a,b) {
+                return a[1] - b[1];
+            });
+            var uniq_feed_ids = []
+            var pre_feed_id = 0;
+            for(x in all_feed_ids) {
+                feed_id = all_feed_ids[x][0];
+                if(pre_feed_id != feed_id) {
+                    uniq_feed_ids.push(feed_id);
+                }
+                pre_feed_id = feed_id;
+            }
+            return uniq_feed_ids;
+        },
+        request_feeds: function(selector, uniq_feed_ids, before, after) {
+            var _this = this;
+            var feed_ids_str = uniq_feed_ids.join('_');
+            $.post('/ajax/feed/ids/', {'ids_str': feed_ids_str, csrfmiddlewaretoken: csrfmiddlewaretoken}, function(json){
+                if(before) {
+                    before(json);
+                }
+                json['feed_type_action'] = _this.feed_type_action;
+                var html = feed_tmpl(json);
+                selector.html(html);
+                if(after) {
+                    after(json);
+                }
+            });
+        },
+        render: function(selector, before, after) {
+            var _this = this;
+            var uniq_feed_ids = _this.sorted_feed_ids();
+            _this.request_feeds(selector, uniq_feed_ids, before, after)
+        },
+        
+    }
     // end
     this.csrfmiddlewaretoken = csrfmiddlewaretoken;
     this.RepoComparer = RepoComparer;
+    this.Feed = Feed;
 }).call(this);
+
