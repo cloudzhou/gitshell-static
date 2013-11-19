@@ -123,8 +123,8 @@ var feed_template =
 '                  <%=feed_type_action[feed.feed_type]%>' +
 '                  <a class="issue-link" href="/<%=feed.relative_obj.desc_repo.username%>/<%=feed.relative_obj.desc_repo.name%>/pull/<%=feed.relative_obj.id%>/"><%=feed.relative_obj.desc_repo.username%>/<%=feed.relative_obj.desc_repo.name%> #<%=feed.relative_obj.id%></a>' +
 '                </p>' +
+'                <p class="subject"><span><%=feed.relative_obj.short_title%></span></p></div>' +
 '              </div>' +
-'              <p class="subject"><span><%=feed.relative_obj.short_title%></span></p></div>' +
 '          </section>' +
 '        <% } else if(feed.feed_type >= 300 && feed.feed_type <= 302) { %>' +
 '          <section class="feed-item">' +
@@ -137,8 +137,8 @@ var feed_template =
 '                  <%=feed_type_action[feed.feed_type]%>' +
 '                  <a class="issue-link" href="/<%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%>/issues/<%=feed.relative_obj.id%>/"><%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%> #<%=feed.relative_obj.id%></a>' +
 '                </p>' +
+'                <p class="subject"><span><%=feed.relative_obj.subject%></span></p></div>' +
 '              </div>' +
-'              <p class="subject"><span><%=feed.relative_obj.subject%></span></p></div>' +
 '          </section>' +
 '        <% } %>' +
 '      <% }); %>' +
