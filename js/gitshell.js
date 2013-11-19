@@ -9,10 +9,15 @@
     // global action
     _.mixin(_.str.exports())
     moment.lang('zh-cn')
-    $('.unixtime').each(function(index){ 
-        $(this).html(moment(new Date($(this).html()*1000)).fromNow());
-        $(this).show();
-    });
+    function unixtime_moment() {
+        $('.unixtime').each(function(index){ 
+            var timestamp = $(this).html();
+            if(timestamp.match(/^[0-9]+$/)) {
+                $(this).html(moment(new Date(timestamp*1000)).fromNow());
+                $(this).show();
+            }
+        });
+    }
     var repo_shortcut_loading = false;
     $('.repo-shortcut').mouseover(function(){
         if(!repo_shortcut_loading) {
@@ -280,6 +285,7 @@
                 json['feed_type_action'] = _this.feed_type_action;
                 var html = feed_tmpl(json);
                 selector.html(html);
+                unixtime_moment();
                 if(after) {
                     after(json);
                 }
@@ -288,7 +294,7 @@
         render: function(selector, before, after) {
             var _this = this;
             var uniq_feed_ids = _this.sorted_feed_ids();
-            _this.request_feeds(selector, uniq_feed_ids, before, after)
+            _this.request_feeds(selector, uniq_feed_ids, before, after);
         },
         
     }
@@ -296,5 +302,9 @@
     this.csrfmiddlewaretoken = csrfmiddlewaretoken;
     this.RepoComparer = RepoComparer;
     this.Feed = Feed;
+
+    // after all, call
+    unixtime_moment();
 }).call(this);
+
 
