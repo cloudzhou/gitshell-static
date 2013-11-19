@@ -1123,18 +1123,11 @@
         .btn { padding: 7px 20px; }
       }
     }//.form-horizontal
-    .dropbox-deploy {
-      .unstyledList();
-      padding: 20px 100px;
-      li {
-        margin-bottom: 20px;
-        .heading { border-bottom: none; padding-bottom: 0; }
-        .actions { float: right; }
-      }//li
-    }//.dropbox-deploy
-    .destroy {
-      padding: 20px 100px;
-    }//.destroy
+    .detail {
+      .actions {
+        float: none;
+      }
+    }//.details
   }//.settings
 
   //.subhead
@@ -1267,16 +1260,18 @@
     }//.create-repo
 
     //.delete-repo
-    .delete-repo {
+    .delete {
+      color: @red;
       h1.heading {
         padding-bottom: 15px;
         border-bottom: 1px solid #e5e5e5;
       }
       .notice {
-        margin: 10px 0;
-        .leader { font-size: 14px; }
+        margin: 20px 0;
+        .leader { font-size: 14px; margin-bottom: 10px; }
         dd {
-          padding-left: 20px;
+          padding-left: 10px;
+          margin-left: 0;
           font-style: italic;
           line-height: @baseLineHeight * 1.2;
         }

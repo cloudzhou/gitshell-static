@@ -82,7 +82,27 @@
         color: @dark;
         //border-bottom-color: #727272;
       }
-  } } }
+    } 
+    &.nav-tabs-vertical {
+      border-bottom: 0 none;
+      li {
+        float: none;
+        padding: 0;
+        a {
+          height: 30px;
+          line-height: 30px;
+          border-bottom: 0 none;
+          border-left: 2px solid transparent;
+        }//a
+        &.active {
+          a {
+            border-bottom: 0 none;
+          }
+        }
+      }
+    }//&.nav-tabs-vertical
+  }//&.nav-tabs
+}
 
 // Breadcrumb
 .breadcrumb {
