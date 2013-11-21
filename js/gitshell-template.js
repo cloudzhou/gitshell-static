@@ -79,7 +79,7 @@ var feed_template =
 '                  <span><%=feed.relative_obj.author%></span>' +
 '                <% } else {%>' +
 '                  <img src="https://gravatar.com/avatar/<%=feed.relative_obj.author_userprofile.imgurl%>?s=32"></figure>' +
-'                  <a href="/<%=feed.relative_obj.author_userprofile.imgurl%>/" class="author"><%=feed.relative_obj.author%></a>' +
+'                  <a href="/<%=feed.relative_obj.author_userprofile.username%>/" class="author"><%=feed.relative_obj.author%></a>' +
 '                <% } %>' +
 '              <div class="detail">' + 
 '                <time class="date unixtime" pubdate="pubdate"><%=feed.relative_obj.committer_date%></time>' +
@@ -93,20 +93,26 @@ var feed_template =
 '        <% } else if(feed.feed_type == 2) { %>' +
 '          <section class="feed-item">' +
 '            <span class="feed-type commit">推送提交</span>' +
-'            <figure class="avatar"><img src="https://gravatar.com/avatar/<%=feed.id%>?s=32"></figure>' +
+'            <figure class="avatar"><img src="https://gravatar.com/avatar/<%=feed.relative_obj.push_userprofile.imgurl%>?s=32"></figure>' +
 '              <div class="detail">' + 
-'                <time class="date unixtime" pubdate="pubdate"><%=feed.relative_obj.modify_time%></time>' +
+'                <time class="date unixtime" pubdate="pubdate"><%=feed.relative_obj.push_id%></time>' +
 '                <p class="title">' +
-'                  <a href="/<%=feed.id%>/" class="author"><%=feed.id%></a>' +
+'                  <a href="/<%=feed.relative_obj.push_userprofile.username%>/" class="author"><%=feed.relative_obj.push_userprofile.username%></a>' +
 '                  推送提交' +
-'                  <a class="issue-link" href="/<%=feed.id%>/"><%=feed.id%></a>' +
+'                  <a class="issue-link" href="/<%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%>/"><%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%></a> <%=feed.relative_obj.short_refname%>' +
 '                </p>' +
 '                <ul class="subject commits">' +
 '                  <% _.each(feed.relative_obj.commits, function(commit){ %>' +
 '                  <li>' +
-'                    <img src="https://gravatar.com/avatar/<%=commit.id%>?s=15">'+
-'                    <a href="/<%=commit.id%>/" class="author"><%=commit.id%></a>' +
+'                    <% if(commit.author_userprofile === null) { %>' +
+'                      <img src="https://gravatar.com/avatar/unknow?s=32"></figure>' +
+'                      <span><%=commit.author%></span>' +
+'                    <% } else {%>' +
+'                      <img src="https://gravatar.com/avatar/<%=commit.author_userprofile.imgurl%>?s=32"></figure>' +
+'                      <a href="/<%=commit.author_userprofile.username%>/" class="author"><%=commit.author%></a>' +
+'                    <% } %>' +
 '                    - <span class="commit-msg"><%=commit.subject%></span>' +
+'                    <time class="date unixtime" pubdate="pubdate"><%=commit.committer_date%></time>' +
 '                  </li>' +
 '                  <% }); %>' + 
 '                </ul>' +
@@ -115,11 +121,11 @@ var feed_template =
 '        <% } else if(feed.feed_type >= 100 && feed.feed_type <= 105) { %>' +
 '          <section class="feed-item">' +
 '            <span class="feed-type pull">合并请求</span>' +
-'              <figure class="avatar"><img src="https://gravatar.com/avatar/<%=feed.relative_obj.merge_user.imgurl%>?s=32" alt=""></figure>' +
+'              <figure class="avatar"><img src="https://gravatar.com/avatar/<%=feed.userprofile.imgurl%>?s=32" alt="<%=feed.userprofile.username%>"></figure>' +
 '              <div class="detail">' + 
-'                <time class="date unixtime" pubdate="pubdate"><%=feed.relative_obj.modify_time%></time>' +
+'                <time class="date unixtime" pubdate="pubdate"><%=feed.modify_time%></time>' +
 '                <p class="title">' +
-'                  <a href="/<%=feed.relative_obj.merge_user.username%>/" class="author"><%=feed.relative_obj.merge_user.username%></a>' +
+'                  <a href="/<%=feed.userprofile.username%>/" class="author"><%=feed.userprofile.username%></a>' +
 '                  <%=feed_type_action[feed.feed_type]%>' +
 '                  <a class="issue-link" href="/<%=feed.relative_obj.desc_repo.username%>/<%=feed.relative_obj.desc_repo.name%>/pull/<%=feed.relative_obj.id%>/"><%=feed.relative_obj.desc_repo.username%>/<%=feed.relative_obj.desc_repo.name%> #<%=feed.relative_obj.id%></a>' +
 '                </p>' +
@@ -129,11 +135,11 @@ var feed_template =
 '        <% } else if(feed.feed_type >= 300 && feed.feed_type <= 302) { %>' +
 '          <section class="feed-item">' +
 '            <span class="feed-type issue">问题</span>' +
-'              <figure class="avatar"><img src="https://gravatar.com/avatar/<%=feed.relative_obj.creator_userprofile.imgurl%>?s=32" alt=""></figure>' +
+'              <figure class="avatar"><img src="https://gravatar.com/avatar/<%=feed.userprofile.imgurl%>?s=32" alt="<%=feed.userprofile.username%>"></figure>' +
 '              <div class="detail">' + 
-'                <time class="date unixtime" pubdate="pubdate"><%=feed.relative_obj.modify_time%></time>' +
+'                <time class="date unixtime" pubdate="pubdate"><%=feed.modify_time%></time>' +
 '                <p class="title">' +
-'                  <a href="/<%=feed.relative_obj.creator_userprofile.username%>/" class="author"><%=feed.relative_obj.creator_userprofile.username%></a>' +
+'                  <a href="/<%=feed.userprofile.username%>/" class="author"><%=feed.userprofile.username%></a>' +
 '                  <%=feed_type_action[feed.feed_type]%>' +
 '                  <a class="issue-link" href="/<%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%>/issues/<%=feed.relative_obj.id%>/"><%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%> #<%=feed.relative_obj.id%></a>' +
 '                </p>' +
