@@ -72,18 +72,19 @@ var feed_template =
 '        <% } %>' +
 '        <% if(feed.feed_type == 0) { %>' +
 '          <section class="feed-item">' +
-'            <span class="feed-type commit">提交更新</span>' +
-'            <figure class="avatar">' +
-'                <% if(feed.relative_obj.author_userprofile === null) { %>' +
-'                  <img src="https://gravatar.com/avatar/unknow?s=32"></figure>' +
-'                  <span><%=feed.relative_obj.author%></span>' +
-'                <% } else {%>' +
-'                  <img src="https://gravatar.com/avatar/<%=feed.relative_obj.author_userprofile.imgurl%>?s=32"></figure>' +
-'                  <a href="/<%=feed.relative_obj.author_userprofile.username%>/" class="author"><%=feed.relative_obj.author%></a>' +
-'                <% } %>' +
-'              <div class="detail">' + 
+'              <div class="">' + 
 '                <time class="date unixtime" pubdate="pubdate"><%=feed.relative_obj.committer_date%></time>' +
 '                <p class="title">' +
+'                <% if(feed.relative_obj.author_userprofile === null) { %>' +
+'                  <img src="https://gravatar.com/avatar/unknow?s=18">' +
+'                <% } else {%>' +
+'                  <img src="https://gravatar.com/avatar/<%=feed.relative_obj.author_userprofile.imgurl%>?s=18">' +
+'                <% } %>' +
+'                <% if(feed.relative_obj.author_userprofile === null) { %>' +
+'                  <span><%=feed.relative_obj.author%></span>' +
+'                <% } else {%>' +
+'                  <a href="/<%=feed.relative_obj.author_userprofile.username%>/" class="author"><%=feed.relative_obj.author%></a>' +
+'                <% } %>' +
 '                  提交更新到' +
 '                  <a class="issue-link" href="/<%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%>/"><%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%></a>' +
 '                    - <span class="commit-msg"><%=feed.relative_obj.subject%></span> <span class="muted"><%=feed.relative_obj.short_refname%></span>' +
@@ -98,8 +99,8 @@ var feed_template =
 '                <time class="date unixtime" pubdate="pubdate"><%=feed.relative_obj.push_id%></time>' +
 '                <p class="title">' +
 '                  <a href="/<%=feed.relative_obj.push_userprofile.username%>/" class="author"><%=feed.relative_obj.push_userprofile.username%></a>' +
-'                  推送提交' +
-'                  <a class="issue-link" href="/<%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%>/"><%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%></a> <%=feed.relative_obj.short_refname%>' +
+'                  推送提交至' +
+'                  <a class="issue-link" href="/<%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%>/"><%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%></a>的<a href="/<%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%>/tree/<%=feed.relative_obj.short_refname%>/"><%=feed.relative_obj.short_refname%></a>分支' +
 '                </p>' +
 '                <ul class="subject commits">' +
 '                  <% _.each(feed.relative_obj.commits, function(commit){ %>' +
