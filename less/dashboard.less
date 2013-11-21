@@ -86,7 +86,7 @@
       //width: 60%;
 
         .feed-item {
-          padding: 8px 10px;
+          padding: 15px 10px;
           border-bottom: 1px solid #f3f3f3;
           .clearfix();
           .feed-type {
@@ -131,15 +131,15 @@
             }//.date
             .title {
               font-weight: bold;
-              margin: 0 0 6px;
+              margin: 0 0 5px;
               .commit-msg { color: @darkLight; font-weight: normal; }
+              .muted { color: @grey; }
               .date { font-weight: normal; }
             }//.title
             .subject {
               color: @darkLight;
               margin: 5px 0;
               img {
-                .hide();
                 position: relative;
                 bottom: -3px;
                 margin-right: 3px;
@@ -161,7 +161,7 @@
                 list-style: none;
                 padding-left: 10px;
                 border-left: 1px solid #ddd;
-                li { margin: 5px 0; }
+                li { margin: 3px 0; }
                 .hash { margin-right: 3px; }
               }//&.commits
             }//.subject
