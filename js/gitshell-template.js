@@ -83,14 +83,14 @@ var feed_template =
 '                <time class="date unixtime" pubdate="pubdate"><%=feed.relative_obj.committer_date%></time>' +
 '                <p class="title">' +
 '                <% if(feed.relative_obj.author_userprofile === null) { %>' +
-'                  <span><%=feed.relative_obj.author%></span>' +
+'                  <span class="author"><%=feed.relative_obj.author%></span>' +
 '                <% } else {%>' +
 '                  <a href="/<%=feed.relative_obj.author_userprofile.username%>/" class="author"><%=feed.relative_obj.author%></a>' +
 '                <% } %>' +
 '                  提交更新到' +
-'                  <a class="issue-link" href="/<%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%>/"><%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%></a>' +
-'                    - <span class="commit-msg"><%=feed.relative_obj.subject%></span> <span class="muted"><%=feed.relative_obj.short_refname%></span>' +
-'                </p>' +
+'                  <a class="issue-link" href="/<%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%>/tree/<%=feed.relative_obj.short_refname%>/"><%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%> # <%=feed.relative_obj.short_refname%></a>' +
+'                 </p>' +
+'                 <p class="subject"><span class="commit-msg"> <%=feed.relative_obj.subject%></span></p>' +
 '              </div>' +
 '          </section>' +
 '        <% } else if(feed.feed_type == 2) { %>' +
@@ -102,17 +102,17 @@ var feed_template =
 '                <p class="title">' +
 '                  <a href="/<%=feed.relative_obj.push_userprofile.username%>/" class="author"><%=feed.relative_obj.push_userprofile.username%></a>' +
 '                  推送提交至' +
-'                  <a class="issue-link" href="/<%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%>/tree/<%=feed.relative_obj.short_refname%>/"><%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%>#<%=feed.relative_obj.short_refname%></a>' +
+'                  <a class="issue-link" href="/<%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%>/tree/<%=feed.relative_obj.short_refname%>/"><%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%> # <%=feed.relative_obj.short_refname%></a>' +
 '                </p>' +
 '                <ul class="subject commits">' +
 '                  <% _.each(feed.relative_obj.commits, function(commit){ %>' +
 '                  <li>' +
 '                    <% if(commit.author_userprofile === null) { %>' +
-'                      <img src="https://gravatar.com/avatar/unknow?s=16" alt="<%=commit.author%>"></figure>' +
+'                      <img src="https://gravatar.com/avatar/unknow?s=16" alt="<%=commit.author%>" title="<%=commit.author%>"></figure>' +
 '                    <% } else {%>' +
-'                      <img src="https://gravatar.com/avatar/<%=commit.author_userprofile.imgurl%>?s=16" alt="<%=commit.author%>"></figure>' +
+'                      <img src="https://gravatar.com/avatar/<%=commit.author_userprofile.imgurl%>?s=16" alt="<%=commit.author%>" title="<%=commit.author%>"></figure>' +
 '                    <% } %>' +
-'                    - <span class="commit-msg"><a href="/<%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%>/commit/<%=commit.commit_hash%>/"><%=commit.commit_hash%></a> - <%=commit.subject%></span>' +
+'                    <span class="commit-msg"><a href="/<%=feed.relative_obj.repo.username%>/<%=feed.relative_obj.repo.name%>/commit/<%=commit.commit_hash%>/" class="hash"><%=commit.commit_hash%></a> - <%=commit.subject%></span>' +
 '                    <time class="date unixtime" pubdate="pubdate"><%=commit.committer_date%></time>' +
 '                  </li>' +
 '                  <% }); %>' + 

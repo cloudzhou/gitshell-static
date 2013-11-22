@@ -65,7 +65,7 @@
           float: left;
         }
         .summary {
-          margin-left: 90px;
+          margin-left: 80px;
           .title { 
             font-weight: bold;
             margin: 0 0 5px;
@@ -86,7 +86,7 @@
       //width: 60%;
 
         .feed-item {
-          padding: 15px 10px;
+          padding: 13px 10px;
           border-bottom: 1px solid #f3f3f3;
           .clearfix();
           .feed-type {
@@ -117,11 +117,11 @@
           .avatar {
             float: left;
             .square(30px);
-            img { width: 30px; }
+            img { width: 30px; .borderRadius(2px); }
           }//.avatar
 
           .detail {
-            margin-left: 90px;
+            margin-left: 80px;
             .date { 
               //.hide();
               float: right;
@@ -131,18 +131,21 @@
             }//.date
             .title {
               font-weight: bold;
-              margin: 0 0 5px;
+              margin: 0;
+              span.author { color: @grey; }
               .commit-msg { color: @darkLight; font-weight: normal; }
               .muted { color: @grey; }
+              .label-mini { padding: 1px 2px; position: relative; top: -1px; }
               .date { font-weight: normal; }
             }//.title
             .subject {
               color: @darkLight;
-              margin: 5px 0;
+              margin: 0;
               img {
                 position: relative;
                 bottom: -3px;
                 margin-right: 3px;
+                .borderRadius(2px);
               }//img
               .action {
                 float: none;
@@ -159,9 +162,7 @@
               }//.action
               &.commits {
                 list-style: none;
-                padding-left: 10px;
-                border-left: 1px solid #ddd;
-                li { margin: 3px 0; }
+                li { margin: 0; }
                 .hash { margin-right: 3px; }
               }//&.commits
             }//.subject
