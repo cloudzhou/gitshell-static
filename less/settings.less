@@ -357,3 +357,126 @@
     }
   }//.resetpwd
 }//.settings
+
+.team {
+    margin: 10px 0;
+    padding-bottom: 10px;
+    .clearfix();
+    border-bottom: 1px solid #e5e5e5;
+    .member {
+        float: left;
+        display: block;
+        img {
+            float: left;
+            display: block;
+            .borderRadius(3px);
+            margin-right: 5px;
+        }
+        a {
+            font-size: @baseFontSize + 1;
+            font-weight: bold;
+        }
+        .role {
+            color: #666;
+            font-style: italic;
+            font-size: @fontSizeSmall;
+        }
+    }
+    .actions {
+        float: right;
+        padding-top: 10px;
+    }
+}
+
+.team-actions {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e5e5;
+    span {
+        font-weight: bold;
+    }
+}
+
+.team-group {
+    min-height: 35px;
+    .group-name {
+        font-size: @baseFontSize + 1;
+        font-weight: bold;
+        padding-top: 10px;
+    }
+    .actions {
+        padding-top: 5px;
+    }
+}
+
+.add-group {
+    input[type="text"] {
+        height: 26px;
+        line-height: 26px;
+        width: 300px;
+    }
+}
+
+.permission-setting {
+    .leader {
+        font-size: @baseFontSize + 2px;
+        padding-bottom: 5px;
+        margin-top: 30px;
+    }
+    dd {
+        margin-left: 0;
+        &.well {
+            padding: 0;
+            .borderRadius(2px);
+            border: 1px solid #e1e1e1;
+            background-color: #f5f5f5;
+        }
+        .grant-setting {
+            padding: 8px 10px;
+            border-bottom: 1px solid #d5d5d5;
+            background-color: #e5e5e5;
+            .clearfix();
+            .fields {
+                float: left;
+                margin-right: 10px;
+                label {
+                    display: inline-block;
+                    font-weight: bold;
+                }
+            }
+        }
+        .permissions {
+            margin-top: 5px;
+            padding: 8px 10px;
+            .group {
+                padding: 3px 0;
+                span { color: @dark; font-weight: bold; display: inline-block; width: 150px; img { margin-right: 5px; position: relative; bottom: -4px; .borderRadius(2px); } }
+            }
+        }
+    }
+}
+
+.permission-desc {
+    margin-top: 5px;
+}
+
+.group-member {
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    .clearfix();
+    .actions {
+        float: right;
+    }
+    .name {
+        img {
+            float: left;
+            margin-right: 10px;
+            .borderRadius(2px);
+        }
+        a { font-weight: bold; }
+    }
+}
+
+.add-group-member {
+    input { width: 300px; height: 26px; line-height: 26px; margin-right: 5px; }
+}
